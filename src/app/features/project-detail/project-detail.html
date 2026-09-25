@@ -102,6 +102,50 @@
                     </div>
                 </section>
             }
+            @if (currentProject.details.strategy; as strategy) {
+            <section class="project-detail-strategy">
+                <header class="project-detail-section-header">
+                    <div>
+                        <p class="project-detail-section-label">
+                            03 / Strategy
+                        </p>
+                        <h2 class="project-detail-section-title">
+                            {{ strategy.title }}
+                        </h2>
+                    </div>
+                    <p class="project-detail-section-description">
+                        {{ strategy.description }}
+                    </p>
+                </header>
+                <div class="project-detail-strategy-grid">
+                    @for (item of strategy.items; track item.title; let index = $index) {
+                        <article class="project-detail-strategy-item">
+                            <header class="project-detail-strategy-header">
+                                <span class="project-detail-strategy-label">
+                                    {{ item.label }}
+                                </span>
+                                <span class="project-detail-strategy-number">
+                                    0{{ index + 1}}
+                                </span>
+                            </header>
+                            <h3 class="project-detail-strategy-title">
+                                {{ item.title }}
+                            </h3>
+                            <p class="project-detail-strategy-description">
+                                {{ item.description }}
+                            </p>
+                            @if (item.technologies) {
+                                <div class="project-detail-stage-technologies">
+                                    @for (technology of item.technologies; track technology) {
+                                        <span>{{ technology }}</span>
+                                    }
+                                </div>
+                            }
+                        </article>
+                    }
+                </div>
+            </section>
+        }
         </div>
     </article>
 } @else {

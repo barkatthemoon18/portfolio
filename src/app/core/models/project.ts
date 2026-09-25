@@ -16,6 +16,7 @@ export interface ProjectDetails {
     overview: readonly string[];
     highlights: readonly string[];
     architecture?: ProjectArchitecture;
+    strategy?: ProjectStrategy;
 }
 
 export interface ProjectArchitectureStage {
@@ -27,4 +28,17 @@ export interface ProjectArchitectureStage {
 export interface ProjectArchitecture {
     description: string;
     stages: readonly ProjectArchitectureStage[];
+}
+
+export interface ProjectStrategy {
+    title: string;
+    description: string;
+    items: readonly ProjectStrategyItem[];
+}
+
+export interface ProjectStrategyItem {
+    label: string;
+    title: string;
+    description: string;
+    technologies?: readonly string[];
 }

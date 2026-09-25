@@ -16,7 +16,7 @@ export const PROJECTS: readonly Project[] = [
     visual: 'ares',
     visualLabel: 'AI / SYSTEMS',
     details: {
-      heading: 'Adaptive Reasing & Execution System',
+      heading: 'Adaptive Reasoning & Execution System',
       overview: [
         'A.R.E.S. is a modular local-first AI platform designed to combine voice interaction, contextual intent routing, local language models and controlled system automation.',
         'The system separates language understanding from execution, allowing specialized models and deterministic components to cooperate without granting unrestricted control of the host operating system.'
@@ -88,6 +88,47 @@ export const PROJECTS: readonly Project[] = [
             ]
           }
         ]
+      },
+      strategy: {
+        title: 'Runtime & model strategy',
+        description:
+          'A.R.E.S. separates latency-sensitive routing, general-purpose reasoning and privileged execution instead of relying on a single model for every operation.',
+
+        items: [
+          {
+            label: 'Resident',
+            title: 'Phi-3.5 Mini',
+            description:
+              'A small local model handles contextual classification and intent routing with low latency, remaining available for continuous interaction.',
+            technologies: [
+              'Intent Routing',
+              'Context',
+              'Local LLM'
+            ]
+          },
+          {
+            label: 'On demand',
+            title: 'Qwen 3.5 9B',
+            description:
+              'A larger general-purpose model is activated only when a request requires broader reasoning or capabilities beyond the routing layer.',
+            technologies: [
+              'Reasoning',
+              'Multimodal',
+              'GPU'
+            ]
+          },
+          {
+            label: 'Deterministic',
+            title: 'Skill Execution',
+            description:
+              'Operating-system capabilities remain behind typed and bounded skills so language-model output is not treated as unrestricted executable intent.',
+            technologies: [
+              'Typed Skills',
+              'Validation',
+              'Windows'
+            ]
+          }
+        ]
       }
     }
   },
@@ -106,7 +147,7 @@ export const PROJECTS: readonly Project[] = [
     visual: 'rasp',
     visualLabel: 'MOBILE / SECURITY',
     details: {
-      heading: 'Runtime Application Self-Protetion Research',
+      heading: 'Runtime Application Self-Protection Research',
       overview: [
         'An Android security research project focused on runtime protection mechanisms against instrumentation, rooted environments, tampering and application modification.',
         'The project combines Android framework-level techniques with native NDK components to evaluate runtime threats and implement defensive controls close to the application process.'
