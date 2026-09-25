@@ -20,7 +20,7 @@
                 <div class="project-detail-technologies">
                     @for (technology of currentProject.technologies; track technology) {
                         <span class="project-detail-technology">
-                            {{ technology }} 
+                            {{ technology }}
                         </span>
                     }
                 </div>
@@ -29,9 +29,7 @@
         <div class="project-detail-content container">
             <div class="project-detail-overview-grid">
                 <section class="project-detail-section">
-                    <p class="project-detail-section-label">
-                        01 / Overview
-                    </p>
+                    <p class="project-detail-section-label">01 / Overview</p>
                     <div class="project-detail-overview">
                         @for (paragraph of currentProject.details.overview; track $index) {
                             <p>
@@ -41,13 +39,14 @@
                     </div>
                 </section>
                 <aside class="project-detail-highlights">
-                    <p class="project-detail-section-label">
-                        Highlights
-                    </p>
+                    <p class="project-detail-section-label">Highlights</p>
                     <ul class="project-detail-highlight-list">
                         @for (highlight of currentProject.details.highlights; track highlight) {
                             <li>
-                                <span class="project-detail-highlight-marker" aria-hidden="true"></span>
+                                <span
+                                    class="project-detail-highlight-marker"
+                                    aria-hidden="true"
+                                ></span>
 
                                 {{ highlight }}
                             </li>
@@ -59,13 +58,9 @@
                 <section class="project-detail-architecture">
                     <header class="project-detail-section-header">
                         <div>
-                            <p class="project-detail-section-label">
-                                02 / Architecture
-                            </p>
+                            <p class="project-detail-section-label">02 / Architecture</p>
 
-                            <h2 class="project-detail-section-title">
-                                System architecture
-                            </h2>
+                            <h2 class="project-detail-section-title">System architecture</h2>
                         </div>
 
                         <p class="project-detail-section-description">
@@ -80,7 +75,10 @@
                                         0{{ index + 1 }}
                                     </span>
 
-                                    <span class="project-detail-stage-node" aria-hidden="true"></span>
+                                    <span
+                                        class="project-detail-stage-node"
+                                        aria-hidden="true"
+                                    ></span>
                                 </div>
                                 <h3 class="project-detail-stage-title">
                                     {{ stage.title }}
@@ -103,58 +101,221 @@
                 </section>
             }
             @if (currentProject.details.strategy; as strategy) {
-            <section class="project-detail-strategy">
-                <header class="project-detail-section-header">
-                    <div>
-                        <p class="project-detail-section-label">
-                            03 / Strategy
+                <section class="project-detail-strategy">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">03 / Strategy</p>
+                            <h2 class="project-detail-section-title">
+                                {{ strategy.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ strategy.description }}
                         </p>
-                        <h2 class="project-detail-section-title">
-                            {{ strategy.title }}
-                        </h2>
+                    </header>
+                    <div class="project-detail-strategy-grid">
+                        @for (item of strategy.items; track item.title; let index = $index) {
+                            <article class="project-detail-strategy-item">
+                                <header class="project-detail-strategy-header">
+                                    <span class="project-detail-strategy-label">
+                                        {{ item.label }}
+                                    </span>
+                                    <span class="project-detail-strategy-number">
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3 class="project-detail-strategy-title">
+                                    {{ item.title }}
+                                </h3>
+                                <p class="project-detail-strategy-description">
+                                    {{ item.description }}
+                                </p>
+                                @if (item.technologies) {
+                                    <div class="project-detail-stage-technologies">
+                                        @for (technology of item.technologies; track technology) {
+                                            <span>{{ technology }}</span>
+                                        }
+                                    </div>
+                                }
+                            </article>
+                        }
                     </div>
-                    <p class="project-detail-section-description">
-                        {{ strategy.description }}
-                    </p>
-                </header>
-                <div class="project-detail-strategy-grid">
-                    @for (item of strategy.items; track item.title; let index = $index) {
-                        <article class="project-detail-strategy-item">
-                            <header class="project-detail-strategy-header">
-                                <span class="project-detail-strategy-label">
-                                    {{ item.label }}
+                </section>
+            }
+            @if (currentProject.details.security; as security) {
+                <section class="project-detail-security">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">04 / Security</p>
+                            <h2 class="project-detail-section-title">
+                                {{ security.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ security.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-security-flow">
+                        <div class="project-detail-security-origin">
+                            <span class="project-detail-security-origin-label"> MODEL OUTPUT </span>
+                            <span class="project-detail-security-origin-state"> UNTRUSTED </span>
+                        </div>
+                        <div class="project-detail-security-controls">
+                            @for (
+                                control of security.controls;
+                                track control.title;
+                                let index = $index
+                            ) {
+                                <article class="project-detail-security-control">
+                                    <header class="project-detail-security-control-header">
+                                        <span>
+                                            {{ control.label }}
+                                        </span>
+                                        <span> 0{{ index + 1 }} </span>
+                                    </header>
+                                    <h3>
+                                        {{ control.title }}
+                                    </h3>
+                                    <p>
+                                        {{ control.description }}
+                                    </p>
+                                </article>
+                            }
+                        </div>
+                        <div class="project-detail-security-target">
+                            <span class="project-detail-security-target-label">
+                                CONTROLLED EXECUTION
+                            </span>
+                            <span class="project-detail-security-target-state"> VALIDATED </span>
+                        </div>
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.evaluation; as evaluation) {
+                <section class="project-detail-evaluation">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">05 / Evaluation</p>
+                            <h2 class="project-detail-section-title">
+                                {{ evaluation.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ evaluation.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-evaluation-grid">
+                        @for (metric of evaluation.metrics; track metric.label) {
+                            <article class="project-detail-evaluation-metric">
+                                <span class="project-detail-evaluation-label">
+                                    {{ metric.label }}
                                 </span>
-                                <span class="project-detail-strategy-number">
-                                    0{{ index + 1}}
+                                <strong class="project-detail-evaluation-value">
+                                    {{ metric.value }}
+                                </strong>
+                                <span class="project-detail-evaluation-detail">
+                                    {{ metric.detail }}
                                 </span>
-                            </header>
-                            <h3 class="project-detail-strategy-title">
-                                {{ item.title }}
-                            </h3>
-                            <p class="project-detail-strategy-description">
-                                {{ item.description }}
-                            </p>
-                            @if (item.technologies) {
-                                <div class="project-detail-stage-technologies">
-                                    @for (technology of item.technologies; track technology) {
-                                        <span>{{ technology }}</span>
+                            </article>
+                        }
+                    </div>
+                    @if (evaluation.notes) {
+                        <div class="project-detail-evaluation-notes">
+                            <span class="project-detail-evaluation-notes-label">
+                                Evaluation notes
+                            </span>
+                            <ul>
+                                @for (note of evaluation.notes; track note) {
+                                    <li>
+                                        {{ note }}
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </section>
+            }
+            @if (currentProject.details.interaction; as interaction) {
+                <section class="project-detail-interaction">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">06 / Interaction</p>
+                            <h2 class="project-detail-section-title">
+                                {{ interaction.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ interaction.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-interaction-flow">
+                        <div class="project-detail-interaction-endpoint">
+                            <span class="project-detail-interaction-endpoint-label">
+                                CORE / SKILL
+                            </span>
+                            <strong> REQUEST </strong>
+                            <code> InteractionRequest&lt;T&gt; </code>
+                        </div>
+                        <div class="project-detail-interaction-connector" aria-hidden="true">
+                            <span></span>
+                            <span>→</span>
+                        </div>
+                        <div class="project-detail-interaction-service">
+                            <div class="project-detail-interaction-service-header">
+                                <span> InteractionService </span>
+                                <span class="project-detail-interaction-status"> ACTIVE </span>
+                            </div>
+                            <div class="project-detail-interaction-surface">
+                                <span class="project-detail-interaction-surface-label">
+                                    JavaFX Interaction Surface
+                                </span>
+                                <div class="project-detail-interaction-modalities">
+                                    @for (modality of interaction.modalities; track modality) {
+                                        <span>
+                                            {{ modality }}
+                                        </span>
                                     }
                                 </div>
-                            }
-                        </article>
-                    }
-                </div>
-            </section>
-        }
+                            </div>
+                        </div>
+                        <div class="project-detail-interaction-connector" aria-hidden="true">
+                            <span></span>
+                            <span>→</span>
+                        </div>
+                        <div class="project-detail-interaction-endpoint">
+                            <span class="project-detail-interaction-endpoint-label">
+                                CORE CONTINUATION
+                            </span>
+                            <strong> Result </strong>
+                            <code> InteractionResult&lt;T&gt; </code>
+                        </div>
+                    </div>
+                    <div class="project-detail-interaction-types">
+                        @for (type of interaction.types; track type.title; let index = $index) {
+                            <article class="project-detail-interaction-type">
+                                <header class="project-detail-interaction-type-header">
+                                    <span>
+                                        {{ type.label }}
+                                    </span>
+                                    <span> 0{{ index + 1 }} </span>
+                                </header>
+                                <h3>
+                                    {{ type.title }}
+                                </h3>
+                                <code> → {{ type.result }} </code>
+                                <p>
+                                    {{ type.description }}
+                                </p>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
         </div>
     </article>
 } @else {
     <section class="project-not-found container">
-        <p class="project-detail-eyebrow">
-            404 / Project
-        </p>
-        <h1>
-            Project not found
-        </h1>
+        <p class="project-detail-eyebrow">404 / Project</p>
+        <h1>Project not found</h1>
     </section>
 }

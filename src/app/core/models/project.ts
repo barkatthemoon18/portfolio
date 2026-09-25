@@ -17,6 +17,9 @@ export interface ProjectDetails {
     highlights: readonly string[];
     architecture?: ProjectArchitecture;
     strategy?: ProjectStrategy;
+    security?: ProjectSecurity;
+    evaluation?: ProjectEvaluation;
+    interaction?: ProjectInteraction;
 }
 
 export interface ProjectArchitectureStage {
@@ -41,4 +44,43 @@ export interface ProjectStrategyItem {
     title: string;
     description: string;
     technologies?: readonly string[];
+}
+
+export interface ProjectSecurity {
+    title: string;
+    description: string;
+    controls: readonly ProjectSecurityControl[];
+}
+
+export interface ProjectSecurityControl {
+    label: string;
+    title: string;
+    description: string;
+}
+
+export interface ProjectEvaluation {
+  title: string;
+  description: string;
+  metrics: readonly ProjectEvaluationMetric[];
+  notes?: readonly string[];
+}
+
+export interface ProjectEvaluationMetric {
+  label: string;
+  value: string;
+  detail: string;
+}
+
+export interface ProjectInteraction {
+  title: string;
+  description: string;
+  modalities: readonly string[];
+  types: readonly ProjectInteractionType[];
+}
+
+export interface ProjectInteractionType {
+  label: string;
+  title: string;
+  result: string;
+  description: string;
 }

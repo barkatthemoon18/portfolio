@@ -10,5 +10,6 @@ import { PROJECTS } from '../../core/data/projects';
 export class ProjectDetail {
   readonly slug = input.required<string>();
 
-  protected readonly project = computed(() => PROJECTS.find(project => project.slug === this.slug()));
+  protected readonly project = computed(() =>
+    PROJECTS.find(project => project.slug === this.slug()));
 }
