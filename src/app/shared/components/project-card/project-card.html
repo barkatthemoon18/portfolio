@@ -1,0 +1,44 @@
+<article class="project-card">
+    <div [class]="'project-card-visual project-card-visual-' + project().visual">
+        <div class="project-card-visual-grid"></div>
+        <span class="project-card-visual-label">
+            {{ project().visualLabel }}
+        </span>
+        <span class="project-card-visual-status">
+            ● ACTIVE
+        </span>
+    </div>
+    <div class="project-card-content">
+        <div class="project-card-heading">
+            <div>
+                <h3 class="project-card-title">
+                    {{ project().title }}
+                </h3>
+                <p class="project-card-subtitle">
+                    {{ project().subtitle }}
+                </p>
+            </div>
+            <span class="project-card-arrow" aria-hidden="true">
+                →
+            </span>
+        </div>
+        <p class="project-card-description">
+            {{ project().description }}
+        </p>
+        <div class="project-card-technologies" aria-label="Technologies">
+            @for (technology of project().technologies; track technology) {
+                <span class="project-card-technology">
+                    {{ technology }}
+                </span>
+            }
+        </div>
+        <div class="project-card-footer">
+            <span>
+                View project
+            </span>
+            <span aria-hidden="true">
+                →
+            </span>
+        </div>
+    </div>
+</article>

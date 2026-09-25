@@ -1,0 +1,23 @@
+<section id="selected-work" class="selected-work">
+    <div class="selected-work-container container">
+        <header class="selected-work-header">
+            <p class="selected-work-eyebrow">
+                Selected Work
+            </p>
+            <div class="selected-work-heading">
+                <h2 class="selected-work-title">
+                    A few projects I'm proud of.
+                </h2>
+                <p class="selected-work-description">
+                    Selected engineering and security work across software, 
+                    mobile platforms and applied research
+                </p>
+            </div>
+        </header>
+        <div class="selected-work-grid">
+            @for (project of projects; track project.slug) {
+                <app-project-card [project]="project" />
+            }
+        </div>
+    </div>
+</section>
