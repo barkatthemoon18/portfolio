@@ -311,6 +311,180 @@
                     </div>
                 </section>
             }
+            @if (currentProject.details.surface; as surface) {
+                <section class="project-detail-surface">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                07 / Command Deck
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ surface.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ surface.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-surface-preview">
+                        @if (surface.image) {
+                            <img class="project-detail-surface-image" [src]="surface.image" [alt]="surface.imageAlt ?? surface.title" />
+                        } @else {
+                            <div class="project-detail-surface-placeholder">
+                                <div class="project-detail-surface-placeholder-header">
+                                    <div>
+                                        <span class="project-detail-surface-system">
+                                            A.R.E.S
+                                        </span>
+                                        <span class="project-detail-surface-system-detail">
+                                            Command Deck
+                                        </span>
+                                    </div>
+                                    <div class="project-detail-surface-runtime">
+                                        <span></span>
+                                        RUNTIME ACTIVE
+                                    </div>
+                                </div>
+                                <div class="project-detail-surface-placeholder-content">
+                                    <div class="project-detail-surface-primary">
+                                        <span class="project-detail-surface-placeholder-label">
+                                            SYSTEM OVERVIEW
+                                        </span>
+                                        <div class="project-detail-surface-telemetry">
+                                            <div>
+                                                <span>ROUTER</span>
+                                                <strong>READY</strong>
+                                            </div>
+                                            <div>
+                                                <span>MODEL</span>
+                                                <strong>PHI-3.5</strong>
+                                            </div>
+                                            <div>
+                                                <span>SKILLS</span>
+                                                <strong>ACTIVE</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-detail-surface-modules">
+                                        <span>RESEARCH</span>
+                                        <span>MEDIA</span>
+                                        <span>FILES</span>
+                                        <span>SYSTEM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="project-detail-surface-features">
+                        @for (feature of surface.features; track feature.title; let index = $index) {
+                            <article class="project-detail-surface-feature">
+                                <header class="project-detail-surface-feature-header">
+                                    <span>
+                                        {{ feature.label }}
+                                    </span>
+                                    <span>
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ feature.title }}
+                                </h3>
+                                <p>
+                                    {{ feature.description }}
+                                </p>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.decision; as decisions) {
+                <section class="project-detail-decisions">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                08 / Engineering
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ decisions.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ decisions.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-decisions-list">
+                        @for (item of decisions.items; track item.decision; let index = $index) {
+                            <article class="project-detail-decision">
+                                <div class="project-detail-decision-number">
+                                    0{{ index + 1 }}
+                                </div>
+                                <h3 class="project-detail-decision-title">
+                                    {{ item.decision }}
+                                </h3>
+                                <div class="project-detail-decision-content">
+                                    <div>
+                                        <span class="project-detail-decision-label">
+                                            Rationale
+                                        </span>
+                                        <p>
+                                            {{ item.rationale }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="project-detail-decision-label">
+                                            Trade-off
+                                        </span>
+                                        <p>
+                                            {{ item.tradeoff }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            <footer class="project-detail-footer">
+                <a class="project-detail-footer-back" routerLink="/" fragment="selected-work">
+                    <span class="project-detail-footer-direction">
+                        ← Selected work
+                    </span>
+                    <strong class="project-detail-footer-back-title">
+                        All Projects
+                    </strong>
+                    <span class="project-detail-footer-back-description">
+                        Return to portfolio overview
+                    </span>
+                </a>
+                <nav class="project-detail-footer-navigation" aria-label="Project navigation">
+                    @if (previousProject(); as previous) {
+                        <a class="project-detail-footer-project project-detail-footer-project-previous" [routerLink]="['/projects', previous.slug]">
+                            <span class="project-detail-footer-direction">
+                                ← Previous project
+                            </span>
+                            <strong>
+                                {{ previous.title }}
+                            </strong>
+                            <span>
+                                {{ previous.subtitle }}
+                            </span>
+                        </a>
+                    }
+                    @if (nextProject(); as next) {
+                        <a class="project-detail-footer-project project-detail-footer-project-next" [routerLink]="['/projects', next.slug]">
+                            <span class="project-detail-footer-direction">
+                                Next project →
+                            </span>
+                            <strong>
+                                {{ next.title }}
+                            </strong>
+                            <span>
+                                {{ next.subtitle }}
+                            </span>
+                        </a>
+                    }
+                </nav>
+            </footer>
         </div>
     </article>
 } @else {

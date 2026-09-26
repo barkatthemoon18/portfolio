@@ -188,6 +188,59 @@ export const PROJECTS: readonly Project[] = [
           },
         ],
       },
+      surface: {
+        title: 'Operational command surface',
+        description:
+          'The Command Deck provides a persistent visual layer for runtime state, interaction feedback and capability-specific information without coupling presentation logic to the application core.',
+        features: [
+          {
+            label: 'Telemetry',
+            title: 'Visual runtime state',
+            description:
+              'Runtime and infrastructure state can be surfaced independently from conversational output, keeping operational feedback continuously visible.',
+          },
+          {
+            label: 'Workspace',
+            title: 'Capability-oriented panels',
+            description:
+              'Research, media, files and system capabilities can expose dedicated visual modules rather than forcing every result through a conversational interface.',
+          },
+          {
+            label: 'Presentation',
+            title: 'Decoupled UI layer',
+            description:
+              'The visual surface consumes application state and typed interaction contracts while remaining independent from reasoning and execution logic.',
+          },
+        ],
+      },
+      decision: {
+        title: 'Engineering decisions',
+        description:
+          'A.R.E.S. is shaped by a set of deliberate architectural trade-offs around latency, resource usage, security and maintainability.',
+        items: [
+          {
+            decision: 'Local-first execution',
+            rationale:
+              'Speech processing, routing and core interaction remain local to reduce dependency on external services and keep latency-sensitive workflows immediately available.',
+            tradeoff:
+              'Local inference requires explicit resource management and tighter model selection.',
+          },
+          {
+            decision: 'Small resident model',
+            rationale:
+              'Phi-3.5 Mini remains available for routing and contextual classification while larger models are loaded only when broader reasoning is required.',
+            tradeoff:
+              'The routing layer must reliably determine when escalation to a larger model is necessary.',
+          },
+          {
+            decision: 'Bounded system capabilities',
+            rationale:
+              'Operating-system actions are exposed through typed skills rather than unrestricted model-generated commands.',
+            tradeoff:
+              'Adding new capabilities requires explicit contracts and platform-specific implementation.',
+          },
+        ],
+      },
     },
   },
   {

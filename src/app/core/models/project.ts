@@ -20,6 +20,8 @@ export interface ProjectDetails {
     security?: ProjectSecurity;
     evaluation?: ProjectEvaluation;
     interaction?: ProjectInteraction;
+    surface?: ProjectSurface;
+    decision?: ProjectDecisions;
 }
 
 export interface ProjectArchitectureStage {
@@ -83,4 +85,30 @@ export interface ProjectInteractionType {
   title: string;
   result: string;
   description: string;
+}
+
+export interface ProjectSurface {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  features: readonly ProjectSurfaceFeature[];
+}
+
+export interface ProjectSurfaceFeature {
+  label: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectDecisions {
+  title: string;
+  description: string;
+  items: readonly ProjectDecision[];
+}
+
+export interface ProjectDecision {
+  decision: string;
+  rationale: string;
+  tradeoff: string;
 }
