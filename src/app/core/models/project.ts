@@ -22,6 +22,12 @@ export interface ProjectDetails {
     interaction?: ProjectInteraction;
     surface?: ProjectSurface;
     decision?: ProjectDecisions;
+    threatModel?: ProjectThreatModel;
+    runtimeArchitecture?: ProjectRuntimeArchitecture;
+    detectionStrategy?: ProjectDetectionStrategy;
+    correlation?: ProjectCorrelation;
+    integrity?: ProjectIntegrity;
+    adversarialResearch?: ProjectAdversarialResearch;
 }
 
 export interface ProjectArchitectureStage {
@@ -111,4 +117,97 @@ export interface ProjectDecision {
   decision: string;
   rationale: string;
   tradeoff: string;
+}
+
+export interface ProjectThreatModel {
+  title: string;
+  description: string;
+  threats: readonly ProjectThreat[];
+}
+
+export interface ProjectThreat {
+  category: string;
+  title: string;
+  description: string;
+  indicators: readonly string[];
+}
+
+export interface ProjectRuntimeArchitecture {
+  title: string;
+  description: string;
+  application: ProjectRuntimeArchitectureNode;
+  branches: readonly ProjectRuntimeArchitectureNode[];
+  nativeLayer: ProjectRuntimeArchitectureNode;
+  modules: readonly string[];
+}
+
+export interface ProjectRuntimeArchitectureNode {
+  label: string;
+  title: string;
+  description: string;
+  technologies: readonly string[];
+}
+
+export interface ProjectDetectionStrategy {
+  title: string;
+  description: string;
+  surfaces: readonly ProjectDetectionSurface[];
+}
+
+export interface ProjectDetectionSurface {
+  source: string;
+  title: string;
+  description: string;
+  signals: readonly string[];
+}
+
+export interface ProjectCorrelation {
+  title: string;
+  description: string;
+  stages: readonly ProjectCorrelationStage[];
+  outcomes: readonly ProjectCorrelationOutcome[];
+}
+
+export interface ProjectCorrelationStage {
+  label: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectCorrelationOutcome {
+  state: string;
+  description: string;
+}
+
+export interface ProjectIntegrity {
+  title: string;
+  description: string;
+  checks: readonly ProjectIntegrityCheck[];
+  result: ProjectIntegrityResult;
+}
+
+export interface ProjectIntegrityCheck {
+  label: string;
+  title: string;
+  description: string;
+  signals: readonly string[];
+}
+
+export interface ProjectIntegrityResult {
+  expected: string;
+  mismatch: string;
+}
+
+export interface ProjectAdversarialResearch {
+  title: string;
+  description: string;
+  environments: readonly ProjectAdversarialEnvironment[];
+  objective: string;
+}
+
+export interface ProjectAdversarialEnvironment {
+  category: string;
+  title: string;
+  description: string;
+  technologies: readonly string[];
 }

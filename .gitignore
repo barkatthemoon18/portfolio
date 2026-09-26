@@ -38,7 +38,6 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
-.vscode
 
 # System files
 .DS_Store
@@ -46,4 +45,5 @@ Thumbs.db
 .vscode/extensions.json
 .vscode/launch.json
 .vscode/tasks.json
-.vscode/extensions.json
+/.vscode/
+.editorconfig

@@ -54,6 +54,403 @@
                     </ul>
                 </aside>
             </div>
+            @if (currentProject.details.threatModel; as threatModel) {
+                <section class="project-detail-threat-model">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                02 / Threat Model
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ threatModel.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ threatModel.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-threat-grid">
+                        @for (threat of threatModel.threats; track threat.title; let index = $index) {
+                            <article class="project-detail-threat">
+                                <header class="project-detail-threat-header">
+                                    <span class="project-detail-threat-category">
+                                        {{ threat.category }}
+                                    </span>
+                                    <span class="project-detail-threat-number">
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3 class="project-detail-threat-title">
+                                    {{ threat.title }}
+                                </h3>
+                                <p class="project-detail-threat-description">
+                                    {{ threat.description }}
+                                </p>
+                                <div class="project-detail-threat-indicators">
+                                    @for (indicator of threat.indicators; track indicator) {
+                                        <span>
+                                            {{ indicator }}
+                                        </span>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.runtimeArchitecture; as runtimeArchitecture) {
+                <section class="project-detail-runtime-architecture">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                03 / Runtime Architecture
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ runtimeArchitecture.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ runtimeArchitecture.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-runtime-flow">
+                        <article class="project-detail-runtime-node project-detail-runtime-application">
+                            <header class="project-detail-runtime-node-header">
+                                <span>
+                                    {{ runtimeArchitecture.application.label }}
+                                </span>
+                                <span>
+                                    01
+                                </span>
+                            </header>
+                            <h3>
+                                {{ runtimeArchitecture.application.title }}
+                            </h3>
+                            <p>
+                                {{ runtimeArchitecture.application.description }}
+                            </p>
+                            @if (runtimeArchitecture.application.technologies) {
+                                <div class="project-detail-runtime-technologies">
+                                    @for (technology of runtimeArchitecture.application.technologies; track technology) {
+                                        <span>
+                                            {{ technology }}
+                                        </span>
+                                    }
+                                </div>
+                            }
+                        </article>
+                        <div class="project-detail-runtime-split" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-detail-runtime-branches">
+                            @for (branch of runtimeArchitecture.branches; track branch.title; let index = $index) {
+                                <article class="project-detail-runtime-node">
+                                    <header class="project-detail-runtime-node-header">
+                                        <span>
+                                            {{ branch.label }}
+                                        </span>
+                                        <span>
+                                            0{{ index + 2 }}
+                                        </span>
+                                    </header>
+                                    <h3>
+                                        {{ branch.title }}
+                                    </h3>
+                                    <p>
+                                        {{ branch.description }}
+                                    </p>
+                                    @if (branch.technologies) {
+                                        <div class="project-detail-runtime-technologies">
+                                            @for (technology of branch.technologies; track technology) {
+                                                <span>
+                                                    {{ technology }}
+                                                </span>
+                                            }
+                                        </div>
+                                    }
+                                </article>
+                            }
+                        </div>
+                        <div class="project-detail-runtime-merge" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <article class="project-detail-runtime-node project-detail-runtime-native">
+                            <header class="project-detail-runtime-node-header">
+                                <span>
+                                    {{ runtimeArchitecture.nativeLayer.label }}
+                                </span>
+                                <span>
+                                    04
+                                </span>
+                            </header>
+                            <h3>
+                                {{ runtimeArchitecture.nativeLayer.title }}
+                            </h3>
+                            <p>
+                                {{ runtimeArchitecture.nativeLayer.description }}
+                            </p>
+                            @if (runtimeArchitecture.nativeLayer.technologies) {
+                                <div class="project-detail-runtime-technologies">
+                                    @for (technology of runtimeArchitecture.nativeLayer.technologies; track technology) {
+                                        <span>
+                                            {{ technology }}
+                                        </span>
+                                    }
+                                </div>
+                            }
+                        </article>
+                        <div class="project-detail-runtime-modules">
+                            <span class="project-detail-runtime-modules-label">
+                                Protection modules
+                            </span>
+                            <div class="project-detail-runtime-module-grid">
+                                @for (module of runtimeArchitecture.modules ; track module) {
+                                    <span>
+                                        {{ module }}
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.detectionStrategy; as detectionStrategy) {
+                <section class="project-detail-detection">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                04 / Detection Strategy
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ detectionStrategy.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ detectionStrategy.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-detection-list">
+                        @for (surface of detectionStrategy.surfaces; track surface.title; let index = $index) {
+                            <article class="project-detail-detection-surface">
+                                <div class="project-detail-detection-index">
+                                    0{{ index + 1 }}
+                                </div>
+                                <div class="project-detail-detection-heading">
+                                    <span class="project-detail-detection-source">
+                                        {{ surface.source }}
+                                    </span>
+                                    <h3>
+                                        {{ surface.title }}
+                                    </h3>
+                                </div>
+                                <p class="project-detail-detection-description">
+                                    {{ surface.description }}
+                                </p>
+                                <div class="project-detail-detection-signals">
+                                    @for (signal of surface.signals; track signal) {
+                                        <code>
+                                            {{ signal }}
+                                        </code>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.correlation; as correlation) {
+                <section class="project-detail-correlation">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                05 / Correlation & Decision
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ correlation.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ correlation.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-correlation-flow">
+                        @for (stage of correlation.stages; track stage.title; let index = $index) {
+                            <article class="project-detail-correlation-stage">
+                                <span class="project-detail-correlation-stage-label">
+                                    {{ stage.label }}
+                                </span>
+                                <h3>
+                                    {{ stage.title }}
+                                </h3>
+                                <p>
+                                    {{ stage.description }}
+                                </p>
+                            </article>
+                            @if (index < correlation.stages.length - 1) {
+                                <div class="project-detail-correlation-connector" aria-hidden="true"></div>
+                            }
+                        }
+                    </div>
+                    <div class="project-detail-correlation-outcomes">
+                        <span class="project-detail-correlation-outcomes-label">
+                            Runtime state
+                        </span>
+                        <div class="project-detail-correlation-outcomes-grid">
+                            @for (outcome of correlation.outcomes; track outcome.state; let index = $index) {
+                                <article class="project-detail-correlation-outcome">
+                                    <header>
+                                        <span>
+                                            0{{ index + 1 }}
+                                        </span>
+                                        <strong>
+                                            {{ outcome.state }}
+                                        </strong>
+                                    </header>
+                                    <p>
+                                        {{ outcome.description }}
+                                    </p>
+                                </article>
+                            }
+                        </div>
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.integrity; as integrity) {
+                <section class="project-detail-integrity">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                06 / Integrity & Anti-Tampering
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ integrity.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ integrity.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-integrity-flow">
+                        <div class="project-detail-integrity-origin">
+                            <span class="project-detail-integrity-origin-label">
+                                Installed application
+                            </span>
+                            <strong>
+                                Runtime artifact
+                            </strong>
+                            <span>
+                                APK + native components
+                            </span>
+                        </div>
+                        <div class="project-detail-integrity-connector" aria-hidden="true"></div>
+                        <div class="project-detail-integrity-checks">
+                            @for (check of integrity.checks; track check; let index = $index) {
+                                <article class="project-detail-integrity-check">
+                                    <header>
+                                        <span>
+                                            {{ check.label }}
+                                        </span>
+                                        <span>
+                                            0{{ index + 1 }}
+                                        </span>
+                                    </header>
+                                    <h3>
+                                        {{ check.title }}
+                                    </h3>
+                                    <p>
+                                        {{ check.description }}
+                                    </p>
+                                    <div class="project-detail-integrity-signals">
+                                        @for (signal of check.signals; track signal) {
+                                            <code>
+                                                {{ signal }}
+                                            </code>
+                                        }
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                        <div class="project-detail-integrity-result">
+                            <article class="project-detail-integrity-state">
+                                <span>
+                                    EXPECTED
+                                </span>
+                                <strong>
+                                    Integrity preserved
+                                </strong>
+                                <p>
+                                    {{ integrity.result.expected }}
+                                </p>
+                            </article>
+                            <article class="project-detail-integrity-state project-detail-integrity-state-mismatch">
+                                <span>
+                                    MISMATCH
+                                </span>
+                                <strong>
+                                    Integrity violation
+                                </strong>
+                                <p>
+                                    {{ integrity.result.mismatch }}
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.adversarialResearch; as adversialResearch) {
+                <section class="project-detail-adversarial">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                07 / Adversarial Research
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ adversialResearch.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ adversialResearch.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-adversarial-grid">
+                        @for (environment of adversialResearch.environments; track environment.title; let index = $index) {
+                            <article class="project-detail-adversarial-item">
+                                <header class="project-detail-adversarial-item-header">
+                                    <span>
+                                        {{ environment.category }}
+                                    </span>
+                                    <span>
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ environment.title }}
+                                </h3>
+                                <p>
+                                    {{ environment.description }}
+                                </p>
+                                <div class="project-detail-adversarial-technologies">
+                                    @for (technology of environment.technologies; track technology) {
+                                        <span>
+                                            {{ technology }}
+                                        </span>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                    <div class="project-detail-adversarial-objective">
+                        <span>
+                            Evaluation goal
+                        </span>
+                        <p>
+                            {{ adversialResearch.objective }}
+                        </p>
+                    </div>
+                </section>
+            }
             @if (currentProject.details.architecture; as architecture) {
                 <section class="project-detail-architecture">
                     <header class="project-detail-section-header">

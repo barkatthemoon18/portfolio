@@ -266,6 +266,256 @@ export const PROJECTS: readonly Project[] = [
         'Native Android NDK protections',
         'Runtime threat research',
       ],
+      threatModel: {
+        title: 'Runtime adversary model',
+        description:
+          'The protection layer assumes that the application may execute on a hostile Android environment where the operating system, runtime or application package can be modified or instrumented.',
+        threats: [
+          {
+            category: 'Environment',
+            title: 'Rooted runtime',
+            description:
+              'Privileged environments can modify application behavior, bypass platform assumptions and hide system-level changes from user-space checks.',
+            indicators: ['Magisk / Zygisk', 'KernelSU', 'Modified mounts', 'Root artifacts'],
+          },
+          {
+            category: 'Instrumentation',
+            title: 'Dynamic instrumentation',
+            description:
+              'Runtime instrumentation frameworks can inspect memory, hook functions and alter Java or native execution without modifying the original application logic.',
+            indicators: ['Frida', 'Injected libraries', 'Runtime hooks', 'Suspicious threads'],
+          },
+          {
+            category: 'Debugging',
+            title: 'Runtime tracing',
+            description:
+              'Debuggers and tracing mechanisms can suspend execution, inspect state and manipulate control flow during sensitive operations.',
+            indicators: ['TracerPid', 'JDWP', 'ptrace', 'Breakpoint activity'],
+          },
+          {
+            category: 'Integrity',
+            title: 'Application tampering',
+            description:
+              'Repackaging or binary modification can alter Java, native or resource content while preserving the apparent behavior of the original application.',
+            indicators: [
+              'APK modification',
+              'Re-signing',
+              'Library replacement',
+              'Integrity mismatch',
+            ],
+          },
+        ],
+      },
+      runtimeArchitecture: {
+        title: 'Layered runtime protection',
+        description:
+          'The protection architecture combines Android framework components, process isolation and native NDK code so security signals can be collected across different execution boundaries.',
+        application: {
+          label: 'Application',
+          title: 'Android runtime layer',
+          description:
+            'The application coordinates protection checks and consumes security results without concentrating every detection mechanism in the managed runtime.',
+          technologies: ['Android SDK', 'Java'],
+        },
+        branches: [
+          {
+            label: 'Isolation boundary',
+            title: 'Isolated security service',
+            description:
+              'Selected checks can execute through an isolated process and communicate with the application through an explicit Binder contract.',
+            technologies: ['AIDL', 'Binder'],
+          },
+          {
+            label: 'Native boundary',
+            title: 'JNI bridge',
+            description:
+              'Managed application code crosses a controlled JNI boundary to invoke native runtime protections implemented outside the Java layer.',
+            technologies: ['JNI', 'Android NDK'],
+          },
+        ],
+        nativeLayer: {
+          label: 'Native runtime',
+          title: 'libfuadxshell.so',
+          description:
+            'Native C/C++ code performs low-level runtime inspection closer to the process and operating-system interfaces used by instrumentation and debugging tools.',
+          technologies: ['C/C++', 'NDK'],
+        },
+        modules: ['AntiRoot', 'AntiFrida', 'AntiDebug', 'ApkIntegrity', 'SSLPinning'],
+      },
+      detectionStrategy: {
+        title: 'Runtime signal collection',
+        description:
+          'Detection combines independent runtime signals instead of relying on a single artifact. Each surface contributes evidence about modifications, instrumentation or debugging activity around the application process.',
+        surfaces: [
+          {
+            source: 'Filesystem / mounts',
+            title: 'Environment inspection',
+            description:
+              'Mount and filesystem state is inspected for artifacts associated with modified or privileged Android environments.',
+            signals: ['/proc/self/mountinfo', 'magisk', '/.magisk/pts', 'suspicious mounts'],
+          },
+          {
+            source: 'Process memory',
+            title: 'Loaded code inspection',
+            description:
+              'Process mappings are inspected for injected or framework-specific native components that should not normally be present in the application process.',
+            signals: ['/proc/self/maps', 'libzygisk', 'memfd:frida', 'injected .so'],
+          },
+          {
+            source: 'Runtime activity',
+            title: 'Instrumentation indicators',
+            description:
+              'Runtime threads and communication surfaces provide additional evidence of active dynamic instrumentation.',
+            signals: ['gmain', 'gum-js-loop', '27042', '27043'],
+          },
+          {
+            source: 'Debugger state',
+            title: 'Tracing & attachment',
+            description:
+              'Process and thread state is inspected for evidence that execution is currently being traced, suspended or exposed through debugging facilities.',
+            signals: ['TracerPid', 'ptrace_stop', 'wchan', 'JDWP'],
+          },
+        ],
+      },
+      correlation: {
+        title: 'Evidence-driven runtime decisions',
+        description:
+          'Runtime protection avoids treating every individual artifact as a definitive compromise. Independent signals can be combined with contextual checks before the application reaches a defensive decision.',
+        stages: [
+          {
+            label: '01 / Observe',
+            title: 'Collect independent signals',
+            description:
+              'Filesystem, process memory, runtime activity and debugger state are inspected independently so one detection mechanism does not become the sole source of truth.',
+          },
+          {
+            label: '02 / Correlate',
+            title: 'Combine runtime evidence',
+            description:
+              'Signals from different surfaces can reinforce each other and provide stronger evidence than isolated indicators evaluated without context.',
+          },
+          {
+            label: '03 / Decide',
+            title: 'Apply defensive policy',
+            description:
+              'The resulting evidence is translated into an application-controlled decision rather than allowing an individual low-confidence artifact to dictate behavior.',
+          },
+        ],
+        outcomes: [
+          {
+            state: 'Trusted',
+            description: 'No meaningful runtime evidence was observed.',
+          },
+          {
+            state: 'Suspicious',
+            description: 'One or more signals require additional validation or correlation.',
+          },
+          {
+            state: 'Hostile',
+            description:
+              'Correlated evidence indicates that runtime assumptions can no longer be trusted.',
+          },
+        ],
+      },
+      integrity: {
+        title: 'Application identity validation',
+        description:
+          'Runtime environment checks are complemented by validation of the installed application itself. Signing identity and package integrity provide evidence that the executable artifact still matches the expected application state.',
+        checks: [
+          {
+            label: 'Signing identity',
+            title: 'Signer verification',
+            description:
+              'The application signing identity can be validated against the expected signer so repackaging or unauthorized re-signing does not preserve trust.',
+            signals: ['Signing certificate', 'Certificate fingerprint', 'V1 / V2 / V3'],
+          },
+          {
+            label: 'Package state',
+            title: 'Artifact integrity',
+            description:
+              'Application package and native components can be checked for unexpected modifications introduced through patching, replacement or repackaging.',
+            signals: ['APK integrity', 'Native libraries', 'Package metadata'],
+          },
+        ],
+        result: {
+          expected:
+            'Signing identity and package state remain consistent with the expected application.',
+          mismatch:
+            'Unexpected signing or artifact changes indicate that application integrity can no longer be assumed.',
+        },
+      },
+      adversarialResearch: {
+        title: 'Hostile runtime validation',
+        description:
+          'Protection mechanisms are evaluated against representative Android modification and instrumentation environments to understand how runtime assumptions fail under active adversarial control.',
+        environments: [
+          {
+            category: 'Root ecosystem',
+            title: 'Privileged Android environments',
+            description:
+              'Root frameworks are used to evaluate whether protections remain effective when the operating environment can modify mounts, process state and system behavior.',
+            technologies: ['Magisk', 'Zygisk', 'KernelSU'],
+          },
+          {
+            category: 'Instrumentation',
+            title: 'Dynamic runtime analysis',
+            description:
+              'Instrumentation environments are used to evaluate detection of injected code, suspicious runtime artifacts and process-level inspection.',
+            technologies: ['Frida', 'Frida Server', 'Frida Gadget'],
+          },
+          {
+            category: 'Hooking',
+            title: 'Framework-level modification',
+            description:
+              'Hooking frameworks are considered when evaluating whether application behavior or Android framework interactions can be altered at runtime.',
+            technologies: ['Xposed', 'LSPosed', 'Runtime hooks'],
+          },
+          {
+            category: 'Debugging',
+            title: 'Execution inspection',
+            description:
+              'Debugger and tracing scenarios are used to evaluate protections against execution suspension, process tracing and runtime state inspection.',
+            technologies: ['JDWP', 'ptrace', 'Native debugging'],
+          },
+        ],
+        objective:
+          'The research focuses on resilient multi-signal detection rather than depending on a single tool name, filesystem artifact or implementation-specific indicator.',
+      },
+      decision: {
+        title: 'Engineering decisions',
+        description:
+          'The RASP architecture is shaped by trade-offs between detection coverage, runtime cost, false-positive resistance and the ability to remain effective across evolving Android modification frameworks.',
+        items: [
+          {
+            decision: 'Multi-signal detection',
+            rationale:
+              'Runtime trust is derived from multiple independent sources such as mounts, process mappings, runtime activity and debugger state rather than from a single artifact.',
+            tradeoff:
+              'Correlation increases implementation complexity and requires clear handling of partial or conflicting evidence.',
+          },
+          {
+            decision: 'Managed and native separation',
+            rationale:
+              'Android framework APIs are combined with native NDK inspection so protections are not concentrated exclusively in the Java runtime or in native code.',
+            tradeoff:
+              'Crossing Java and native boundaries increases implementation and maintenance complexity.',
+          },
+          {
+            decision: 'Isolated security boundary',
+            rationale:
+              'Selected protection checks can execute through an isolated service and communicate through explicit Binder contracts, reducing direct coupling with the main application process.',
+            tradeoff:
+              'Process isolation introduces lifecycle, IPC and synchronization concerns that must be handled explicitly.',
+          },
+          {
+            decision: 'Behavior over signatures',
+            rationale:
+              'Detection favors runtime behavior and environmental evidence over relying exclusively on tool names or framework-specific filesystem artifacts.',
+            tradeoff:
+              'More generic indicators require careful validation to avoid classifying legitimate platform behavior as hostile.',
+          },
+        ],
+      },
     },
   },
   {

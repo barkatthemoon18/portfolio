@@ -1149,11 +1149,392 @@
 }
 
 // -----------------------------------------------------------------------------
+// Correlation & decision
+// -----------------------------------------------------------------------------
+
+.project-detail-correlation {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+// -----------------------------------------------------------------------------
+// Processing flow
+// -----------------------------------------------------------------------------
+
+.project-detail-correlation-flow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    70px
+    minmax(0, 1fr)
+    70px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 0.75rem;
+}
+
+.project-detail-correlation-stage {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 250px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-correlation-stage-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-correlation-stage h3 {
+  margin: auto 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-correlation-stage p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Connectors
+// -----------------------------------------------------------------------------
+
+.project-detail-correlation-connector {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-correlation-connector::before {
+  content: "";
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-correlation-connector::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+
+  width: 0;
+  height: 0;
+
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid var(--color-accent);
+}
+
+
+// -----------------------------------------------------------------------------
+// Runtime outcomes
+// -----------------------------------------------------------------------------
+
+.project-detail-correlation-outcomes {
+  display: grid;
+
+  grid-template-columns:
+    minmax(140px, 0.25fr)
+    minmax(0, 1fr);
+
+  gap: 2rem;
+
+  margin-top: 1rem;
+  padding: 1.5rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    rgba(41, 168, 255, 0.015);
+}
+
+.project-detail-correlation-outcomes-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-correlation-outcomes-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 0;
+}
+
+.project-detail-correlation-outcome {
+  padding-inline: 1.25rem;
+
+  border-right: 1px solid var(--color-border);
+}
+
+.project-detail-correlation-outcome:first-child {
+  padding-left: 0;
+}
+
+.project-detail-correlation-outcome:last-child {
+  padding-right: 0;
+
+  border-right: 0;
+}
+
+.project-detail-correlation-outcome header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.project-detail-correlation-outcome header span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+.project-detail-correlation-outcome strong {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-detail-correlation-outcome p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.78;
+
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+// -----------------------------------------------------------------------------
+// Adversarial research
+// -----------------------------------------------------------------------------
+
+.project-detail-adversarial {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-adversarial-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-adversarial-item {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 280px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-adversarial-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-adversarial-item-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-adversarial-item h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-adversarial-item p {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-adversarial-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-detail-adversarial-technologies span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Evaluation objective
+// -----------------------------------------------------------------------------
+
+.project-detail-adversarial-objective {
+  display: grid;
+  grid-template-columns:
+    minmax(140px, 0.25fr)
+    minmax(0, 1fr);
+
+  gap: 2rem;
+
+  margin-top: 1rem;
+  padding: 1.4rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    rgba(41, 168, 255, 0.015);
+}
+
+.project-detail-adversarial-objective > span {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-adversarial-objective p {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+// -----------------------------------------------------------------------------
 // Responsive
 // -----------------------------------------------------------------------------
 
 // Tablet / narrow desktop
 @media (max-width: 999px) {
+  .project-detail-runtime-branches {
+    max-width: none;
+  }
+
+  .project-detail-runtime-application,
+  .project-detail-runtime-native {
+    max-width: none;
+  }
+
+  .project-detail-runtime-module-grid {
+    grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-threat {
+    min-height: 270px;
+  }
+
   .project-detail-footer {
     grid-template-columns: 1fr;
 
@@ -1312,6 +1693,60 @@
     .project-detail-surface-modules span:last-child {
       border-right: 0;
     }
+  }
+
+  .project-detail-correlation-flow {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .project-detail-correlation-stage {
+    min-height: 170px;
+  }
+
+  .project-detail-correlation-connector {
+    justify-content: center;
+
+    min-height: 52px;
+  }
+
+  .project-detail-correlation-connector::before {
+    width: 1px;
+    height: 34px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-correlation-connector::after {
+    right: auto;
+    bottom: 8px;
+
+    border-top: 5px solid var(--color-accent);
+    border-right: 4px solid transparent;
+    border-bottom: 0;
+    border-left: 4px solid transparent;
+  }
+
+  .project-detail-correlation-outcomes {
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+  }
+
+  .project-detail-adversarial-item {
+    min-height: 250px;
+  }
+
+  .project-detail-adversarial-objective {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
   }
 }
 
@@ -1674,6 +2109,37 @@
 
 // Mobile
 @media (max-width: 699px) {
+  .project-detail-runtime-architecture {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-runtime-branches {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-runtime-module-grid {
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-runtime-node {
+    padding: 1.25rem;
+  }
+
+  .project-detail-threat-model {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-threat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-threat {
+    min-height: auto;
+  }
+
   .project-detail-footer-navigation {
     grid-template-columns: 1fr;
   }
@@ -1798,6 +2264,45 @@
     grid-template-columns: 1fr;
 
     gap: 1.5rem;
+  }
+
+  .project-detail-correlation {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-correlation-outcomes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-correlation-outcome {
+    padding: 1rem 0;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-correlation-outcome:first-child {
+    padding-top: 0;
+  }
+
+  .project-detail-correlation-outcome:last-child {
+    padding-bottom: 0;
+
+    border-bottom: 0;
+  }
+
+  .project-detail-adversarial {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-adversarial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-adversarial-item {
+    min-height: auto;
   }
 }
 
@@ -2128,5 +2633,1190 @@
 
   .project-detail-surface-features {
     grid-template-columns: 1fr;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Threat model
+// -----------------------------------------------------------------------------
+
+.project-detail-threat-model {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-threat-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-threat {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 290px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.project-detail-threat:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--color-border-hover);
+}
+
+.project-detail-threat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-threat-category {
+  color: var(--color-accent);
+}
+
+.project-detail-threat-title {
+  margin: 2rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-threat-description {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-threat-indicators {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-detail-threat-indicators span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-text-secondary);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+// -----------------------------------------------------------------------------
+// Runtime architecture
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-architecture {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-runtime-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Nodes
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-node {
+  width: 100%;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-runtime-application {
+  max-width: 680px;
+}
+
+.project-detail-runtime-native {
+  position: relative;
+
+  max-width: 760px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.08),
+      transparent 65%
+    ),
+    var(--color-surface);
+}
+
+.project-detail-runtime-native::before {
+  content: "";
+
+  position: absolute;
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-runtime-node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-runtime-node-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-runtime-node h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-runtime-node p {
+  max-width: 720px;
+
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Branches
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-branches {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 960px;
+}
+
+// -----------------------------------------------------------------------------
+// Technologies
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: 1.25rem;
+}
+
+.project-detail-runtime-technologies span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-text-secondary);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Protection modules
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-modules {
+  position: relative;
+
+  width: 100%;
+  max-width: 960px;
+
+  margin-top: 52px;
+  padding: 1.25rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    rgba(41, 168, 255, 0.015);
+}
+
+.project-detail-runtime-modules::before {
+  content: "";
+
+  position: absolute;
+  top: -52px;
+  left: 50%;
+
+  width: 1px;
+  height: 47px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-runtime-modules::after {
+  content: "";
+
+  position: absolute;
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-runtime-modules-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-runtime-module-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 0.6rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-runtime-module-grid span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 0.65rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  text-align: center;
+}
+
+// -----------------------------------------------------------------------------
+// Runtime architecture connections
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-split,
+.project-detail-runtime-merge {
+  position: relative;
+
+  width: 100%;
+  max-width: 960px;
+  height: 58px;
+}
+
+
+// -----------------------------------------------------------------------------
+// Application → branches
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-split::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-runtime-split::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-runtime-split span {
+  position: absolute;
+
+  top: 29px;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+}
+
+.project-detail-runtime-split span:first-child {
+  left: 25%;
+}
+
+.project-detail-runtime-split span:last-child {
+  left: 75%;
+}
+
+.project-detail-runtime-split span::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+
+// -----------------------------------------------------------------------------
+// Branches → native layer
+// -----------------------------------------------------------------------------
+
+.project-detail-runtime-merge::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-runtime-merge::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-runtime-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-runtime-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-runtime-merge span:last-child {
+  left: 75%;
+}
+
+// -----------------------------------------------------------------------------
+// Detection strategy
+// -----------------------------------------------------------------------------
+
+.project-detail-detection {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-detection-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-detection-surface {
+  display: grid;
+
+  grid-template-columns:
+    60px
+    minmax(190px, 0.55fr)
+    minmax(260px, 1fr)
+    minmax(240px, 0.8fr);
+
+  align-items: start;
+
+  gap: 2rem;
+
+  padding-block: 2.2rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-detection-index {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+}
+
+.project-detail-detection-heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.project-detail-detection-source {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-detection-heading h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-detection-description {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-detection-signals {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+}
+
+.project-detail-detection-signals code {
+  padding: 0.32rem 0.52rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+// -----------------------------------------------------------------------------
+// Integrity & anti-tampering
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-integrity-flow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 0.4fr)
+    70px
+    minmax(0, 1.4fr)
+    minmax(220px, 0.55fr);
+
+  align-items: stretch;
+
+  gap: 1rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Origin
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-origin {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 280px;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-origin-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-integrity-origin strong {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-origin > span:last-child {
+  margin-top: 0.45rem;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Connector
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-connector {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-integrity-connector::before {
+  content: "";
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-integrity-connector::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+
+  width: 0;
+  height: 0;
+
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid var(--color-accent);
+}
+
+
+// -----------------------------------------------------------------------------
+// Checks
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-checks {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-integrity-check {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.4rem;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-check header {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-integrity-check header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-integrity-check h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-check p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.project-detail-integrity-signals {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: auto;
+  padding-top: 1.3rem;
+}
+
+.project-detail-integrity-signals code {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Result
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-result {
+  display: grid;
+  grid-template-rows:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-integrity-state {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.35rem;
+
+  background:
+    rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-state > span {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.project-detail-integrity-state strong {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-state p {
+  margin: 0.6rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.75;
+
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.project-detail-integrity-state-mismatch {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.035),
+      transparent
+    ),
+    var(--color-surface);
+}
+
+// -----------------------------------------------------------------------------
+// Final responsive overrides for late-defined project sections
+// -----------------------------------------------------------------------------
+
+@media (max-width: 999px) {
+  .project-detail-threat {
+    min-height: 270px;
+  }
+
+  .project-detail-runtime-application,
+  .project-detail-runtime-native,
+  .project-detail-runtime-branches,
+  .project-detail-runtime-split,
+  .project-detail-runtime-merge,
+  .project-detail-runtime-modules {
+    max-width: none;
+  }
+
+  .project-detail-runtime-module-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-surface-placeholder-content {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-surface-modules {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    min-height: 80px;
+    padding: 0;
+  }
+
+  .project-detail-surface-modules span {
+    justify-content: center;
+
+    min-height: 60px;
+
+    border-right: 1px solid var(--color-border);
+    border-bottom: 0;
+  }
+
+  .project-detail-surface-modules span:last-child {
+    border-right: 0;
+  }
+
+  .project-detail-decision {
+    grid-template-columns:
+      50px
+      minmax(180px, 0.5fr)
+      minmax(0, 1fr);
+
+    gap: 1.25rem;
+  }
+
+  .project-detail-decision-content {
+    gap: 1.5rem;
+  }
+
+  .project-detail-footer {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .project-detail-detection-surface {
+    grid-template-columns:
+    45px
+    minmax(170px, 0.55fr)
+    minmax(0, 1fr);
+
+    gap: 1.25rem;
+  }
+
+  .project-detail-detection-signals {
+    grid-column: 2 / -1;
+  }
+
+  .project-detail-integrity-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-integrity-origin {
+    min-height: 145px;
+  }
+
+  .project-detail-integrity-connector {
+    justify-content: center;
+
+    min-height: 52px;
+  }
+
+  .project-detail-integrity-connector::before {
+    width: 1px;
+    height: 34px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-integrity-connector::after {
+    right: auto;
+    bottom: 8px;
+
+    border-top: 5px solid var(--color-accent);
+    border-right: 4px solid transparent;
+    border-bottom: 0;
+    border-left: 4px solid transparent;
+  }
+
+  .project-detail-integrity-result {
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+    grid-template-rows: none;
+  }
+}
+
+/**************
+ 699 PX
+ **************/
+
+@media (max-width: 699px) {
+  .project-detail-threat-model,
+  .project-detail-runtime-architecture,
+  .project-detail-surface,
+  .project-detail-decisions {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-threat-grid,
+  .project-detail-runtime-branches,
+  .project-detail-surface-features {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-threat {
+    min-height: auto;
+  }
+
+  .project-detail-runtime-node {
+    padding: 1.25rem;
+  }
+
+  // The split/merge diagram becomes a compact vertical transition on mobile.
+  // This avoids drawing branch-center lines at 25% / 75% after the cards stack.
+  .project-detail-runtime-split,
+  .project-detail-runtime-merge {
+    width: 1px;
+    height: 42px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-runtime-split::before,
+  .project-detail-runtime-split::after,
+  .project-detail-runtime-merge::before,
+  .project-detail-runtime-merge::after,
+  .project-detail-runtime-split span,
+  .project-detail-runtime-merge span {
+    display: none;
+  }
+
+  .project-detail-runtime-branches {
+    gap: 1rem;
+  }
+
+  .project-detail-runtime-module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-runtime-modules {
+    margin-top: 42px;
+  }
+
+  .project-detail-runtime-modules::before {
+    top: -42px;
+    height: 37px;
+  }
+
+  .project-detail-surface-placeholder {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .project-detail-surface-placeholder-header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 0.8rem;
+  }
+
+  .project-detail-surface-telemetry {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-surface-modules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-surface-modules span {
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-decision {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+  }
+
+  .project-detail-decision-content {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .project-detail-footer-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-footer-project-previous:only-child,
+  .project-detail-footer-project-next:only-child {
+    grid-column: auto;
+  }
+
+  .project-detail-footer-project-previous,
+  .project-detail-footer-project-next {
+    text-align: left;
+  }
+
+  .project-detail-footer-project {
+    min-height: 125px;
+  }
+
+  .project-detail-detection {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-detection-surface {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+
+    padding-block: 1.6rem;
+  }
+
+  .project-detail-detection-signals {
+    grid-column: auto;
+
+    margin-top: 0.35rem;
+  }
+
+  .project-detail-detection-index {
+    margin-bottom: 0.25rem;
+  }
+
+  .project-detail-integrity {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-integrity-checks,
+  .project-detail-integrity-result {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-integrity-state {
+    min-height: 145px;
   }
 }
