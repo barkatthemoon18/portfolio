@@ -54,6 +54,496 @@
                     </ul>
                 </aside>
             </div>
+            @if (currentProject.details.cryptoArchitecture; as cryptoArchitecture) {
+                <section class="project-detail-crypto-architecture">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                02 / Library Architecture
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoArchitecture.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoArchitecture.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-crypto-architecture-flow">
+                        <article class="project-detail-crypto-contract">
+                            <header>
+                                <span>
+                                    {{ cryptoArchitecture.contract.label }}
+                                </span>
+                                <span>
+                                    API
+                                </span>
+                            </header>
+                            <h3>
+                                {{ cryptoArchitecture.contract.title }}
+                            </h3>
+                            <p>
+                                {{ cryptoArchitecture.contract.description }}
+                            </p>
+                            <div class="project-detail-crypto-factory">
+                                    <span>
+                                        Algorithm resolution
+                                    </span>
+                                <strong>
+                                    EnumFactory
+                                </strong>
+                            </div>
+                        </article>
+                        <div class="project-detail-crypto-split" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-detail-crypto-implementations">
+                            @for (implementation of cryptoArchitecture.implementations; track implementation.title; let index = $index) {
+                                <article class="project-detail-crypto-implementation">
+                                    <header>
+                                        <span>
+                                            {{ implementation.label }}
+                                        </span>
+                                        <span>
+                                            0{{ index + 1 }}
+                                        </span>
+                                    </header>
+                                    <h3>
+                                        {{ implementation.title }}
+                                    </h3>
+                                    <p>
+                                        {{ implementation.description }}
+                                    </p>
+                                    <div class="project-detail-crypto-technologies">
+                                        @for (technology of implementation.technologies; track technology) {
+                                            <span>
+                                                {{ technology }}
+                                            </span>
+                                        }
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                        <div class="project-detail-crypto-merge" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-detail-crypto-capabilities">
+                            <span class="project-detail-crypto-capabilities-label">
+                                Capability families
+                            </span>
+                            <div class="project-detail-crypto-capability-grid">
+                                @for (capability of cryptoArchitecture.capabilities; track capability) {
+                                    <span>
+                                        {{ capability }}
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.cryptoEncryption; as cryptoEncryption) {
+                <section class="project-detail-crypto-encryption">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                03 / Encryption
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoEncryption.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoEncryption.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-crypto-encryption-grid">
+                        @for (family of cryptoEncryption.families; track family.title; let familyIndex = $index) {
+                            <article class="project-detail-crypto-encryption-family">
+                                <header class="project-detail-crypto-encryption-family-header">
+                                    <span>
+                                        {{ family.label }}
+                                    </span>
+                                    <span>
+                                        0{{ familyIndex + 1 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ family.title }}
+                                </h3>
+                                <p class="project-detail-crypto-encryption-family-description">
+                                    {{ family.description }}
+                                </p>
+                                <div class="project-detail-crypto-algorithm-list">
+                                    @for (algorithm of family.algorithms; track algorithm.name) {
+                                        <div class="project-detail-crypto-algorithm">
+                                            <div class="project-detail-crypto-algorithm-heading">
+                                                <strong>
+                                                    {{ algorithm.name }}
+                                                </strong>
+                                                @if (algorithm.type) {
+                                                    <span>
+                                                        {{ algorithm.type }}
+                                                    </span>
+                                                }
+                                            </div>
+                                            @if (algorithm.detail) {
+                                                <span class="project-detail-crypto-algorithm-detail">
+                                                    {{ algorithm.detail }}
+                                                </span>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.cryptoDigest; as cryptoDigest) {
+                <section class="project-detail-crypto-digest">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                04 / Hashing, MAC & XOF
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoDigest.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoDigest.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-crypto-digest-grid">
+                        @for (family of cryptoDigest.families; track family.title; let index = $index) {
+                            <article class="project-detail-crypto-digest-family">
+                                <header class="project-detail-crypto-digest-family-header">
+                                    <span>
+                                        {{ family.label }}
+                                    </span>
+                                    <span>
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ family.title }}
+                                </h3>
+                                <p class="project-detail-crypto-digest-description">
+                                    {{ family.description }}
+                                </p>
+                                <div class="project-detail-crypto-digest-algorithms">
+                                    @for (algorithm of family.algorithms; track algorithm.name) {
+                                        <div class="project-detail-crypto-digest-algorithm">
+                                            <div class="project-detail-crypto-digest-algorithm-header">
+                                                <strong>
+                                                    {{ algorithm.name }}
+                                                </strong>
+                                                @if (algorithm.type) {
+                                                    <span>
+                                                        {{ algorithm.type }}
+                                                    </span>
+                                                }
+                                            </div>
+                                            @if (algorithm.variants?.length) {
+                                                <div class="project-detail-crypto-digest-variants">
+                                                    @for (variant of algorithm.variants; track variant) {
+                                                        <span>
+                                                            {{ variant }}
+                                                        </span>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.cryptoKdf; as cryptoKdf) {
+                <section class="project-detail-crypto-kdf">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                05 / Key Derivation Function
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoKdf.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoKdf.description }}
+                        </p>
+                    </header>
+                    <article class="project-detail-crypto-kdf-primary">
+                        <header class="project-detail-crypto-kdf-primary-header">
+                            <span>
+                                {{ cryptoKdf.primary.label }}
+                            </span>
+                            <span>
+                                01
+                            </span>
+                        </header>
+                        <div class="project-detail-crypto-kdf-primary-content">
+                            <div class="project-detail-crypto-kdf-primary-description">
+                                <h3>
+                                    {{ cryptoKdf.primary.title }}
+                                </h3>
+                                <p>
+                                    {{ cryptoKdf.primary.description }}
+                                </p>
+                                @if (cryptoKdf.primary.properties?.length) {
+                                    <div class="project-detail-crypto-kdf-properties">
+                                        @for (property of cryptoKdf.primary.properties; track property) {
+                                            <span>
+                                                {{ property }}
+                                            </span>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            @if (cryptoKdf.primary.variants?.length) {
+                                <div class="project-detail-crypto-kdf-variants">
+                                    @for (variant of cryptoKdf.primary.variants; track variant.name) {
+                                        <div class="project-detail-crypto-kdf-variant">
+                                            <strong>
+                                                {{ variant.name }}
+                                            </strong>
+                                            <span>
+                                                {{ variant.description }}
+                                            </span>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </article>
+                    <div class="project-detail-crypto-kdf-grid">
+                        @for (algorithm of cryptoKdf.algorithms; track algorithm.title; let index = $index) {
+                            <article class="project-detail-crypto-kdf-item">
+                                <header class="project-detail-crypto-kdf-item-header">
+                                    <span>
+                                        {{ algorithm.label }}
+                                    </span>
+                                    <span>
+                                        0{{ index + 2 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ algorithm.title }}
+                                </h3>
+                                <p>
+                                    {{ algorithm.description }}
+                                </p>
+                                @if (algorithm.properties?.length) {
+                                    <div class="project-detail-crypto-kdf-properties">
+                                        @for (property of algorithm.properties; track property) {
+                                            <span>
+                                                {{ property }}
+                                            </span>
+                                        }
+                                    </div>
+                                }
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+            @if (currentProject.details.cryptoSigner; as cryptoSigner) {
+                <section class="project-detail-crypto-signer">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                06 / Digital Signatures
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoSigner.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoSigner.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-crypto-signer-families">
+                        @for (family of cryptoSigner.families; track family.title; let index = $index) {
+                            <article class="project-detail-crypto-signer-family">
+                                <header class="project-detail-crypto-signer-family-header">
+                                    <span>
+                                        {{ family.label }}
+                                    </span>
+                                    <span>
+                                        0{{ index + 1 }}
+                                    </span>
+                                </header>
+                                <h3>
+                                    {{ family.title }}
+                                </h3>
+                                <p class="project-detail-crypto-signer-family-description">
+                                    {{ family.description }}
+                                </p>
+                                <div class="project-detail-crypto-signer-algorithms">
+                                    @for (algorithm of family.algorithms; track algorithm.name) {
+                                        <div class="project-detail-crypto-signer-algorithm">
+                                            <div class="project-detail-crypto-signer-algorithm-heading">
+                                                <strong>
+                                                    {{ algorithm.name }}
+                                                </strong>
+                                                <span>
+                                                    {{ algorithm.standard }}
+                                                </span>
+                                            </div>
+                                            @if (algorithm.details?.length) {
+                                                <div class="project-detail-crypto-signer-details">
+                                                    @for (detail of algorithm.details; track detail) {
+                                                        <span>
+                                                            {{ detail }}
+                                                        </span>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </article>
+                        }
+                    </div>
+                    <div class="project-detail-crypto-signer-merge" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <article class="project-detail-crypto-signer-contract">
+                        <header>
+                            <span>
+                                {{ cryptoSigner.contract.label }}
+                            </span>
+                            <span>
+                                API
+                            </span>
+                        </header>
+                        <div class="project-detail-crypto-signer-contract-content">
+                            <div>
+                                <h3>
+                                    {{ cryptoSigner.contract.title }}
+                                </h3>
+                                <p>
+                                    {{ cryptoSigner.contract.description }}
+                                </p>
+                            </div>
+                            <div class="project-detail-crypto-signer-technologies">
+                                @for (technology of cryptoSigner.contract.technologies; track technology) {
+                                    <span>
+                                        {{ technology }}
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            }
+            @if (currentProject.details.cryptoBme; as cryptoBme) {
+                <section class="project-detail-crypto-bme">
+                    <header class="project-detail-section-header">
+                        <div>
+                            <p class="project-detail-section-label">
+                                07 / BME
+                            </p>
+                            <h2 class="project-detail-section-title">
+                                {{ cryptoBme.title }}
+                            </h2>
+                        </div>
+                        <p class="project-detail-section-description">
+                            {{ cryptoBme.description }}
+                        </p>
+                    </header>
+                    <div class="project-detail-crypto-bme-flow">
+                        <article class="project-detail-crypto-bme-schema">
+                            <header>
+                                <span>
+                                    {{ cryptoBme.schema.label }}
+                                </span>
+                                <span>
+                                    BME
+                                </span>
+                            </header>
+                            <h3>
+                                {{ cryptoBme.schema.title }}
+                            </h3>
+                            <p>
+                                {{ cryptoBme.schema.description }}
+                            </p>
+                        </article>
+                        <div class="project-detail-crypto-bme-split" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-detail-crypto-bme-profiles">
+                            @for (profile of cryptoBme.profiles; track profile.title; let index = $index) {
+                                <article class="project-detail-crypto-bme-profile">
+                                    <header class="project-detail-crypto-bme-profile-header">
+                                        <span>
+                                            {{ profile.label }}
+                                        </span>
+                                        <span>
+                                            0{{ index + 1}}
+                                        </span>
+                                    </header>
+                                    <h3>
+                                        {{ profile.title }}
+                                    </h3>
+                                    <p class="project-detail-crypto-bme-profile-description">
+                                        {{ profile.description }}
+                                    </p>
+                                    <div class="project-detail-crypto-bme-stages">
+                                        @for (stage of profile.stages; track stage.label; let index = $index) {
+                                            <div class="project-detail-crypto-bme-stage">
+                                                <span class="project-detail-crypto-bme-stage-number">
+                                                    0{{ index + 1 }}
+                                                </span>
+                                                <div class="project-detail-crypto-bme-stage-content">
+                                                    <span>
+                                                        {{ stage.label }}
+                                                    </span>
+                                                    <strong>
+                                                        {{ stage.title }}
+                                                    </strong>
+                                                    <small>
+                                                        {{ stage.description }}
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                        <div class="project-detail-crypto-bme-merge">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-detail-crypto-bme-shared">
+                            <span class="project-detail-crypto-bme-shared-label">
+                                Shared contract
+                            </span>
+                            <div class="project-detail-crypto-bme-shared-grid">
+                                @for (property of cryptoBme.shared; track property.label) {
+                                    <div class="project-detail-crypto-bme-shared-item">
+                                        <span>
+                                            {{ property.label }}
+                                        </span>
+                                        <strong>
+                                            {{ property.value }}
+                                        </strong>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
             @if (currentProject.details.threatModel; as threatModel) {
                 <section class="project-detail-threat-model">
                     <header class="project-detail-section-header">

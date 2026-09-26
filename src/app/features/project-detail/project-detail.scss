@@ -1512,11 +1512,734 @@
 }
 
 // -----------------------------------------------------------------------------
+// Symmetric & asymmetric cryptography
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-encryption {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-encryption-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(0, 0.65fr);
+
+  gap: 1rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Family
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-encryption-family {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 65%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-encryption-family-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-encryption-family-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-encryption-family h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-encryption-family-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Algorithms
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-algorithm-list {
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-algorithm {
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-algorithm:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-algorithm-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-algorithm-heading strong {
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-algorithm-heading > span {
+  padding: 0.25rem 0.45rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+}
+
+.project-detail-crypto-algorithm-detail {
+  display: block;
+
+  margin-top: 0.4rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+// -----------------------------------------------------------------------------
+// Key derivation
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-kdf {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+// -----------------------------------------------------------------------------
+// Primary / Argon2
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-kdf-primary {
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.065),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-kdf-primary-header,
+.project-detail-crypto-kdf-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-kdf-primary-header span:first-child,
+.project-detail-crypto-kdf-item-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-kdf-primary-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.75fr)
+    minmax(0, 1.25fr);
+
+  align-items: end;
+
+  gap: 3rem;
+
+  margin-top: 2rem;
+}
+
+.project-detail-crypto-kdf-primary-description h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-kdf-primary-description p {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Argon2 variants
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-kdf-variants {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 0;
+}
+
+.project-detail-crypto-kdf-variant {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 110px;
+  padding: 1rem;
+
+  border-left: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-kdf-variant:first-child {
+  border-left: 0;
+}
+
+.project-detail-crypto-kdf-variant strong {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-kdf-variant span {
+  margin-top: auto;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+
+// -----------------------------------------------------------------------------
+// Secondary KDFs
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-kdf-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-kdf-item {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 230px;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-kdf-item h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-kdf-item p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.74rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Properties
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-kdf-properties {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.project-detail-crypto-kdf-primary-description
+.project-detail-crypto-kdf-properties {
+  margin-top: 1.25rem;
+}
+
+.project-detail-crypto-kdf-properties span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+// -----------------------------------------------------------------------------
+// Digital signatures
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-signer {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+// -----------------------------------------------------------------------------
+// Signature families
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-signer-families {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-signer-family {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 340px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-signer-family-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-signer-family-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-signer-family h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-signer-family-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Signature algorithms
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-signer-algorithms {
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-signer-algorithm {
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-signer-algorithm:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-signer-algorithm-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-signer-algorithm-heading strong {
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-signer-algorithm-heading > span {
+  padding: 0.25rem 0.45rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-signer-details {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: 0.7rem;
+}
+
+.project-detail-crypto-signer-details span {
+  padding: 0.28rem 0.5rem;
+
+  color: var(--color-text-secondary);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Merge
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-signer-merge {
+  position: relative;
+
+  width: 100%;
+  height: 58px;
+}
+
+.project-detail-crypto-signer-merge::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-signer-merge::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-signer-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-crypto-signer-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-signer-merge span:last-child {
+  left: 75%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Signer contract
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-signer-contract {
+  position: relative;
+
+  width: 100%;
+  max-width: 760px;
+
+  margin-inline: auto;
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.065),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-signer-contract::before {
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-signer-contract header {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-signer-contract header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-signer-contract-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  align-items: end;
+
+  gap: 2rem;
+
+  margin-top: 1.8rem;
+}
+
+.project-detail-crypto-signer-contract h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-signer-contract p {
+  max-width: 580px;
+
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.project-detail-crypto-signer-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+
+  gap: 0.4rem;
+}
+
+.project-detail-crypto-signer-technologies span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+// -----------------------------------------------------------------------------
 // Responsive
 // -----------------------------------------------------------------------------
 
 // Tablet / narrow desktop
 @media (max-width: 999px) {
+  .project-detail-crypto-signer-family {
+    min-height: 310px;
+  }
+
+  .project-detail-crypto-signer-contract {
+    max-width: none;
+  }
+
   .project-detail-runtime-branches {
     max-width: none;
   }
@@ -1747,6 +2470,33 @@
     grid-template-columns: 1fr;
 
     gap: 0.8rem;
+  }
+
+  .project-detail-crypto-encryption-grid {
+    grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
+  }
+
+  .project-detail-crypto-kdf-primary-content {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .project-detail-crypto-kdf-variants {
+    border-top: 1px solid var(--color-border);
+
+    padding-top: 1rem;
+  }
+
+  .project-detail-crypto-kdf-grid {
+    grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-crypto-kdf-item {
+    min-height: 210px;
   }
 }
 
@@ -2303,6 +3053,130 @@
 
   .project-detail-adversarial-item {
     min-height: auto;
+  }
+
+  .project-detail-crypto-encryption {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-encryption-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-encryption-family {
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-signer {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-signer-families {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-signer-family {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-signer-merge {
+    width: 1px;
+    height: 42px;
+
+    margin-inline: auto;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-crypto-signer-merge::before,
+  .project-detail-crypto-signer-merge::after,
+  .project-detail-crypto-signer-merge span {
+    display: none;
+  }
+
+  .project-detail-crypto-signer-contract-content {
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+  }
+
+  .project-detail-crypto-signer-technologies {
+    justify-content: flex-start;
+  }
+
+  .project-detail-crypto-bme {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-bme-schema {
+    max-width: none;
+  }
+
+  .project-detail-crypto-bme-profiles {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-bme-profile {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-bme-split,
+  .project-detail-crypto-bme-merge {
+    width: 1px;
+    height: 42px;
+
+    margin-inline: auto;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-crypto-bme-split::before,
+  .project-detail-crypto-bme-split::after,
+  .project-detail-crypto-bme-merge::before,
+  .project-detail-crypto-bme-merge::after,
+  .project-detail-crypto-bme-split span,
+  .project-detail-crypto-bme-merge span {
+    display: none;
+  }
+
+  .project-detail-crypto-bme-shared {
+    width: 100%;
+  }
+
+  .project-detail-crypto-bme-shared-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-bme-shared-item {
+    padding: 1rem 0;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-crypto-bme-shared-item:first-child {
+    padding-top: 0;
+  }
+
+  .project-detail-crypto-bme-shared-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: 0;
   }
 }
 
@@ -3539,10 +4413,1128 @@
 }
 
 // -----------------------------------------------------------------------------
+// Crypto library architecture
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-architecture {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-architecture-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Public API contract
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-contract {
+  width: 100%;
+  max-width: 700px;
+
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.07),
+      transparent 65%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-contract header,
+.project-detail-crypto-implementation header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-contract header span:first-child,
+.project-detail-crypto-implementation header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-contract h3,
+.project-detail-crypto-implementation h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-contract p,
+.project-detail-crypto-implementation p {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// EnumFactory
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-factory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: 1.4rem;
+  padding: 0.85rem 1rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+}
+
+.project-detail-crypto-factory span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-factory strong {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+
+// -----------------------------------------------------------------------------
+// Implementations
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-implementations {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 980px;
+}
+
+.project-detail-crypto-implementation {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 250px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-detail-crypto-technologies span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Split / merge
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-split,
+.project-detail-crypto-merge {
+  position: relative;
+
+  width: 100%;
+  max-width: 980px;
+  height: 58px;
+}
+
+
+// Contract -> implementations
+
+.project-detail-crypto-split::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-split::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-split span {
+  position: absolute;
+
+  top: 29px;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+}
+
+.project-detail-crypto-split span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-split span:last-child {
+  left: 75%;
+}
+
+.project-detail-crypto-split span::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+
+// Implementations -> capabilities
+
+.project-detail-crypto-merge::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-merge::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-crypto-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-merge span:last-child {
+  left: 75%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Capability families
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-capabilities {
+  position: relative;
+
+  width: 100%;
+  max-width: 980px;
+
+  padding: 1.25rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    rgba(41, 168, 255, 0.015);
+}
+
+.project-detail-crypto-capabilities::before {
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-capabilities-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-capability-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 0.6rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-capability-grid span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 0.65rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  text-align: center;
+}
+
+// -----------------------------------------------------------------------------
+// Hashing, MAC & XOF
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-digest {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-digest-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Family
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-digest-family {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 390px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-digest-family-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-digest-family-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-digest-family h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-digest-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Algorithms
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-digest-algorithms {
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-digest-algorithm {
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-digest-algorithm:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-digest-algorithm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-digest-algorithm-header strong {
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-digest-algorithm-header > span {
+  padding: 0.25rem 0.45rem;
+
+  color: var(--color-accent);
+
+  background:
+    rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+}
+
+
+// -----------------------------------------------------------------------------
+// Variants
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-digest-variants {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: 0.75rem;
+}
+
+.project-detail-crypto-digest-variants span {
+  padding: 0.28rem 0.5rem;
+
+  color: var(--color-text-secondary);
+
+  background:
+    rgba(41, 168, 255, 0.015);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+// -----------------------------------------------------------------------------
+// BME
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Schema
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-schema {
+  width: 100%;
+  max-width: 760px;
+
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.08),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-schema header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-schema header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-bme-schema h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-bme-schema p {
+  max-width: 620px;
+
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Split
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-split {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 58px;
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-split::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-split::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-bme-split span {
+  position: absolute;
+
+  top: 29px;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+}
+
+.project-detail-crypto-bme-split span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-bme-split span:last-child {
+  left: 75%;
+}
+
+.project-detail-crypto-bme-split span::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+
+// -----------------------------------------------------------------------------
+// Profiles
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-profiles {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: min(100%, 1050px);
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-profile {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 430px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.03),
+      transparent 65%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-profile-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-bme-profile h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-bme-profile-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// BME stages
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-stages {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-stage {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    34px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-stage:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-bme-stage:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -5px;
+  left: 13px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  opacity: 0.7;
+}
+
+.project-detail-crypto-bme-stage-number {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+.project-detail-crypto-bme-stage-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-crypto-bme-stage-content > span {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-stage-content strong {
+  margin-top: 0.5rem;
+
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-bme-stage-content small {
+  margin-top: 0.35rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+
+// -----------------------------------------------------------------------------
+// Merge
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-merge {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 58px;
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-merge::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-bme-merge::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-crypto-bme-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-bme-merge span:last-child {
+  left: 75%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Shared contract
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-shared {
+  position: relative;
+
+  width: min(100%, 880px);
+
+  padding: 1.35rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.055),
+      transparent 75%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-shared::before {
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-shared-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-shared-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-bme-shared-item {
+  display: flex;
+  flex-direction: column;
+
+  padding-inline: 1.25rem;
+
+  border-right: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-shared-item:first-child {
+  padding-left: 0;
+}
+
+.project-detail-crypto-bme-shared-item:last-child {
+  padding-right: 0;
+
+  border-right: 0;
+}
+
+.project-detail-crypto-bme-shared-item > span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-shared-item strong {
+  margin-top: 0.6rem;
+
+  color: var(--color-text);
+
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+// -----------------------------------------------------------------------------
 // Final responsive overrides for late-defined project sections
 // -----------------------------------------------------------------------------
 
 @media (max-width: 999px) {
+  .project-detail-crypto-bme-profile {
+    min-height: 410px;
+  }
+
+  .project-detail-crypto-digest-grid {
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-crypto-digest-family:last-child {
+    grid-column: 1 / -1;
+
+    min-height: auto;
+  }
+
   .project-detail-threat {
     min-height: 270px;
   }
@@ -3657,6 +5649,19 @@
     repeat(2, minmax(0, 1fr));
 
     grid-template-rows: none;
+  }
+
+  .project-detail-crypto-contract,
+  .project-detail-crypto-implementations,
+  .project-detail-crypto-split,
+  .project-detail-crypto-merge,
+  .project-detail-crypto-capabilities {
+    max-width: none;
+  }
+
+  .project-detail-crypto-capability-grid {
+    grid-template-columns:
+    repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -3818,5 +5823,106 @@
 
   .project-detail-integrity-state {
     min-height: 145px;
+  }
+
+  .project-detail-crypto-architecture {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-implementations {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-implementation {
+    min-height: auto;
+  }
+
+  .project-detail-crypto-split,
+  .project-detail-crypto-merge {
+    width: 1px;
+    height: 42px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-crypto-split::before,
+  .project-detail-crypto-split::after,
+  .project-detail-crypto-merge::before,
+  .project-detail-crypto-merge::after,
+  .project-detail-crypto-split span,
+  .project-detail-crypto-merge span {
+    display: none;
+  }
+
+  .project-detail-crypto-capability-grid {
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-crypto-factory {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-detail-crypto-digest {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-digest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-digest-family,
+  .project-detail-crypto-digest-family:last-child {
+    grid-column: auto;
+
+    min-height: auto;
+  }
+
+  .project-detail-crypto-digest-family {
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-kdf {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-kdf-variants {
+    grid-template-columns: 1fr;
+
+    padding-top: 0;
+  }
+
+  .project-detail-crypto-kdf-variant {
+    min-height: auto;
+    padding: 1rem 0;
+
+    border-left: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-crypto-kdf-variant:last-child {
+    border-bottom: 0;
+  }
+
+  .project-detail-crypto-kdf-variant span {
+    margin-top: 0.45rem;
+  }
+
+  .project-detail-crypto-kdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-kdf-item {
+    min-height: auto;
+    padding: 1.25rem;
   }
 }

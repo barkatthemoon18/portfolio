@@ -245,7 +245,7 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'android-rasp',
-    title: 'Android RASP',
+    title: 'FuadXShell',
     subtitle: 'Runtime Application Self Protection & Mobile Security',
     description:
       'Runtime security research focused on instrumentation, root environments, tampering and application integrity.',
@@ -520,27 +520,405 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'crypto-library',
-    title: 'Crypto Library',
-    subtitle: 'Cross-platform Cryptography',
+    title: 'BCH Crypto Library',
+    subtitle: 'Java & TypeScript Cryptography',
     description:
-      'A cryptographic abstraction layer designed for interoperable implementations across multiple platforms.',
-    technologies: ['TypeScript', 'Java', 'BouncyCastle', 'WebCrypto', 'Node Forge'],
+      'A cryptographic library exposing a consistent algorithm-oriented API across Java and framework-agnostic TypeScript implementations.',
+    technologies: ['Java 11+', 'TypeScript', 'Bouncy Castle', 'WebCrypto', 'Node Forge', 'Noble'],
     visual: 'crypto',
     visualLabel: 'APPLIED CRYPTOGRAPHY',
     details: {
-      heading: 'Cross-platform Cryptographic Abstraction',
+      heading: 'Cross-platform Cryptographic Library',
       overview: [
-        'A cryptographic abstraction layer designed to provide interoperable cryptographic operations across browser, Java and other runtime environments.',
-        'The project focuses on maintaining compatible data formats and cryptographic behavior while hiding implementation differences between the underlying platform APIs.',
+        'A cryptographic library implemented in Java 11+ and framework-agnostic TypeScript, designed around a consistent API for encryption, hashing, key derivation, message authentication, digital signatures, extensible-output functions and encoding.',
+        'Algorithm families and variants are resolved through EnumFactory-based contracts, allowing both implementations to expose structured cryptographic capabilities while keeping provider-specific construction details outside consumer code.',
       ],
       highlights: [
         'Cross-platform encryption',
-        'Digital signatures',
-        'Key derivation',
-        'RSA and elliptic-curve cryptography',
-        'WebCrypto interoperability',
-        'Bouncy Castle interoperability',
+        'Digital Signatures',
+        'Key Derivation Function',
+        'Extensible Output Functions',
+        'Hashing & Message Authentication Code',
+        'Symmetric & Asymmetric Cryptography',
+        'Hybrid Encryption',
+        'Java & TypeScript interoperability',
       ],
+      cryptoArchitecture: {
+        title: 'Structured cryptographic abstraction',
+        description:
+          'Both implementations expose cryptographic capabilities through the same algorithm-oriented design while keeping construction and provider-specific details behind explicit EnumFactory contracts.',
+
+        contract: {
+          label: 'Public contract',
+          title: 'Cryptographic API',
+          description:
+            'Consumers select explicit algorithm families and variants through typed contracts instead of constructing provider-specific primitives directly.',
+        },
+
+        implementations: [
+          {
+            label: 'Java implementation',
+            title: 'Java 11+',
+            description:
+              'The JVM implementation resolves cryptographic algorithms through EnumFactory abstractions and delegates primitive implementations to Bouncy Castle.',
+            technologies: ['Java 11+', 'EnumFactory', 'Bouncy Castle'],
+          },
+          {
+            label: 'TypeScript implementation',
+            title: 'Framework-agnostic TypeScript',
+            description:
+              'The TypeScript implementation preserves the same algorithm-oriented organization without coupling the library API to a specific frontend framework.',
+            technologies: ['TypeScript', 'EnumFactory', 'Framework-agnostic'],
+          },
+        ],
+
+        capabilities: [
+          'Symmetric Cryptography',
+          'Asymmetric Cryptography',
+          'Hashing',
+          'KDF',
+          'MAC',
+          'Digital Signature',
+          'XOF',
+          'BME (Bidirectional Message Encryption)',
+          'Key Generation Scheme',
+          'Encode',
+        ],
+      },
+      cryptoEncryption: {
+        title: 'Symmetric & Asymmetric Cryptography',
+        description:
+          'The library exposes multiple encryption families through explicit algorithm variants, covering symmetric block and authenticated-encryption modes together with RSA-based asymmetric encryption profiles.',
+        families: [
+          {
+            label: 'Symmetric',
+            title: 'Symmetric Encryption',
+            description:
+              'AES and ChaCha20-based primitives provide multiple encryption modes for different compatibility and authenticated-encryption requirements.',
+            algorithms: [
+              {
+                name: 'AES-CFB',
+                detail: 'Cipher Feedback',
+                type: 'MODE',
+              },
+              {
+                name: 'AES-CTR',
+                detail: 'Counter Mode',
+                type: 'MODE',
+              },
+              {
+                name: 'AES-CCM',
+                detail: 'Counter with CBC-MAC',
+                type: 'AEAD',
+              },
+              {
+                name: 'AES-GCM',
+                detail: 'Galois/Counter Mode',
+                type: 'AEAD',
+              },
+              {
+                name: 'AES-GCM-SIV',
+                detail: 'Synthetic IV',
+                type: 'AEAD',
+              },
+              {
+                name: 'ChaCha20-Poly1305',
+                detail: 'Authenticated stream cipher',
+                type: 'AEAD',
+              },
+            ],
+          },
+          {
+            label: 'Asymmetric',
+            title: 'RSA Encryption',
+            description:
+              'RSA encryption is exposed through explicit padding profiles so callers select the required scheme through the same structured algorithm contract.',
+            algorithms: [
+              {
+                name: 'RSA PKCS #1 v1.5',
+                detail: 'PKCS #1 v1.5 padding',
+                type: 'PADDING',
+              },
+              {
+                name: 'RSA-OAEP',
+                detail: 'PKCS #1 v2.0',
+                type: 'PADDING',
+              },
+            ],
+          },
+        ],
+      },
+      cryptoDigest: {
+        title: 'Hashing, Authentication & Extensible Output Functions',
+        description:
+          'The library exposes fixed-length digest functions, keyed message-authentication primitives and extensible-output functions through explicit algorithm families and variants.',
+        families: [
+          {
+            label: 'Hashing',
+            title: 'Cryptographic Digests',
+            description:
+              'SHA-2 and SHA-3 families provide fixed-length digest functions with explicit output-size variants.',
+
+            algorithms: [
+              {
+                name: 'SHA-2',
+                variants: ['256', '384', '512'],
+                type: 'HASH',
+              },
+              {
+                name: 'SHA-3',
+                variants: ['256', '384', '512'],
+                type: 'HASH',
+              },
+            ],
+          },
+          {
+            label: 'MAC',
+            title: 'Message Authentication Code',
+            description:
+              'Keyed authentication is provided through HMAC, KMAC and CMAC families for integrity and authenticity use cases.',
+            algorithms: [
+              {
+                name: 'HMAC',
+                variants: ['SHA-2', 'SHA-3'],
+                type: 'MAC',
+              },
+              {
+                name: 'KMAC',
+                variants: ['128', '256'],
+                type: 'MAC',
+              },
+              {
+                name: 'CMAC',
+                variants: ['128', '192', '256'],
+                type: 'MAC',
+              },
+            ],
+          },
+          {
+            label: 'XOF',
+            title: 'Extensible-Output Functions',
+            description:
+              'SHAKE provides variable-length output derived from the SHA-3 family for use cases where fixed digest sizes are not sufficient.',
+            algorithms: [
+              {
+                name: 'SHAKE',
+                variants: ['128', '256'],
+                type: 'XOF',
+              },
+            ],
+          },
+        ],
+      },
+      cryptoKdf: {
+        title: 'Password & Key Derivation',
+        description:
+          'The library exposes multiple password and key-derivation families through explicit algorithm contracts, including configurable cost-based and memory-hard constructions.',
+
+        primary: {
+          label: 'Argon2',
+          title: 'Memory-hard key derivation',
+          description:
+            'The Argon2 family exposes its three standardized variants so callers can explicitly select the memory-access strategy required by the target use case.',
+          variants: [
+            {
+              name: 'Argon2d',
+              description: 'Data-dependent memory access',
+            },
+            {
+              name: 'Argon2i',
+              description: 'Data-independent memory access',
+            },
+            {
+              name: 'Argon2id',
+              description: 'Hybrid memory access',
+            },
+          ],
+          properties: ['Memory Cost', 'Time Cost', 'Parallelism'],
+        },
+        algorithms: [
+          {
+            label: 'Bcrypt',
+            title: 'Bcrypt',
+            description:
+              'Cost-based password derivation with an explicit work factor exposed through the library contract.',
+            properties: ['Cost Factor', 'Password Derivation'],
+          },
+          {
+            label: 'Scrypt',
+            title: 'Scrypt',
+            description:
+              'Memory-hard password derivation designed around configurable computational and memory requirements.',
+            properties: ['CPU cost', 'Memory cost', 'Parallelization'],
+          },
+          {
+            label: 'PBKDF2',
+            title: 'PBKDF2',
+            description:
+              'Iteration-based key derivation backed by HMAC-SHA256 for compatibility with widely supported cryptographic environments.',
+            properties: ['HMAC-SHA256', 'Iterations', 'Salt'],
+          },
+        ],
+      },
+      cryptoSigner: {
+        title: 'Configurable Digital Signatures',
+        description:
+          'The signing API exposes RSA and elliptic-curve signature families through explicit algorithm contracts, allowing higher-level components such as BME to select a signer independently from the encryption profile.',
+        families: [
+          {
+            label: 'RSA',
+            title: 'RSA Signatures',
+            description:
+              'RSA signing supports both deterministic PKCS #1 v1.5 signatures and probabilistic RSA-PSS profiles.',
+            algorithms: [
+              {
+                name: 'RSA PKCS #1 v1.5',
+                standard: 'PKCS #1 v1.5',
+              },
+              {
+                name: 'RSA-PSS',
+                standard: 'PKCS #1 v2.1',
+                details: ['Probabilistic signature'],
+              },
+            ],
+          },
+          {
+            label: 'Elliptic Curve',
+            title: 'Elliptic-Curve Signatures',
+            description:
+              'Elliptic-curve signing includes ECDSA with SHA-256 together with Ed25519 as a modern Edwards-curve signature primitive.',
+            algorithms: [
+              {
+                name: 'ECDSA',
+                standard: 'SHA-256',
+                details: ['P-256', 'P-384', 'P-521'],
+              },
+              {
+                name: 'Edwards Curve 25519',
+                standard: 'EdDSA (Edwards Elliptic-Curve)',
+                details: ['Ed25519'],
+              },
+            ],
+          },
+        ],
+        contract: {
+          label: 'Signer Contract',
+          title: 'Signer',
+          description:
+            'Algorithm selection is resolved independently from higher-level message-encryption logic, allowing the chosen signer to be consumed through the same structured API.',
+          technologies: ['EnumFactory', 'Sign', 'Verify'],
+        },
+      },
+      cryptoBme: {
+        title: 'Bidirectional Message Encryption',
+        description:
+          'BME is a custom composed encryption schema combining asymmetric key protection, authenticated symmetric encryption and configurable digital signatures through two explicit message profiles.',
+
+        schema: {
+          label: 'Custom schema',
+          title: 'Bidirectional Message Encryption',
+          description:
+            'The schema composes asymmetric protection, AES-GCM payload encryption and the configurable Signer contract into a structured message-encryption model.',
+        },
+
+        profiles: [
+          {
+            label: 'Default Pad',
+            title: 'BME Default Pad',
+            description:
+              'The default profile uses RSA PKCS #1 v1.5 for asymmetric protection while preserving AES-GCM payload encryption and the configured digital-signature implementation.',
+            stages: [
+              {
+                label: 'Key protection',
+                title: 'RSA PKCS #1 v1.5',
+                description: 'Default asymmetric padding profile',
+              },
+              {
+                label: 'Payload',
+                title: 'AES-GCM',
+                description: 'Authenticated symmetric encryption',
+              },
+              {
+                label: 'Signature',
+                title: 'Signer',
+                description: 'Selected through the Signer contract',
+              },
+            ],
+          },
+          {
+            label: 'Masked Pad',
+            title: 'BME Masked Pad',
+            description:
+              'The masked profile replaces PKCS #1 v1.5 encryption with RSA-OAEP while retaining the same authenticated payload and configurable signing layers.',
+            stages: [
+              {
+                label: 'Key protection',
+                title: 'RSA-OAEP',
+                description: 'PKCS #1 v2.0',
+              },
+              {
+                label: 'Payload',
+                title: 'AES-GCM',
+                description: 'Authenticated symmetric encryption',
+              },
+              {
+                label: 'Signature',
+                title: 'Signer',
+                description: 'Selected through the Signer contract',
+              },
+            ],
+          },
+        ],
+        shared: [
+          {
+            label: 'Payload cipher',
+            value: 'AES-GCM',
+          },
+          {
+            label: 'Digital signature',
+            value: 'Configurable Signer',
+          },
+          {
+            label: 'Message model',
+            value: 'Bidirectional',
+          },
+        ],
+      },
+      decision: {
+        title: 'Engineering Decisions',
+        description:
+          'The library is shaped by design choices around explicit algorithm selection, cross-language consistency, deterministic data representation and composition of cryptographic primitives.',
+        items: [
+          {
+            decision: 'Explicit algorithm contracts',
+            rationale:
+              'Algorithm families and variants are selected through EnumFactory-based contracts so consumers depend on the library API rather than constructing provider-specific cryptographic primitives directly.',
+            tradeoff:
+              'Every new algorithm, mode or variant must be represented explicitly in the public contract and implemented consistently by each supported runtime.',
+          },
+          {
+            decision: 'Java & TypeScript semantic parity',
+            rationale:
+              'The Java 11+ and framework-agnostic TypeScript implementations preserve equivalent algorithm semantics, parameters and cryptographic behavior despite relying on different underlying implementations.',
+            tradeoff:
+              'Provider differences require explicit normalization and cross-language validation whenever algorithm behavior or binary conventions differ.',
+          },
+          {
+            decision: 'Deterministic representation',
+            rationale:
+              'Ciphertext, IV or nonce material, authentication tags, signatures and encoded values use explicit representations so cryptographic results can be exchanged predictably between implementations. Encoding supports both classic and URL-safe Base64.',
+            tradeoff:
+              'Binary layout and encoding conventions become part of the compatibility contract and must remain stable or evolve through deliberate versioning.',
+          },
+          {
+            decision: 'Composed BME profiles',
+            rationale:
+              'Bidirectional Message Encryption composes asymmetric protection, AES-GCM payload encryption and the configurable Signer contract into two explicit profiles rather than embedding those choices into a monolithic primitive.',
+            tradeoff:
+              'A composed schema introduces additional compatibility requirements around algorithm selection, message structure and profile evolution.',
+          },
+        ],
+      },
     },
   },
 ];

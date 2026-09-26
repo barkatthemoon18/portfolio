@@ -1,69 +1,75 @@
-export type ProjectVisual = | 'ares' | 'rasp' | 'crypto';
+export type ProjectVisual = 'ares' | 'rasp' | 'crypto';
 
 export interface Project {
-    slug: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    technologies: readonly string[];
-    visual: ProjectVisual;
-    visualLabel: string;
-    details: ProjectDetails;
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: readonly string[];
+  visual: ProjectVisual;
+  visualLabel: string;
+  details: ProjectDetails;
 }
 
 export interface ProjectDetails {
-    heading: string;
-    overview: readonly string[];
-    highlights: readonly string[];
-    architecture?: ProjectArchitecture;
-    strategy?: ProjectStrategy;
-    security?: ProjectSecurity;
-    evaluation?: ProjectEvaluation;
-    interaction?: ProjectInteraction;
-    surface?: ProjectSurface;
-    decision?: ProjectDecisions;
-    threatModel?: ProjectThreatModel;
-    runtimeArchitecture?: ProjectRuntimeArchitecture;
-    detectionStrategy?: ProjectDetectionStrategy;
-    correlation?: ProjectCorrelation;
-    integrity?: ProjectIntegrity;
-    adversarialResearch?: ProjectAdversarialResearch;
+  heading: string;
+  overview: readonly string[];
+  highlights: readonly string[];
+  architecture?: ProjectArchitecture;
+  strategy?: ProjectStrategy;
+  security?: ProjectSecurity;
+  evaluation?: ProjectEvaluation;
+  interaction?: ProjectInteraction;
+  surface?: ProjectSurface;
+  decision?: ProjectDecisions;
+  threatModel?: ProjectThreatModel;
+  runtimeArchitecture?: ProjectRuntimeArchitecture;
+  detectionStrategy?: ProjectDetectionStrategy;
+  correlation?: ProjectCorrelation;
+  integrity?: ProjectIntegrity;
+  adversarialResearch?: ProjectAdversarialResearch;
+  cryptoArchitecture?: ProjectCryptoArchitecture;
+  cryptoEncryption?: ProjectCryptoEncryption;
+  cryptoDigest?: ProjectCryptoDigest;
+  cryptoKdf?: ProjectCryptoKdf;
+  cryptoSigner?: ProjectCryptoSigner;
+  cryptoBme?: ProjectCryptoBme;
 }
 
 export interface ProjectArchitectureStage {
-    title: string;
-    description: string;
-    technologies?: readonly string[];
+  title: string;
+  description: string;
+  technologies?: readonly string[];
 }
 
 export interface ProjectArchitecture {
-    description: string;
-    stages: readonly ProjectArchitectureStage[];
+  description: string;
+  stages: readonly ProjectArchitectureStage[];
 }
 
 export interface ProjectStrategy {
-    title: string;
-    description: string;
-    items: readonly ProjectStrategyItem[];
+  title: string;
+  description: string;
+  items: readonly ProjectStrategyItem[];
 }
 
 export interface ProjectStrategyItem {
-    label: string;
-    title: string;
-    description: string;
-    technologies?: readonly string[];
+  label: string;
+  title: string;
+  description: string;
+  technologies?: readonly string[];
 }
 
 export interface ProjectSecurity {
-    title: string;
-    description: string;
-    controls: readonly ProjectSecurityControl[];
+  title: string;
+  description: string;
+  controls: readonly ProjectSecurityControl[];
 }
 
 export interface ProjectSecurityControl {
-    label: string;
-    title: string;
-    description: string;
+  label: string;
+  title: string;
+  description: string;
 }
 
 export interface ProjectEvaluation {
@@ -210,4 +216,142 @@ export interface ProjectAdversarialEnvironment {
   title: string;
   description: string;
   technologies: readonly string[];
+}
+
+export interface ProjectCryptoArchitecture {
+  title: string;
+  description: string;
+  contract: ProjectCryptoArchitectureContract;
+  implementations: readonly ProjectCryptoImplementation[];
+  capabilities: readonly string[];
+}
+
+export interface ProjectCryptoArchitectureContract {
+  label: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectCryptoImplementation {
+  label: string;
+  title: string;
+  description: string;
+  technologies: readonly string[];
+}
+
+export interface ProjectCryptoEncryption {
+  title: string;
+  description: string;
+  families: readonly ProjectCryptoEncryptionFamily[];
+}
+
+export interface ProjectCryptoEncryptionFamily {
+  label: string;
+  title: string;
+  description: string;
+  algorithms: readonly ProjectCryptoAlgorithm[];
+}
+
+export interface ProjectCryptoAlgorithm {
+  name: string;
+  detail?: string;
+  type?: string;
+}
+
+export interface ProjectCryptoDigest {
+  title: string;
+  description: string;
+  families: readonly ProjectCryptoDigestFamily[];
+}
+
+export interface ProjectCryptoDigestFamily {
+  label: string;
+  title: string;
+  description: string;
+  algorithms: readonly ProjectCryptoDigestAlgorithm[];
+}
+
+export interface ProjectCryptoDigestAlgorithm {
+  name: string;
+  variants?: readonly string[];
+  type?: string;
+}
+
+export interface ProjectCryptoKdf {
+  title: string;
+  description: string;
+  primary: ProjectCryptoKdfAlgorithm;
+  algorithms: readonly ProjectCryptoKdfAlgorithm[];
+}
+
+export interface ProjectCryptoKdfAlgorithm {
+  label: string;
+  title: string;
+  description: string;
+  variants?: readonly ProjectCryptoKdfVariant[];
+  properties?: readonly string[];
+}
+
+export interface ProjectCryptoKdfVariant {
+  name: string;
+  description: string;
+}
+
+export interface ProjectCryptoSigner {
+  title: string;
+  description: string;
+  families: readonly ProjectCryptoSignerFamily[];
+  contract: ProjectCryptoSignerContract;
+}
+
+export interface ProjectCryptoSignerFamily {
+  label: string;
+  title: string;
+  description: string;
+  algorithms: readonly ProjectCryptoSignerAlgorithm[];
+}
+
+export interface ProjectCryptoSignerAlgorithm {
+  name: string;
+  standard: string;
+  details?: readonly string[];
+}
+
+export interface ProjectCryptoSignerContract {
+  label: string;
+  title: string;
+  description: string;
+  technologies: readonly string[];
+}
+
+export interface ProjectCryptoBme {
+  title: string;
+  description: string;
+  schema: ProjectCryptoBmeSchema;
+  profiles: readonly ProjectCryptoBmeProfile[];
+  shared: readonly ProjectCryptoBmeSharedProperty[];
+}
+
+export interface ProjectCryptoBmeSchema {
+  label: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectCryptoBmeProfile {
+  label: string;
+  title: string;
+  description: string;
+  stages: readonly ProjectCryptoBmeStage[];
+}
+
+export interface ProjectCryptoBmeStage {
+  label: string;
+  title: string;
+  description: string;
+}
+
+export interface ProjectCryptoBmeSharedProperty {
+  label: string;
+  value: string;
 }
