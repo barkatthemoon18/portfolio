@@ -1,0 +1,356 @@
+:host {
+  display: block;
+}
+
+
+// -----------------------------------------------------------------------------
+// About
+// -----------------------------------------------------------------------------
+
+.about {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+
+  padding-block: 7rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-bg),
+      var(--color-bg-secondary) 50%,
+      var(--color-bg)
+    );
+}
+
+.about-container {
+  padding-top: 5rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+// -----------------------------------------------------------------------------
+// Header
+// -----------------------------------------------------------------------------
+
+.about-header {
+  margin-bottom: 2.5rem;
+}
+
+.about-eyebrow {
+  margin: 0;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+
+.about-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(380px, 0.9fr);
+
+  gap: 7rem;
+
+  align-items: start;
+}
+
+
+// -----------------------------------------------------------------------------
+// Profile
+// -----------------------------------------------------------------------------
+
+.about-title {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(2.2rem, 4.3vw, 3.6rem);
+  font-weight: 650;
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+.about-title span {
+  display: block;
+}
+
+.about-copy {
+  max-width: 680px;
+
+  margin-top: 3rem;
+}
+
+.about-copy p {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.about-copy p + p {
+  margin-top: 1.5rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Details
+// -----------------------------------------------------------------------------
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3rem;
+}
+
+.about-section {
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 75%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.about-section-label {
+  display: block;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+
+// -----------------------------------------------------------------------------
+// Areas
+// -----------------------------------------------------------------------------
+
+.about-areas {
+  margin-top: 1.2rem;
+}
+
+.about-area {
+  display: grid;
+
+  grid-template-columns:
+    32px
+    minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-area:last-child {
+  padding-bottom: 0;
+
+  border-bottom: 0;
+}
+
+.about-area-index {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+}
+
+.about-area strong {
+  color: var(--color-text);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.about-area p {
+  margin: 0.4rem 0 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.6;
+}
+
+
+// -----------------------------------------------------------------------------
+// Approach
+// -----------------------------------------------------------------------------
+
+.about-approach {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  margin-top: 1.2rem;
+}
+
+.about-approach-item {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  padding-inline: 1rem;
+
+  border-right: 1px solid var(--color-border);
+}
+
+.about-approach-item:first-child {
+  padding-left: 0;
+}
+
+.about-approach-item:last-child {
+  padding-right: 0;
+
+  border-right: 0;
+}
+
+.about-approach-item span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+}
+
+.about-approach-item strong {
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+
+// -----------------------------------------------------------------------------
+// Tablet
+// -----------------------------------------------------------------------------
+
+@media (max-width: 999px) {
+
+  .about {
+    padding-block: 6rem;
+  }
+
+  .about-container {
+    padding-top: 4rem;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+
+    gap: 4rem;
+  }
+
+  .about-details {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(280px, 0.7fr);
+
+    gap: 1rem;
+  }
+
+}
+
+
+// -----------------------------------------------------------------------------
+// Mobile
+// -----------------------------------------------------------------------------
+
+@media (max-width: 699px) {
+
+  .about {
+    padding-block: 4.5rem;
+  }
+
+  .about-container {
+    padding-top: 3rem;
+  }
+
+  .about-title {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .about-title span {
+    display: inline;
+  }
+
+  .about-copy {
+    margin-top: 2rem;
+  }
+
+  .about-copy p {
+    font-size: 0.82rem;
+  }
+
+  .about-details {
+    display: flex;
+
+    gap: 1rem;
+  }
+
+  .about-section {
+    padding: 1.25rem;
+  }
+
+  .about-approach {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 0;
+  }
+
+  .about-approach-item {
+    padding: 1rem;
+
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about-approach-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .about-approach-item:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .about-approach-item:first-child {
+    padding-left: 1rem;
+  }
+
+  .about-approach-item:last-child {
+    padding-right: 1rem;
+  }
+}

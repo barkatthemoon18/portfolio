@@ -1,0 +1,63 @@
+<section id="experience" class="experience">
+    <div class="experience-container container">
+        <header class="experience-header">
+            <div class="experience-heading">
+                <p class="experience-eyebrow">
+                    Experience
+                </p>
+                <h2 class="experience-title">
+                    Security engineering across
+                    <span>products, platforms and runtime systems.</span>
+                </h2>
+            </div>
+            <p class="experience-introduction">
+                Application security and software engineering experience spanning secure
+                development, mobile runtime protection, applied cryptography and security research.
+            </p>
+        </header>
+        <div class="experience-list">
+            @for (item of items; track item.organization; let index = $index) {
+                <article class="experience-item">
+                    <div class="experience-index">
+                        0{{ index + 1}}
+                    </div>
+                    <div class="experience-position">
+                        <span class="experience-period">
+                            {{ item.period }}
+                        </span>
+                        <span class="experience-organization">
+                            {{ item.organization }}
+                        </span>
+                        <h3 class="experience-role">
+                            {{ item.role }}
+                        </h3>
+                    </div>
+                    <div class="experience-content">
+                        <p class="experience-description">
+                            {{ item.description }}
+                        </p>
+                        <div class="experience-focus">
+                            @for (focus of item.focus; track focus) {
+                                <span>
+                                    {{ focus }}
+                                </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="experience-technologies">
+                        <span>
+                            Stack Tecnológico
+                        </span>
+                        <div class="experience-technologies-list">
+                            @for (technology of item.technologies; track technology) {
+                                <span>
+                                {{ technology }}
+                            </span>
+                            }
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>

@@ -520,7 +520,7 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'crypto-library',
-    title: 'BCH Crypto Library',
+    title: 'Crypto Library',
     subtitle: 'Java & TypeScript Cryptography',
     description:
       'A cryptographic library exposing a consistent algorithm-oriented API across Java and framework-agnostic TypeScript implementations.',

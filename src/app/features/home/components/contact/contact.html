@@ -1,0 +1,49 @@
+<section id="contact" class="contact">
+    <div class="contact-container container">
+        <p class="contact-eyebrow">
+            Contact
+        </p>
+        <div class="contact-layout">
+            <div class="contact-primary">
+                <h2 class="contact-title">
+                    Let's build secure software
+                    <span>that survives the real world.</span>
+                </h2>
+                <p class="contact-description">
+                    I'm interested in application security, product security,
+                    mobile security and security-focused software engineering,
+                    from defensive architecture to runtime research.
+                </p>
+            </div>
+            <aside class="contact-secondary">
+                <span class="contact-secondary-label">
+                    Areas of interest
+                </span>
+                <div class="contact-interests">
+                    @for (interest of interests; track interest; let index = $index) {
+                        <div class="contact-interest">
+                            <span>
+                                0{{ index + 1 }}
+                            </span>
+                            <strong>
+                                {{ interest }}
+                            </strong>
+                        </div>
+                    }
+                </div>
+            </aside>
+        </div>
+        <nav class="contact-links" aria-label="Contact links">
+            @for (link of links; track link.label) {
+                <a class="contact-link" [href]="link.href" [target]="link.external ? '_blank' : null" [rel]="link.external ? 'noopener noreferrer' : null">
+                    <span>
+                        {{ link.label }}
+                    </span>
+                    <span>
+                        ↗
+                    </span>
+                </a>
+            }
+        </nav>
+    </div>
+</section>

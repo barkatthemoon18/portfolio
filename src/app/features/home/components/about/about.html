@@ -1,0 +1,73 @@
+<section id="about" class="about">
+    <div class="about-container container">
+        <header class="about-header">
+            <p class="about-eyebrow">
+                About
+            </p>
+        </header>
+        <div class="about-layout">
+            <div class="about-profile">
+                <h2 class="about-title">
+                    Security engineer who builds
+                    <span>the controls he researches.</span>
+                </h2>
+                <div class="about-copy">
+                    <p>
+                        I wokr at the intersection of application security,
+                        software engineering and security research.
+                    </p>
+                    <p>
+                        My focus is not only identifying vulnerabilities, but understanding
+                        how systems fail and designing controls that remain useful under real runtime conditions.
+                    </p>
+                    <p>
+                        I approach security as an engineering problem: systems should be observable,
+                        boundaries should be explicit and defensive assumptions should be tested against
+                        realistic adversarial behavior.
+                    </p>
+                </div>
+            </div>
+            <aside class="about-details">
+                <div class="about-section">
+                    <span class="about-section-label">
+                        Focus
+                    </span>
+                    <div class="about-areas">
+                        @for (area of areas; track area.label; let index = $index) {
+                            <div class="about-area">
+                                <span class="about-area-index">
+                                    0{{ index + 1 }}
+                                </span>
+                                <div>
+                                    <strong>
+                                        {{ area.label }}
+                                    </strong>
+                                    <p>
+                                        {{ area.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="about-section about-approach-section">
+                    <span class="about-section-label">
+                        Approach
+                    </span>
+                    <div class="about-approach">
+                        @for (item of approach; track item; let index = $index) {
+                            <div class="about-approach-item">
+                                <span>
+                                    0{{ index + 1 }}
+                                </span>
+                                <strong>
+                                    {{ item }}
+                                </strong>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
