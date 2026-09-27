@@ -1,0 +1,49 @@
+<section id="research" class="research">
+    <div class="research-container container">
+        <header class="research-header">
+            <div class="research-heading">
+                <p class="research-eyebrow">
+                    Research
+                </p>
+                <h2 class="research-title">
+                    Research at the boundary between
+                    <span>applications and their runtime.</span>
+                </h2>
+            </div>
+            <p class="research-introduction">
+                I explore defensive systems, adversarial runtime behavior,
+                applied cryptography and local AI execution with an emphasis
+                on explicit boundaries and observable system behavior.
+            </p>
+        </header>
+        <div class="research-list">
+            @for (area of areas; track area.index) {
+                <article class="research-item">
+                    <div class="research-index">
+                        {{ area.index }}
+                    </div>
+                    <div class="research-topic">
+                        <span class="research-label">
+                            {{ area.label }}
+                        </span>
+                    </div>
+                    <div class="research-content">
+                        <p class="research-description">
+                            {{ area.description }}
+                        </p>
+                        <div class="research-tags">
+                            @for (topic of area.topics; track topic) {
+                                <span>
+                                    {{ topic }}
+                                </span>
+                            }
+                        </div>
+                    </div>
+                    <span class="research-arrow" aria-hidden="true">
+                        ↗
+                    </span>
+                </article>
+            }
+        </div>
+    </div>
+</section>
