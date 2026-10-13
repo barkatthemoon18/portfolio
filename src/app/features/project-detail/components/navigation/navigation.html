@@ -1,0 +1,39 @@
+<a class="project-detail-footer-back" routerLink="/" fragment="selected-work">
+    <span class="project-detail-footer-direction">
+        ← Selected work
+    </span>
+    <strong class="project-detail-footer-back-title">
+        All Projects
+    </strong>
+    <span class="project-detail-footer-back-description">
+        Return to portfolio overview
+    </span>
+</a>
+<nav class="project-detail-footer-navigation" aria-label="Project navigation">
+    @if (previousProject(); as previous) {
+        <a class="project-detail-footer-project project-detail-footer-project-previous" [routerLink]="['/projects', previous.slug]">
+            <span class="project-detail-footer-direction">
+                ← Previous project
+            </span>
+            <strong>
+                {{ previous.title }}
+            </strong>
+            <span>
+                {{ previous.subtitle }}
+            </span>
+        </a>
+    }
+    @if (nextProject(); as next) {
+        <a class="project-detail-footer-project project-detail-footer-project-next" [routerLink]="['/projects', next.slug]">
+            <span class="project-detail-footer-direction">
+                Next project →
+            </span>
+            <strong>
+                {{ next.title }}
+            </strong>
+            <span>
+                {{ next.subtitle }}
+            </span>
+        </a>
+    }
+</nav>

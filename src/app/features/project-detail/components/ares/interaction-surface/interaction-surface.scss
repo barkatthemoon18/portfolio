@@ -1,0 +1,376 @@
+// -----------------------------------------------------------------------------
+// Interaction Surface
+// -----------------------------------------------------------------------------
+
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+// -----------------------------------------------------------------------------
+// Flow
+// -----------------------------------------------------------------------------
+
+.project-detail-interaction-flow {
+  display: grid;
+
+  grid-template-columns:
+        minmax(170px, 0.55fr)
+        65px
+        minmax(320px, 1.2fr)
+        65px
+        minmax(170px, 0.55fr);
+
+  align-items: stretch;
+
+  gap: 0.75rem;
+}
+
+.project-detail-interaction-endpoint,
+.project-detail-interaction-service {
+  min-height: 210px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+
+// -----------------------------------------------------------------------------
+// Endpoints
+// -----------------------------------------------------------------------------
+
+.project-detail-interaction-endpoint {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.35rem;
+}
+
+.project-detail-interaction-endpoint-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.1em;
+}
+
+.project-detail-interaction-endpoint strong {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+}
+
+.project-detail-interaction-endpoint code {
+  margin-top: 0.5rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Connector
+// -----------------------------------------------------------------------------
+
+.project-detail-interaction-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 50px;
+
+  // Los spans permanecen en el HTML,
+  // pero ya no los usamos visualmente.
+  span {
+    display: none;
+  }
+
+  // Línea
+  &::before {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  // Punta
+  &::after {
+    content: "";
+
+    flex: 0 0 auto;
+
+    width: 0;
+    height: 0;
+
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 5px solid var(--color-accent);
+
+    margin-left: -1px;
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// Service
+// -----------------------------------------------------------------------------
+
+.project-detail-interaction-service {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.35rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.055),
+      transparent 60%
+    ),
+    var(--color-surface);
+}
+
+.project-detail-interaction-service-header {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  letter-spacing: 0.05em;
+}
+
+.project-detail-interaction-status {
+  color: var(--color-accent);
+}
+
+.project-detail-interaction-surface {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  flex: 1;
+
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background:
+    rgba(0, 0, 0, 0.14);
+}
+
+.project-detail-interaction-surface-label {
+  color: var(--color-text-secondary);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.project-detail-interaction-modalities {
+  display: flex;
+  gap: 0.45rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-interaction-modalities span {
+  padding: 0.25rem 0.5rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  text-transform: uppercase;
+}
+
+
+// -----------------------------------------------------------------------------
+// Interaction types
+// -----------------------------------------------------------------------------
+
+.project-detail-interaction-types {
+  display: grid;
+  grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-interaction-type {
+  padding: 1.4rem;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-interaction-type-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 1.8rem;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-interaction-type-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-interaction-type h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-interaction-type code {
+  display: block;
+
+  margin-top: 0.55rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+}
+
+.project-detail-interaction-type p {
+  margin: 1rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.78;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 999px) {
+  .project-detail-interaction-flow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .project-detail-interaction-endpoint {
+    min-height: 135px;
+  }
+
+  .project-detail-interaction-service {
+    min-height: 180px;
+  }
+
+  .project-detail-interaction-connector {
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+
+    &::before {
+      flex: none;
+
+      width: 1px;
+      height: 34px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--color-border),
+          var(--color-accent)
+        );
+    }
+
+    &::after {
+      border-top: 5px solid var(--color-accent);
+      border-right: 4px solid transparent;
+      border-bottom: 0;
+      border-left: 4px solid transparent;
+
+      margin-top: -1px;
+      margin-left: 0;
+    }
+  }
+
+  .project-detail-interaction-connector span:first-child {
+    flex: none;
+
+    width: 1px;
+    height: 34px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-interaction-connector span:last-child {
+    margin: -0.15rem 0 0;
+
+    transform: rotate(90deg);
+
+    color: var(--color-accent);
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-interaction-types {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-interaction-endpoint {
+    min-height: 125px;
+  }
+
+  .project-detail-interaction-service {
+    min-height: 165px;
+  }
+
+  .project-detail-interaction-type {
+    min-height: auto;
+  }
+}

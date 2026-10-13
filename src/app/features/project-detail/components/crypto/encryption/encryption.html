@@ -1,0 +1,48 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="03 / Encryption"
+    [title]="cryptoEncryption().title"
+    [description]="cryptoEncryption().description"
+></header>
+<div class="project-detail-crypto-encryption-grid">
+    @for (family of cryptoEncryption().families; track family.title; let familyIndex = $index) {
+        <article class="project-detail-crypto-encryption-family">
+            <header class="project-detail-crypto-encryption-family-header">
+                <span>
+                    {{ family.label }}
+                </span>
+                <span>
+                    0{{ familyIndex + 1 }}
+                </span>
+            </header>
+            <h3>
+                {{ family.title }}
+            </h3>
+            <p class="project-detail-crypto-encryption-family-description">
+                {{ family.description }}
+            </p>
+            <div class="project-detail-crypto-algorithm-list">
+                @for (algorithm of family.algorithms; track algorithm.name) {
+                    <div class="project-detail-crypto-algorithm">
+                        <div class="project-detail-crypto-algorithm-heading">
+                            <strong>
+                                {{ algorithm.name }}
+                            </strong>
+                            @if (algorithm.type) {
+                                <span>
+                                    {{ algorithm.type }}
+                                </span>
+                            }
+                        </div>
+                        @if (algorithm.detail) {
+                            <span class="project-detail-crypto-algorithm-detail">
+                                {{ algorithm.detail }}
+                            </span>
+                        }
+                    </div>
+                }
+            </div>
+        </article>
+    }
+</div>

@@ -1,0 +1,34 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="04 / Detection Strategy"
+    [title]="detectionStrategy().title"
+    [description]="detectionStrategy().description"
+></header>
+<div class="project-detail-detection-list">
+    @for (surface of detectionStrategy().surfaces; track surface.title; let index = $index) {
+        <article class="project-detail-detection-surface">
+            <div class="project-detail-detection-index">
+                0{{ index + 1 }}
+            </div>
+            <div class="project-detail-detection-heading">
+                <span class="project-detail-detection-source">
+                    {{ surface.source }}
+                </span>
+                <h3>
+                    {{ surface.title }}
+                </h3>
+            </div>
+            <p class="project-detail-detection-description">
+                {{ surface.description }}
+            </p>
+            <div class="project-detail-detection-signals">
+                @for (signal of surface.signals; track signal) {
+                    <code>
+                        {{ signal }}
+                    </code>
+                }
+            </div>
+        </article>
+    }
+</div>

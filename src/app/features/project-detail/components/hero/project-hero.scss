@@ -1,0 +1,137 @@
+:host {
+  position: relative;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--color-border);
+
+  background:
+    radial-gradient(circle at 78% 48%, rgba(41, 168, 255, 0.1), transparent 32%), var(--color-bg);
+}
+
+.project-detail-hero-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.18;
+
+  background-image:
+    linear-gradient(rgba(41, 168, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 168, 255, 0.08) 1px, transparent 1px);
+
+  background-size: 42px 42px;
+
+  mask-image: linear-gradient(90deg, transparent 0%, black 55%, black 100%);
+
+  pointer-events: none;
+}
+
+.project-detail-hero-container {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 500px;
+  padding-block: 6rem;
+}
+
+.project-detail-heading {
+  max-width: 900px;
+}
+
+.project-detail-eyebrow {
+  margin: 0 0 1.35rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-detail-title {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(4rem, 9vw, 7.5rem);
+  font-weight: 650;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.project-detail-name {
+  margin: 1.75rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+.project-detail-subtitle {
+  margin: 0.45rem 0 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.95rem;
+}
+
+.project-detail-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin-top: 2.25rem;
+}
+
+.project-detail-technology {
+  padding: 0.38rem 0.65rem;
+
+  color: var(--color-text-secondary);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+
+  letter-spacing: 0.02em;
+}
+:host-context(.project-detail-rasp) {
+  background:
+    radial-gradient(circle at 78% 48%, rgba(53, 196, 134, 0.08), transparent 32%), var(--color-bg);
+}
+:host-context(.project-detail-crypto) {
+  background:
+    radial-gradient(circle at 78% 48%, rgba(118, 104, 255, 0.09), transparent 32%), var(--color-bg);
+}
+@media (max-width: 999px) {
+  .project-detail-hero-container {
+    min-height: 440px;
+    padding-block: 5rem;
+  }
+}
+@media (max-width: 699px) {
+  .project-detail-hero-container {
+    min-height: 380px;
+    padding-block: 4rem;
+  }
+
+  .project-detail-title {
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    overflow-wrap: anywhere;
+  }
+}

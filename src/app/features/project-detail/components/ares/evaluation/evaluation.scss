@@ -1,0 +1,172 @@
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-evaluation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  overflow: hidden;
+}
+
+.project-detail-evaluation-metric {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 200px;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(180deg, rgba(41, 168, 255, 0.035), transparent 60%), var(--color-surface);
+
+  &:not(:last-child) {
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.project-detail-evaluation-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-evaluation-value {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+
+  letter-spacing: -0.05em;
+}
+
+.project-detail-evaluation-detail {
+  margin-top: 0.55rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.project-detail-evaluation-notes {
+  display: grid;
+  grid-template-columns:
+    minmax(150px, 0.35fr)
+    minmax(0, 1fr);
+
+  gap: 2rem;
+
+  margin-top: 1rem;
+  padding: 1.4rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-evaluation-notes-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-evaluation-notes ul {
+  display: grid;
+  gap: 0.7rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.project-detail-evaluation-notes li {
+  position: relative;
+
+  padding-left: 1.15rem;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.75rem;
+  line-height: 1.6;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0.55rem;
+    left: 0;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--color-accent);
+
+    box-shadow: 0 0 7px rgba(41, 168, 255, 0.55);
+  }
+}
+@media (max-width: 999px) {
+  .project-detail-evaluation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-evaluation-metric {
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .project-detail-evaluation-metric:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .project-detail-evaluation-metric:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-evaluation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-evaluation-metric,
+  .project-detail-evaluation-metric:nth-child(odd),
+  .project-detail-evaluation-metric:nth-child(-n + 2) {
+    min-height: 160px;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-evaluation-metric:last-child {
+    border-bottom: 0;
+  }
+
+  .project-detail-evaluation-notes {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

@@ -1,0 +1,79 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="05 / Key Derivation Function"
+    [title]="cryptoKdf().title"
+    [description]="cryptoKdf().description"
+></header>
+<article class="project-detail-crypto-kdf-primary">
+    <header class="project-detail-crypto-kdf-primary-header">
+        <span>
+            {{ cryptoKdf().primary.label }}
+        </span>
+        <span>
+            01
+        </span>
+    </header>
+    <div class="project-detail-crypto-kdf-primary-content">
+        <div class="project-detail-crypto-kdf-primary-description">
+            <h3>
+                {{ cryptoKdf().primary.title }}
+            </h3>
+            <p>
+                {{ cryptoKdf().primary.description }}
+            </p>
+            @if (cryptoKdf().primary.properties?.length) {
+                <div class="project-detail-crypto-kdf-properties">
+                    @for (property of cryptoKdf().primary.properties; track property) {
+                        <span>
+                            {{ property }}
+                        </span>
+                    }
+                </div>
+            }
+        </div>
+        @if (cryptoKdf().primary.variants?.length) {
+            <div class="project-detail-crypto-kdf-variants">
+                @for (variant of cryptoKdf().primary.variants; track variant.name) {
+                    <div class="project-detail-crypto-kdf-variant">
+                        <strong>
+                            {{ variant.name }}
+                        </strong>
+                        <span>
+                            {{ variant.description }}
+                        </span>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</article>
+<div class="project-detail-crypto-kdf-grid">
+    @for (algorithm of cryptoKdf().algorithms; track algorithm.title; let index = $index) {
+        <article class="project-detail-crypto-kdf-item">
+            <header class="project-detail-crypto-kdf-item-header">
+                <span>
+                    {{ algorithm.label }}
+                </span>
+                <span>
+                    0{{ index + 2 }}
+                </span>
+            </header>
+            <h3>
+                {{ algorithm.title }}
+            </h3>
+            <p>
+                {{ algorithm.description }}
+            </p>
+            @if (algorithm.properties?.length) {
+                <div class="project-detail-crypto-kdf-properties">
+                    @for (property of algorithm.properties; track property) {
+                        <span>
+                            {{ property }}
+                        </span>
+                    }
+                </div>
+            }
+        </article>
+    }
+</div>
