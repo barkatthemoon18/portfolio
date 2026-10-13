@@ -15,7 +15,8 @@
         </p>
     </div>
     <div class="project-detail-technologies">
-        @for (technology of project().technologies; track technology) {
+        <!-- These stateless slots display the current project's fixed technology list. -->
+        @for (technology of project().technologies; track $index) {
             <span class="project-detail-technology">
                 {{ technology }}
             </span>

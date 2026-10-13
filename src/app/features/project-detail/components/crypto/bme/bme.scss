@@ -1,4 +1,4 @@
-// Preserve the original cascade: mobile rules, base styles, then tablet overrides.
+// Preserve the existing spacing and connector cascade.
 @media (max-width: 699px) {
   :host {
     margin-top: 4rem;
@@ -7,15 +7,6 @@
 
   .project-detail-crypto-bme-schema {
     max-width: none;
-  }
-
-  .project-detail-crypto-bme-profiles {
-    grid-template-columns: 1fr;
-  }
-
-  .project-detail-crypto-bme-profile {
-    min-height: auto;
-    padding: 1.25rem;
   }
 
   .project-detail-crypto-bme-split,
@@ -46,26 +37,6 @@
     width: 100%;
   }
 
-  .project-detail-crypto-bme-shared-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-detail-crypto-bme-shared-item {
-    padding: 1rem 0;
-
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .project-detail-crypto-bme-shared-item:first-child {
-    padding-top: 0;
-  }
-
-  .project-detail-crypto-bme-shared-item:last-child {
-    padding-bottom: 0;
-
-    border-bottom: 0;
-  }
 }
 
 // -----------------------------------------------------------------------------
@@ -587,5 +558,35 @@
 @media (max-width: 999px) {
   .project-detail-crypto-bme-profile {
     min-height: 410px;
+  }
+}
+
+// Card overrides follow the base and tablet styles so the mobile layout wins.
+@media (max-width: 699px) {
+  .project-detail-crypto-bme-profiles,
+  .project-detail-crypto-bme-shared-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-bme-profile {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-bme-shared-item {
+    padding: 1rem 0;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-crypto-bme-shared-item:first-child {
+    padding-top: 0;
+  }
+
+  .project-detail-crypto-bme-shared-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: 0;
   }
 }

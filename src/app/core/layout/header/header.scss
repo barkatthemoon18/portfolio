@@ -348,3 +348,14 @@
   }
 
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .header-brand,
+  .header-nav,
+  .header-link,
+  .header-link::after,
+  .header-external,
+  .header-menu-button span {
+    transition: none;
+  }
+}
