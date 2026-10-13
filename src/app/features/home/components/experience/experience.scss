@@ -10,11 +10,11 @@
 .experience {
   scroll-margin-top: calc(var(--header-height) + 1rem);
 
-  padding-block: 7rem;
+  padding-block: 6rem;
 }
 
 .experience-container {
-  padding-top: 5rem;
+  padding-top: 3rem;
 
   border-top: 1px solid var(--color-border);
 }
@@ -33,9 +33,9 @@
 
   align-items: end;
 
-  gap: 5rem;
+  gap: clamp(2rem, 4vw, 4rem);
 
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .experience-eyebrow {
@@ -44,7 +44,7 @@
   color: var(--color-accent);
 
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
 
   letter-spacing: 0.1em;
@@ -74,9 +74,9 @@
 
   margin: 0;
 
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   line-height: 1.75;
 }
 
@@ -95,22 +95,20 @@
   display: grid;
 
   grid-template-columns:
-    52px
+    48px
     minmax(220px, 0.8fr)
     minmax(320px, 1.2fr)
     minmax(160px, 0.55fr);
 
   align-items: start;
 
-  gap: 2rem;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 
   padding-block: 2.5rem;
 
   border-bottom: 1px solid var(--color-border);
 
-  transition:
-    background 180ms ease,
-    padding-inline 180ms ease;
+  transition: background 180ms ease;
 }
 
 .experience-item::before {
@@ -137,8 +135,6 @@
 }
 
 .experience-item:hover {
-  padding-inline: 1rem;
-
   background:
     linear-gradient(
       90deg,
@@ -161,10 +157,10 @@
 .experience-index {
   padding-top: 0.2rem;
 
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
 
   letter-spacing: 0.08em;
 }
@@ -180,10 +176,10 @@
 }
 
 .experience-period {
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.75rem;
 
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -195,7 +191,7 @@
   color: var(--color-accent);
 
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
 
   letter-spacing: 0.08em;
@@ -205,13 +201,13 @@
 .experience-role {
   max-width: 300px;
 
-  margin: 1rem 0 0;
+  margin: 0.65rem 0 0;
 
   color: var(--color-text);
 
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 650;
-  line-height: 1.4;
+  line-height: 1.35;
 
   letter-spacing: -0.02em;
 }
@@ -235,9 +231,7 @@
 
   color: var(--color-text-secondary);
 
-  opacity: 0.82;
-
-  font-size: 0.78rem;
+  font-size: 0.9375rem;
   line-height: 1.75;
 }
 
@@ -248,7 +242,7 @@
   gap: 0.45rem;
 
   margin-top: auto;
-  padding-top: 1.4rem;
+  padding-top: 1.25rem;
 }
 
 .experience-focus span {
@@ -256,14 +250,13 @@
 
   color: var(--color-accent);
 
-  background:
-    rgba(41, 168, 255, 0.015);
+  background: var(--color-bg-secondary);
 
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
 
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
 }
 
 
@@ -277,10 +270,10 @@
 }
 
 .experience-technologies-label {
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   font-weight: 600;
 
   letter-spacing: 0.08em;
@@ -305,7 +298,7 @@
   border-radius: var(--radius-sm);
 
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.75rem;
 }
 
 
@@ -320,7 +313,7 @@
   }
 
   .experience-container {
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
 
   .experience-header {
@@ -362,11 +355,11 @@
   }
 
   .experience-container {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 
   .experience-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .experience-title {
@@ -379,18 +372,14 @@
 
   .experience-item {
     grid-template-columns:
-      32px
+      24px
       minmax(0, 1fr);
 
     gap:
       1rem
-      1rem;
+      0.75rem;
 
     padding-block: 2rem;
-  }
-
-  .experience-item:hover {
-    padding-inline: 0;
   }
 
   .experience-index {
@@ -411,7 +400,7 @@
   }
 
   .experience-focus {
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     padding-top: 0;
   }
 
@@ -420,5 +409,12 @@
     grid-row: 3;
 
     padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-item,
+  .experience-item::before {
+    transition: none;
   }
 }

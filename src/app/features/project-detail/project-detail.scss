@@ -296,6 +296,7 @@
 
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 650;
+  line-height: 1.15;
 
   letter-spacing: -0.04em;
 }
@@ -2914,7 +2915,8 @@
   }
 
   .project-detail-title {
-    font-size: clamp(3.2rem, 18vw, 5rem);
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    overflow-wrap: anywhere;
   }
 
   .project-detail-content {
