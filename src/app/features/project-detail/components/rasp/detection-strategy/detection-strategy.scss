@@ -1,0 +1,136 @@
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-detection-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-detection-surface {
+  display: grid;
+
+  grid-template-columns:
+    60px
+    minmax(190px, 0.55fr)
+    minmax(260px, 1fr)
+    minmax(240px, 0.8fr);
+
+  align-items: start;
+
+  gap: 2rem;
+
+  padding-block: 2.2rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-detection-index {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+}
+
+.project-detail-detection-heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.project-detail-detection-source {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-detection-heading h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-detection-description {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-detection-signals {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+}
+
+.project-detail-detection-signals code {
+  padding: 0.32rem 0.52rem;
+
+  color: var(--color-accent);
+
+  background: rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+@media (max-width: 999px) {
+  .project-detail-detection-surface {
+    grid-template-columns:
+      45px
+      minmax(170px, 0.55fr)
+      minmax(0, 1fr);
+
+    gap: 1.25rem;
+  }
+
+  .project-detail-detection-signals {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-detection-surface {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+
+    padding-block: 1.6rem;
+  }
+
+  .project-detail-detection-signals {
+    grid-column: auto;
+
+    margin-top: 0.35rem;
+  }
+
+  .project-detail-detection-index {
+    margin-bottom: 0.25rem;
+  }
+}

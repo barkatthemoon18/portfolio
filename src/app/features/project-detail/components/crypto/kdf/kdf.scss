@@ -1,0 +1,241 @@
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-kdf-primary {
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(41, 168, 255, 0.065), transparent 70%),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-kdf-primary-header,
+.project-detail-crypto-kdf-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-kdf-primary-header span:first-child,
+.project-detail-crypto-kdf-item-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-kdf-primary-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.75fr)
+    minmax(0, 1.25fr);
+
+  align-items: end;
+
+  gap: 3rem;
+
+  margin-top: 2rem;
+}
+
+.project-detail-crypto-kdf-primary-description h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-kdf-primary-description p {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-crypto-kdf-variants {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 0;
+}
+
+.project-detail-crypto-kdf-variant {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 110px;
+  padding: 1rem;
+
+  border-left: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-kdf-variant:first-child {
+  border-left: 0;
+}
+
+.project-detail-crypto-kdf-variant strong {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-kdf-variant span {
+  margin-top: auto;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.project-detail-crypto-kdf-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-kdf-item {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 230px;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(180deg, rgba(41, 168, 255, 0.025), transparent 70%), var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-kdf-item h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-kdf-item p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.74rem;
+  line-height: 1.7;
+}
+
+.project-detail-crypto-kdf-properties {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.project-detail-crypto-kdf-primary-description .project-detail-crypto-kdf-properties {
+  margin-top: 1.25rem;
+}
+
+.project-detail-crypto-kdf-properties span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  background: rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+@media (max-width: 999px) {
+  .project-detail-crypto-kdf-primary-content {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .project-detail-crypto-kdf-variants {
+    border-top: 1px solid var(--color-border);
+
+    padding-top: 1rem;
+  }
+
+  .project-detail-crypto-kdf-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-crypto-kdf-item {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-kdf-variants {
+    grid-template-columns: 1fr;
+
+    padding-top: 0;
+  }
+
+  .project-detail-crypto-kdf-variant {
+    min-height: auto;
+    padding: 1rem 0;
+
+    border-left: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-crypto-kdf-variant:last-child {
+    border-bottom: 0;
+  }
+
+  .project-detail-crypto-kdf-variant span {
+    margin-top: 0.45rem;
+  }
+
+  .project-detail-crypto-kdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-kdf-item {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+}

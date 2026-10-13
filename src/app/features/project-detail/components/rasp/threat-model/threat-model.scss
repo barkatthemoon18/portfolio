@@ -1,0 +1,120 @@
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-threat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-threat {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 290px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(180deg, rgba(41, 168, 255, 0.025), transparent 70%), var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.project-detail-threat:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--color-border-hover);
+}
+
+.project-detail-threat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-threat-category {
+  color: var(--color-accent);
+}
+
+.project-detail-threat-title {
+  margin: 2rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-threat-description {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.project-detail-threat-indicators {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-detail-threat-indicators span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-text-secondary);
+
+  background: rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+}
+
+@media (max-width: 999px) {
+  .project-detail-threat {
+    min-height: 270px;
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-threat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-threat {
+    min-height: auto;
+  }
+}

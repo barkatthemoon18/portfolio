@@ -1,0 +1,148 @@
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-encryption-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(0, 0.65fr);
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-encryption-family {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(180deg, rgba(41, 168, 255, 0.025), transparent 65%), var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-encryption-family-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-encryption-family-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-encryption-family h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-encryption-family-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.project-detail-crypto-algorithm-list {
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-algorithm {
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-algorithm:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-algorithm-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.project-detail-crypto-algorithm-heading strong {
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-algorithm-heading > span {
+  padding: 0.25rem 0.45rem;
+
+  color: var(--color-accent);
+
+  background: rgba(41, 168, 255, 0.025);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+}
+
+.project-detail-crypto-algorithm-detail {
+  display: block;
+
+  margin-top: 0.4rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+@media (max-width: 999px) {
+  .project-detail-crypto-encryption-grid {
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(0, 0.85fr);
+  }
+}
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-encryption-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-encryption-family {
+    padding: 1.25rem;
+  }
+}

@@ -1,31 +1,10 @@
 @if (project(); as currentProject) {
     <article [class]="'project-detail project-detail-' + currentProject.visual">
-        <header class="project-detail-hero">
-            <div class="project-detail-hero-grid"></div>
-            <div class="project-detail-hero-container container">
-                <div class="project-detail-heading">
-                    <p class="project-detail-eyebrow">
-                        {{ currentProject.visualLabel }}
-                    </p>
-                    <h1 class="project-detail-title">
-                        {{ currentProject.title }}
-                    </h1>
-                    <p class="project-detail-name">
-                        {{ currentProject.details.heading }}
-                    </p>
-                    <p class="project-detail-subtitle">
-                        {{ currentProject.subtitle }}
-                    </p>
-                </div>
-                <div class="project-detail-technologies">
-                    @for (technology of currentProject.technologies; track technology) {
-                        <span class="project-detail-technology">
-                            {{ technology }}
-                        </span>
-                    }
-                </div>
-            </div>
-        </header>
+        <header
+            app-project-hero
+            class="project-detail-hero"
+            [project]="currentProject"
+        ></header>
         <div class="project-detail-content container">
             <div class="project-detail-overview-grid">
                 <section class="project-detail-section">
@@ -62,195 +41,25 @@
                 ></section>
             }
             @if (currentProject.details.cryptoEncryption; as cryptoEncryption) {
-                <section class="project-detail-crypto-encryption">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="03 / Encryption"
-                        [title]="cryptoEncryption.title"
-                        [description]="cryptoEncryption.description"
-                    ></header>
-                    <div class="project-detail-crypto-encryption-grid">
-                        @for (family of cryptoEncryption.families; track family.title; let familyIndex = $index) {
-                            <article class="project-detail-crypto-encryption-family">
-                                <header class="project-detail-crypto-encryption-family-header">
-                                    <span>
-                                        {{ family.label }}
-                                    </span>
-                                    <span>
-                                        0{{ familyIndex + 1 }}
-                                    </span>
-                                </header>
-                                <h3>
-                                    {{ family.title }}
-                                </h3>
-                                <p class="project-detail-crypto-encryption-family-description">
-                                    {{ family.description }}
-                                </p>
-                                <div class="project-detail-crypto-algorithm-list">
-                                    @for (algorithm of family.algorithms; track algorithm.name) {
-                                        <div class="project-detail-crypto-algorithm">
-                                            <div class="project-detail-crypto-algorithm-heading">
-                                                <strong>
-                                                    {{ algorithm.name }}
-                                                </strong>
-                                                @if (algorithm.type) {
-                                                    <span>
-                                                        {{ algorithm.type }}
-                                                    </span>
-                                                }
-                                            </div>
-                                            @if (algorithm.detail) {
-                                                <span class="project-detail-crypto-algorithm-detail">
-                                                    {{ algorithm.detail }}
-                                                </span>
-                                            }
-                                        </div>
-                                    }
-                                </div>
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-crypto-encryption
+                    class="project-detail-crypto-encryption"
+                    [cryptoEncryption]="cryptoEncryption"
+                ></section>
             }
             @if (currentProject.details.cryptoDigest; as cryptoDigest) {
-                <section class="project-detail-crypto-digest">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="04 / Hashing, MAC &amp; XOF"
-                        [title]="cryptoDigest.title"
-                        [description]="cryptoDigest.description"
-                    ></header>
-                    <div class="project-detail-crypto-digest-grid">
-                        @for (family of cryptoDigest.families; track family.title; let index = $index) {
-                            <article class="project-detail-crypto-digest-family">
-                                <header class="project-detail-crypto-digest-family-header">
-                                    <span>
-                                        {{ family.label }}
-                                    </span>
-                                    <span>
-                                        0{{ index + 1 }}
-                                    </span>
-                                </header>
-                                <h3>
-                                    {{ family.title }}
-                                </h3>
-                                <p class="project-detail-crypto-digest-description">
-                                    {{ family.description }}
-                                </p>
-                                <div class="project-detail-crypto-digest-algorithms">
-                                    @for (algorithm of family.algorithms; track algorithm.name) {
-                                        <div class="project-detail-crypto-digest-algorithm">
-                                            <div class="project-detail-crypto-digest-algorithm-header">
-                                                <strong>
-                                                    {{ algorithm.name }}
-                                                </strong>
-                                                @if (algorithm.type) {
-                                                    <span>
-                                                        {{ algorithm.type }}
-                                                    </span>
-                                                }
-                                            </div>
-                                            @if (algorithm.variants?.length) {
-                                                <div class="project-detail-crypto-digest-variants">
-                                                    @for (variant of algorithm.variants; track variant) {
-                                                        <span>
-                                                            {{ variant }}
-                                                        </span>
-                                                    }
-                                                </div>
-                                            }
-                                        </div>
-                                    }
-                                </div>
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-crypto-digest
+                    class="project-detail-crypto-digest"
+                    [cryptoDigest]="cryptoDigest"
+                ></section>
             }
             @if (currentProject.details.cryptoKdf; as cryptoKdf) {
-                <section class="project-detail-crypto-kdf">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="05 / Key Derivation Function"
-                        [title]="cryptoKdf.title"
-                        [description]="cryptoKdf.description"
-                    ></header>
-                    <article class="project-detail-crypto-kdf-primary">
-                        <header class="project-detail-crypto-kdf-primary-header">
-                            <span>
-                                {{ cryptoKdf.primary.label }}
-                            </span>
-                            <span>
-                                01
-                            </span>
-                        </header>
-                        <div class="project-detail-crypto-kdf-primary-content">
-                            <div class="project-detail-crypto-kdf-primary-description">
-                                <h3>
-                                    {{ cryptoKdf.primary.title }}
-                                </h3>
-                                <p>
-                                    {{ cryptoKdf.primary.description }}
-                                </p>
-                                @if (cryptoKdf.primary.properties?.length) {
-                                    <div class="project-detail-crypto-kdf-properties">
-                                        @for (property of cryptoKdf.primary.properties; track property) {
-                                            <span>
-                                                {{ property }}
-                                            </span>
-                                        }
-                                    </div>
-                                }
-                            </div>
-                            @if (cryptoKdf.primary.variants?.length) {
-                                <div class="project-detail-crypto-kdf-variants">
-                                    @for (variant of cryptoKdf.primary.variants; track variant.name) {
-                                        <div class="project-detail-crypto-kdf-variant">
-                                            <strong>
-                                                {{ variant.name }}
-                                            </strong>
-                                            <span>
-                                                {{ variant.description }}
-                                            </span>
-                                        </div>
-                                    }
-                                </div>
-                            }
-                        </div>
-                    </article>
-                    <div class="project-detail-crypto-kdf-grid">
-                        @for (algorithm of cryptoKdf.algorithms; track algorithm.title; let index = $index) {
-                            <article class="project-detail-crypto-kdf-item">
-                                <header class="project-detail-crypto-kdf-item-header">
-                                    <span>
-                                        {{ algorithm.label }}
-                                    </span>
-                                    <span>
-                                        0{{ index + 2 }}
-                                    </span>
-                                </header>
-                                <h3>
-                                    {{ algorithm.title }}
-                                </h3>
-                                <p>
-                                    {{ algorithm.description }}
-                                </p>
-                                @if (algorithm.properties?.length) {
-                                    <div class="project-detail-crypto-kdf-properties">
-                                        @for (property of algorithm.properties; track property) {
-                                            <span>
-                                                {{ property }}
-                                            </span>
-                                        }
-                                    </div>
-                                }
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-crypto-kdf
+                    class="project-detail-crypto-kdf"
+                    [cryptoKdf]="cryptoKdf"
+                ></section>
             }
             @if (currentProject.details.cryptoSigner; as cryptoSigner) {
                 <section
@@ -267,42 +76,11 @@
                 ></section>
             }
             @if (currentProject.details.threatModel; as threatModel) {
-                <section class="project-detail-threat-model">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="02 / Threat Model"
-                        [title]="threatModel.title"
-                        [description]="threatModel.description"
-                    ></header>
-                    <div class="project-detail-threat-grid">
-                        @for (threat of threatModel.threats; track threat.title; let index = $index) {
-                            <article class="project-detail-threat">
-                                <header class="project-detail-threat-header">
-                                    <span class="project-detail-threat-category">
-                                        {{ threat.category }}
-                                    </span>
-                                    <span class="project-detail-threat-number">
-                                        0{{ index + 1 }}
-                                    </span>
-                                </header>
-                                <h3 class="project-detail-threat-title">
-                                    {{ threat.title }}
-                                </h3>
-                                <p class="project-detail-threat-description">
-                                    {{ threat.description }}
-                                </p>
-                                <div class="project-detail-threat-indicators">
-                                    @for (indicator of threat.indicators; track indicator) {
-                                        <span>
-                                            {{ indicator }}
-                                        </span>
-                                    }
-                                </div>
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-rasp-threat-model
+                    class="project-detail-threat-model"
+                    [threatModel]="threatModel"
+                ></section>
             }
             @if (currentProject.details.runtimeArchitecture; as runtimeArchitecture) {
                 <section
@@ -312,93 +90,18 @@
                 ></section>
             }
             @if (currentProject.details.detectionStrategy; as detectionStrategy) {
-                <section class="project-detail-detection">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="04 / Detection Strategy"
-                        [title]="detectionStrategy.title"
-                        [description]="detectionStrategy.description"
-                    ></header>
-                    <div class="project-detail-detection-list">
-                        @for (surface of detectionStrategy.surfaces; track surface.title; let index = $index) {
-                            <article class="project-detail-detection-surface">
-                                <div class="project-detail-detection-index">
-                                    0{{ index + 1 }}
-                                </div>
-                                <div class="project-detail-detection-heading">
-                                    <span class="project-detail-detection-source">
-                                        {{ surface.source }}
-                                    </span>
-                                    <h3>
-                                        {{ surface.title }}
-                                    </h3>
-                                </div>
-                                <p class="project-detail-detection-description">
-                                    {{ surface.description }}
-                                </p>
-                                <div class="project-detail-detection-signals">
-                                    @for (signal of surface.signals; track signal) {
-                                        <code>
-                                            {{ signal }}
-                                        </code>
-                                    }
-                                </div>
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-rasp-detection-strategy
+                    class="project-detail-detection"
+                    [detectionStrategy]="detectionStrategy"
+                ></section>
             }
             @if (currentProject.details.correlation; as correlation) {
-                <section class="project-detail-correlation">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="05 / Correlation &amp; Decision"
-                        [title]="correlation.title"
-                        [description]="correlation.description"
-                    ></header>
-                    <div class="project-detail-correlation-flow">
-                        @for (stage of correlation.stages; track stage.title; let index = $index) {
-                            <article class="project-detail-correlation-stage">
-                                <span class="project-detail-correlation-stage-label">
-                                    {{ stage.label }}
-                                </span>
-                                <h3>
-                                    {{ stage.title }}
-                                </h3>
-                                <p>
-                                    {{ stage.description }}
-                                </p>
-                            </article>
-                            @if (index < correlation.stages.length - 1) {
-                                <div class="project-detail-correlation-connector" aria-hidden="true"></div>
-                            }
-                        }
-                    </div>
-                    <div class="project-detail-correlation-outcomes">
-                        <span class="project-detail-correlation-outcomes-label">
-                            Runtime state
-                        </span>
-                        <div class="project-detail-correlation-outcomes-grid">
-                            @for (outcome of correlation.outcomes; track outcome.state; let index = $index) {
-                                <article class="project-detail-correlation-outcome">
-                                    <header>
-                                        <span>
-                                            0{{ index + 1 }}
-                                        </span>
-                                        <strong>
-                                            {{ outcome.state }}
-                                        </strong>
-                                    </header>
-                                    <p>
-                                        {{ outcome.description }}
-                                    </p>
-                                </article>
-                            }
-                        </div>
-                    </div>
-                </section>
+                <section
+                    app-rasp-correlation
+                    class="project-detail-correlation"
+                    [correlation]="correlation"
+                ></section>
             }
             @if (currentProject.details.integrity; as integrity) {
                 <section
@@ -408,215 +111,39 @@
                 ></section>
             }
             @if (currentProject.details.adversarialResearch; as adversialResearch) {
-                <section class="project-detail-adversarial">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="07 / Adversarial Research"
-                        [title]="adversialResearch.title"
-                        [description]="adversialResearch.description"
-                    ></header>
-                    <div class="project-detail-adversarial-grid">
-                        @for (environment of adversialResearch.environments; track environment.title; let index = $index) {
-                            <article class="project-detail-adversarial-item">
-                                <header class="project-detail-adversarial-item-header">
-                                    <span>
-                                        {{ environment.category }}
-                                    </span>
-                                    <span>
-                                        0{{ index + 1 }}
-                                    </span>
-                                </header>
-                                <h3>
-                                    {{ environment.title }}
-                                </h3>
-                                <p>
-                                    {{ environment.description }}
-                                </p>
-                                <div class="project-detail-adversarial-technologies">
-                                    @for (technology of environment.technologies; track technology) {
-                                        <span>
-                                            {{ technology }}
-                                        </span>
-                                    }
-                                </div>
-                            </article>
-                        }
-                    </div>
-                    <div class="project-detail-adversarial-objective">
-                        <span>
-                            Evaluation goal
-                        </span>
-                        <p>
-                            {{ adversialResearch.objective }}
-                        </p>
-                    </div>
-                </section>
+                <section
+                    app-rasp-adversarial-research
+                    class="project-detail-adversarial"
+                    [adversarialResearch]="adversialResearch"
+                ></section>
             }
             @if (currentProject.details.architecture; as architecture) {
-                <section class="project-detail-architecture">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="02 / Architecture"
-                        [title]="'System architecture'"
-                        [description]="architecture.description"
-                    ></header>
-                    <div class="project-detail-architecture-grid">
-                        @for (stage of architecture.stages; track stage.title; let index = $index) {
-                            <article class="project-detail-stage">
-                                <div class="project-detail-stage-header">
-                                    <span class="project-detail-stage-number">
-                                        0{{ index + 1 }}
-                                    </span>
-
-                                    <span
-                                        class="project-detail-stage-node"
-                                        aria-hidden="true"
-                                    ></span>
-                                </div>
-                                <h3 class="project-detail-stage-title">
-                                    {{ stage.title }}
-                                </h3>
-                                <p class="project-detail-stage-description">
-                                    {{ stage.description }}
-                                </p>
-                                @if (stage.technologies) {
-                                    <div class="project-detail-stage-technologies">
-                                        @for (technology of stage.technologies; track technology) {
-                                            <span>
-                                                {{ technology }}
-                                            </span>
-                                        }
-                                    </div>
-                                }
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-ares-architecture
+                    class="project-detail-architecture"
+                    [architecture]="architecture"
+                ></section>
             }
             @if (currentProject.details.strategy; as strategy) {
-                <section class="project-detail-strategy">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="03 / Strategy"
-                        [title]="strategy.title"
-                        [description]="strategy.description"
-                    ></header>
-                    <div class="project-detail-strategy-grid">
-                        @for (item of strategy.items; track item.title; let index = $index) {
-                            <article class="project-detail-strategy-item">
-                                <header class="project-detail-strategy-header">
-                                    <span class="project-detail-strategy-label">
-                                        {{ item.label }}
-                                    </span>
-                                    <span class="project-detail-strategy-number">
-                                        0{{ index + 1 }}
-                                    </span>
-                                </header>
-                                <h3 class="project-detail-strategy-title">
-                                    {{ item.title }}
-                                </h3>
-                                <p class="project-detail-strategy-description">
-                                    {{ item.description }}
-                                </p>
-                                @if (item.technologies) {
-                                    <div class="project-detail-stage-technologies">
-                                        @for (technology of item.technologies; track technology) {
-                                            <span>{{ technology }}</span>
-                                        }
-                                    </div>
-                                }
-                            </article>
-                        }
-                    </div>
-                </section>
+                <section
+                    app-ares-strategy
+                    class="project-detail-strategy"
+                    [strategy]="strategy"
+                ></section>
             }
             @if (currentProject.details.security; as security) {
-                <section class="project-detail-security">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="04 / Security"
-                        [title]="security.title"
-                        [description]="security.description"
-                    ></header>
-                    <div class="project-detail-security-flow">
-                        <div class="project-detail-security-origin">
-                            <span class="project-detail-security-origin-label"> MODEL OUTPUT </span>
-                            <span class="project-detail-security-origin-state"> UNTRUSTED </span>
-                        </div>
-                        <div class="project-detail-security-controls">
-                            @for (
-                                control of security.controls;
-                                track control.title;
-                                let index = $index
-                            ) {
-                                <article class="project-detail-security-control">
-                                    <header class="project-detail-security-control-header">
-                                        <span>
-                                            {{ control.label }}
-                                        </span>
-                                        <span> 0{{ index + 1 }} </span>
-                                    </header>
-                                    <h3>
-                                        {{ control.title }}
-                                    </h3>
-                                    <p>
-                                        {{ control.description }}
-                                    </p>
-                                </article>
-                            }
-                        </div>
-                        <div class="project-detail-security-target">
-                            <span class="project-detail-security-target-label">
-                                CONTROLLED EXECUTION
-                            </span>
-                            <span class="project-detail-security-target-state"> VALIDATED </span>
-                        </div>
-                    </div>
-                </section>
+                <section
+                    app-ares-security
+                    class="project-detail-security"
+                    [security]="security"
+                ></section>
             }
             @if (currentProject.details.evaluation; as evaluation) {
-                <section class="project-detail-evaluation">
-                    <header
-                        app-project-section-heading
-                        class="project-detail-section-header"
-                        label="05 / Evaluation"
-                        [title]="evaluation.title"
-                        [description]="evaluation.description"
-                    ></header>
-                    <div class="project-detail-evaluation-grid">
-                        @for (metric of evaluation.metrics; track metric.label) {
-                            <article class="project-detail-evaluation-metric">
-                                <span class="project-detail-evaluation-label">
-                                    {{ metric.label }}
-                                </span>
-                                <strong class="project-detail-evaluation-value">
-                                    {{ metric.value }}
-                                </strong>
-                                <span class="project-detail-evaluation-detail">
-                                    {{ metric.detail }}
-                                </span>
-                            </article>
-                        }
-                    </div>
-                    @if (evaluation.notes) {
-                        <div class="project-detail-evaluation-notes">
-                            <span class="project-detail-evaluation-notes-label">
-                                Evaluation notes
-                            </span>
-                            <ul>
-                                @for (note of evaluation.notes; track note) {
-                                    <li>
-                                        {{ note }}
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    }
-                </section>
+                <section
+                    app-ares-evaluation
+                    class="project-detail-evaluation"
+                    [evaluation]="evaluation"
+                ></section>
             }
             @if (currentProject.details.interaction; as interaction) {
                 <section
@@ -639,47 +166,12 @@
                     [decisions]="decisions"
                 ></section>
             }
-            <footer class="project-detail-footer">
-                <a class="project-detail-footer-back" routerLink="/" fragment="selected-work">
-                    <span class="project-detail-footer-direction">
-                        ← Selected work
-                    </span>
-                    <strong class="project-detail-footer-back-title">
-                        All Projects
-                    </strong>
-                    <span class="project-detail-footer-back-description">
-                        Return to portfolio overview
-                    </span>
-                </a>
-                <nav class="project-detail-footer-navigation" aria-label="Project navigation">
-                    @if (previousProject(); as previous) {
-                        <a class="project-detail-footer-project project-detail-footer-project-previous" [routerLink]="['/projects', previous.slug]">
-                            <span class="project-detail-footer-direction">
-                                ← Previous project
-                            </span>
-                            <strong>
-                                {{ previous.title }}
-                            </strong>
-                            <span>
-                                {{ previous.subtitle }}
-                            </span>
-                        </a>
-                    }
-                    @if (nextProject(); as next) {
-                        <a class="project-detail-footer-project project-detail-footer-project-next" [routerLink]="['/projects', next.slug]">
-                            <span class="project-detail-footer-direction">
-                                Next project →
-                            </span>
-                            <strong>
-                                {{ next.title }}
-                            </strong>
-                            <span>
-                                {{ next.subtitle }}
-                            </span>
-                        </a>
-                    }
-                </nav>
-            </footer>
+            <footer
+                app-project-navigation
+                class="project-detail-footer"
+                [previousProject]="previousProject()"
+                [nextProject]="nextProject()"
+            ></footer>
         </div>
     </article>
 } @else {
