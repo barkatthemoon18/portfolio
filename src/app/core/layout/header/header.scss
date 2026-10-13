@@ -2,6 +2,11 @@
   display: block;
 }
 
+
+// -----------------------------------------------------------------------------
+// Header
+// -----------------------------------------------------------------------------
+
 .header {
   position: sticky;
   top: 0;
@@ -17,16 +22,24 @@
 }
 
 .header-container {
+  position: relative;
+
   display: flex;
   align-items: center;
+
   height: 100%;
 }
 
+
+// -----------------------------------------------------------------------------
+// Brand
+// -----------------------------------------------------------------------------
+
 .header-brand {
   flex: 0 0 auto;
-  justify-self: start;
 
   color: var(--color-accent);
+
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
@@ -35,16 +48,23 @@
   text-transform: uppercase;
 
   transition: color 160ms ease;
-
-  &:hover {
-    color: var(--color-accent-light);
-  }
 }
+
+.header-brand:hover {
+  color: var(--color-accent-light);
+}
+
+
+// -----------------------------------------------------------------------------
+// Navigation
+// -----------------------------------------------------------------------------
 
 .header-nav {
   display: flex;
   align-items: center;
+
   gap: 1.75rem;
+
   margin-inline: auto;
 }
 
@@ -61,48 +81,270 @@
   transition:
     color 160ms ease,
     opacity 160ms ease;
+}
 
-  &::after {
-    content: "";
+.header-link::after {
+  content: "";
 
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: absolute;
 
-    height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-    background: var(--color-accent);
+  height: 1px;
 
-    transform: scaleX(0);
-    transform-origin: center;
+  background: var(--color-accent);
 
-    transition: transform 180ms ease;
-  }
+  transform: scaleX(0);
+  transform-origin: center;
 
-  &:hover {
-    color: var(--color-text);
+  transition: transform 180ms ease;
+}
 
-    &::after {
-      transform: scaleX(1);
-    }
-  }
+.header-link:hover {
+  color: var(--color-text);
+}
+
+.header-link:hover::after {
+  transform: scaleX(1);
 }
 
 .header-link-active {
   color: var(--color-text);
-
-  &::after {
-    transform: scaleX(1);
-  }
 }
+
+.header-link-active::after {
+  transform: scaleX(1);
+}
+
+
+// -----------------------------------------------------------------------------
+// GitHub
+// -----------------------------------------------------------------------------
 
 .header-external {
+  display: flex;
+  align-items: center;
+
   flex: 0 0 auto;
+
+  gap: 0.4rem;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+
+  transition: color 160ms ease;
 }
 
+.header-external:hover {
+  color: var(--color-accent);
+}
+
+.header-external span {
+  font-size: 0.9rem;
+}
+
+.header-mobile-external {
+  display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+// Mobile menu button
+// -----------------------------------------------------------------------------
+
+.header-menu-button {
+  display: none;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+}
+
+.header-menu-button span {
+  position: absolute;
+
+  width: 14px;
+  height: 1px;
+
+  background: var(--color-text);
+
+  transition:
+    transform 180ms ease,
+    top 180ms ease;
+}
+
+.header-menu-button span:first-child {
+  transform: translateY(-3px);
+}
+
+.header-menu-button span:last-child {
+  transform: translateY(3px);
+}
+
+.header-menu-button-open span:first-child {
+  transform: rotate(45deg);
+}
+
+.header-menu-button-open span:last-child {
+  transform: rotate(-45deg);
+}
+
+
+// -----------------------------------------------------------------------------
+// Tablet / Mobile navigation
+// -----------------------------------------------------------------------------
+
 @media (max-width: 900px) {
-  .header-nav {
+
+  .header-container {
+    justify-content: space-between;
+  }
+
+  .header-brand {
+    font-size: 0.7rem;
+  }
+
+  .header-external {
     display: none;
   }
-} 
+
+  .header-menu-button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+  }
+
+
+  // ---------------------------------------------------------------------------
+  // Dropdown
+  // ---------------------------------------------------------------------------
+
+  .header-nav {
+    position: absolute;
+
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    margin: 0;
+    padding: 0 1.25rem;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(41, 168, 255, 0.025),
+        transparent 60%
+      ),
+      rgba(5, 11, 17, 0.98);
+
+    border-bottom: 1px solid var(--color-border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    pointer-events: none;
+
+    transition:
+      opacity 160ms ease,
+      visibility 160ms ease,
+      transform 160ms ease;
+  }
+
+  .header-nav-open {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+
+  // ---------------------------------------------------------------------------
+  // Links
+  // ---------------------------------------------------------------------------
+
+  .header-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-block: 1rem;
+
+    border-bottom: 1px solid var(--color-border);
+
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .header-link::after {
+    display: none;
+  }
+
+  .header-link:hover {
+    color: var(--color-accent);
+  }
+
+  .header-link-active {
+    color: var(--color-accent);
+  }
+
+  .header-mobile-external {
+    display: flex;
+
+    border-bottom: 0;
+  }
+
+}
+
+
+// -----------------------------------------------------------------------------
+// Small mobile
+// -----------------------------------------------------------------------------
+
+@media (max-width: 520px) {
+
+  .header-brand {
+    max-width: 220px;
+
+    overflow: hidden;
+
+    font-size: 0.62rem;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}

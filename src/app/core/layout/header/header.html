@@ -1,31 +1,43 @@
 <header class="header">
     <div class="header-container container">
-        <a class="header-brand" routerLink="/" aria-label="Fuad Nazal - Home">
+        <a class="header-brand" routerLink="/" aria-label="Fuad Nazal - Home" (click)="closeMenu()">
             FUAD RICARDO NAZAL JAQUE
         </a>
-        <nav class="header-nav" aria-label="Main navigation">
-            <a class="header-link" routerLink="/" routerLinkActive="header-link--active" [routerLinkActiveOptions]="{ exact: true }">
+        <nav id="main-navigation" class="header-nav" [class.header-nav-open]="menuOpen()" aria-label="Main navigation">
+            <a class="header-link" routerLink="/" [class.header-link-active]="activeSection() === 'home'" (click)="closeMenu()">
                 Home
             </a>
-            <a class="header-link" routerLink="/" fragment="selected-work">
+            <a class="header-link" routerLink="/"  fragment="selected-work" [class.header-link-active]="activeSection() === 'selected-work'" (click)="closeMenu()">
                 Projects
             </a>
-            <a class="header-link" routerLink="/" fragment="research">
+            <a class="header-link" routerLink="/" fragment="research" [class.header-link-active]="activeSection() === 'research'" (click)="closeMenu()">
                 Research
             </a>
-            <a class="header-link" routerLink="/" fragment="experience">
+            <a class="header-link" routerLink="/" fragment="experience" [class.header-link-active]="activeSection() === 'experience'" (click)="closeMenu()">
                 Experience
             </a>
-            <a class="header-link" routerLink="/" fragment="about">
+            <a class="header-link" routerLink="/" fragment="about" [class.header-link-active]="activeSection() === 'about'" (click)="closeMenu()">
                 About
             </a>
-            <a class="header-link" routerLink="/" fragment="contact">
+            <a class="header-link" routerLink="/" fragment="contact" [class.header-link-active]="activeSection() === 'contact'" (click)="closeMenu()">
                 Contact
+            </a>
+            <a class="header-link header-mobile-external" href="https://github.com/barkatthemoon18" target="_blank" rel="noopener noreferrer" (click)="closeMenu()">
+                GitHub
+                <span aria-hidden="true">
+                    ↗
+                </span>
             </a>
         </nav>
         <a class="header-external" href="https://github.com/barkatthemoon18" target="_blank" rel="noopener noreferrer">
             GitHub
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+                ↗
+            </span>
         </a>
+        <button class="header-menu-button" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" [attr.aria-expanded]="menuOpen()" [class.header-menu-button-open]="menuOpen()" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </header>
