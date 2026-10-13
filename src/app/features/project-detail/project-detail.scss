@@ -1707,7 +1707,8 @@
   }
 
   .project-detail-title {
-    font-size: clamp(3.2rem, 18vw, 5rem);
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    overflow-wrap: anywhere;
   }
 
   .project-detail-content {

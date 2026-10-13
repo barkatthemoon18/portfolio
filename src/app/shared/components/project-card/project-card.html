@@ -1,44 +1,113 @@
 <article class="project-card">
-    <div [class]="'project-card-visual project-card-visual-' + project().visual">
-        <div class="project-card-visual-grid"></div>
-        <span class="project-card-visual-label">
-            {{ project().visualLabel }}
-        </span>
-        <span class="project-card-visual-status">
-            ● ACTIVE
-        </span>
-    </div>
-    <div class="project-card-content">
-        <div class="project-card-heading">
-            <div>
-                <h3 class="project-card-title">
-                    {{ project().title }}
-                </h3>
-                <p class="project-card-subtitle">
-                    {{ project().subtitle }}
-                </p>
+    <a
+        class="project-card-link"
+        [routerLink]="['/projects', project().slug]"
+        [attr.aria-labelledby]="'project-card-title-' + project().slug"
+        [attr.aria-describedby]="'project-card-description-' + project().slug"
+    >
+        <div [class]="'project-card-visual project-card-visual-' + project().visual">
+            <div class="project-card-visual-header">
+                <span class="project-card-visual-label">{{ project().visualLabel }}</span>
+                <span class="project-card-visual-type">Architecture</span>
             </div>
-            <span class="project-card-arrow" aria-hidden="true">
-                →
-            </span>
-        </div>
-        <p class="project-card-description">
-            {{ project().description }}
-        </p>
-        <div class="project-card-technologies" aria-label="Technologies">
-            @for (technology of project().technologies; track technology) {
-                <span class="project-card-technology">
-                    {{ technology }}
-                </span>
+            @switch (project().visual) {
+                @case ('ares') {
+                    <svg
+                        class="project-card-diagram"
+                        viewBox="0 0 320 160"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <rect class="project-card-diagram-boundary" x="224" y="22" width="94" height="80" rx="4" />
+                        <text class="project-card-diagram-label" x="271" y="12">CONTRACT</text>
+                        <path class="project-card-diagram-line" d="M84 66H112M208 66H236M160 112V90M274 90V112" />
+                        <path class="project-card-diagram-arrow" d="M106 62l6 4-6 4M230 62l6 4-6 4M156 96l4-6 4 6M270 106l4 6 4-6" />
+                        <rect class="project-card-diagram-node" x="8" y="42" width="76" height="48" rx="4" />
+                        <rect class="project-card-diagram-node" x="112" y="42" width="96" height="48" rx="4" />
+                        <rect class="project-card-diagram-node" x="236" y="42" width="76" height="48" rx="4" />
+                        <rect class="project-card-diagram-node" x="112" y="112" width="96" height="30" rx="4" />
+                        <rect class="project-card-diagram-node" x="236" y="112" width="76" height="30" rx="4" />
+                        <text x="46" y="66">INTENT</text>
+                        <text x="160" y="66">ROUTER</text>
+                        <text x="274" y="66">SKILLS</text>
+                        <text x="160" y="127">LOCAL LLM</text>
+                        <text x="274" y="127">EXECUTE</text>
+                    </svg>
+                }
+                @case ('rasp') {
+                    <svg
+                        class="project-card-diagram"
+                        viewBox="0 0 320 160"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path class="project-card-diagram-line" d="M160 34V46H81V58M160 46H239V58M239 106V116H160V126" />
+                        <rect class="project-card-diagram-node" x="82" y="4" width="156" height="30" rx="4" />
+                        <rect class="project-card-diagram-boundary" x="8" y="58" width="146" height="48" rx="4" />
+                        <rect class="project-card-diagram-node" x="166" y="58" width="146" height="48" rx="4" />
+                        <rect class="project-card-diagram-node" x="56" y="126" width="208" height="30" rx="4" />
+                        <text x="160" y="19">ANDROID RUNTIME</text>
+                        <text class="project-card-diagram-label" x="81" y="74">ISOLATED SVC</text>
+                        <text x="81" y="94">AIDL / Binder</text>
+                        <text class="project-card-diagram-label" x="239" y="74">JNI BRIDGE</text>
+                        <text x="239" y="94">JNI / NDK</text>
+                        <text x="160" y="141">libfuadxshell.so</text>
+                    </svg>
+                }
+                @case ('crypto') {
+                    @if (project().details.cryptoArchitecture; as architecture) {
+                        <svg
+                            class="project-card-diagram"
+                            viewBox="0 0 320 160"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <rect class="project-card-diagram-node" x="78" y="4" width="164" height="48" rx="4" />
+                            <text class="project-card-diagram-label" x="160" y="18">CRYPTO API</text>
+                            <text x="160" y="38">EnumFactory</text>
+                            @for (implementation of architecture.implementations; track implementation.title; let index = $index) {
+                                <path
+                                    class="project-card-diagram-line"
+                                    [attr.d]="'M160 52V62H' + (8 + (index + 0.5) * 304 / architecture.implementations.length) + 'V78'"
+                                />
+                                <rect
+                                    class="project-card-diagram-node"
+                                    [attr.x]="14 + index * 304 / architecture.implementations.length"
+                                    y="78"
+                                    [attr.width]="304 / architecture.implementations.length - 12"
+                                    height="30"
+                                    rx="4"
+                                />
+                                <text [attr.x]="8 + (index + 0.5) * 304 / architecture.implementations.length" y="93">
+                                    {{ implementation.technologies[0] }}
+                                </text>
+                            }
+                            <rect class="project-card-diagram-node" x="46" y="132" width="228" height="24" rx="4" />
+                            <text x="160" y="144">ENC · HASH · KDF</text>
+                        </svg>
+                    }
+                }
             }
         </div>
-        <div class="project-card-footer" [routerLink]="['/projects', project().slug]">
-            <span>
-                View project
-            </span>
-            <span aria-hidden="true">
-                →
-            </span>
+        <div class="project-card-content">
+            <div class="project-card-heading">
+                <h3 class="project-card-title" [id]="'project-card-title-' + project().slug">
+                    {{ project().title }}
+                </h3>
+                <p class="project-card-subtitle">{{ project().subtitle }}</p>
+            </div>
+            <p class="project-card-description" [id]="'project-card-description-' + project().slug">
+                {{ project().description }}
+            </p>
+            <div class="project-card-technologies" aria-label="Technologies">
+                @for (technology of project().technologies; track technology) {
+                    <span class="project-card-technology">{{ technology }}</span>
+                }
+            </div>
+            <div class="project-card-footer">
+                <span>View project</span>
+                <span class="project-card-footer-arrow" aria-hidden="true">→</span>
+            </div>
         </div>
-    </div>
+    </a>
 </article>
