@@ -1,0 +1,591 @@
+// Preserve the original cascade: mobile rules, base styles, then tablet overrides.
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-bme-schema {
+    max-width: none;
+  }
+
+  .project-detail-crypto-bme-profiles {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-bme-profile {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .project-detail-crypto-bme-split,
+  .project-detail-crypto-bme-merge {
+    width: 1px;
+    height: 42px;
+
+    margin-inline: auto;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-crypto-bme-split::before,
+  .project-detail-crypto-bme-split::after,
+  .project-detail-crypto-bme-merge::before,
+  .project-detail-crypto-bme-merge::after,
+  .project-detail-crypto-bme-split span,
+  .project-detail-crypto-bme-merge span {
+    display: none;
+  }
+
+  .project-detail-crypto-bme-shared {
+    width: 100%;
+  }
+
+  .project-detail-crypto-bme-shared-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-bme-shared-item {
+    padding: 1rem 0;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-detail-crypto-bme-shared-item:first-child {
+    padding-top: 0;
+  }
+
+  .project-detail-crypto-bme-shared-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// BME
+// -----------------------------------------------------------------------------
+
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Schema
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-schema {
+  width: 100%;
+  max-width: 760px;
+
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.08),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-schema header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-schema header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-bme-schema h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-bme-schema p {
+  max-width: 620px;
+
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Split
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-split {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 58px;
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-split::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-split::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-bme-split span {
+  position: absolute;
+
+  top: 29px;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+}
+
+.project-detail-crypto-bme-split span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-bme-split span:last-child {
+  left: 75%;
+}
+
+.project-detail-crypto-bme-split span::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+
+// -----------------------------------------------------------------------------
+// Profiles
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-profiles {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: min(100%, 1050px);
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-profile {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 430px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.03),
+      transparent 65%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-profile-header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-bme-profile h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-bme-profile-description {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+
+// -----------------------------------------------------------------------------
+// BME stages
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-stages {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-stage {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    34px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding-block: 1rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-stage:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-crypto-bme-stage:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -5px;
+  left: 13px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  opacity: 0.7;
+}
+
+.project-detail-crypto-bme-stage-number {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+.project-detail-crypto-bme-stage-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-crypto-bme-stage-content > span {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-stage-content strong {
+  margin-top: 0.5rem;
+
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.project-detail-crypto-bme-stage-content small {
+  margin-top: 0.35rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+
+// -----------------------------------------------------------------------------
+// Merge
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-merge {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 58px;
+
+  margin-inline: auto;
+}
+
+.project-detail-crypto-bme-merge::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-bme-merge::after {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-accent),
+      var(--color-border)
+    );
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-crypto-bme-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-bme-merge span:last-child {
+  left: 75%;
+}
+
+
+// -----------------------------------------------------------------------------
+// Shared contract
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-bme-shared {
+  position: relative;
+
+  width: min(100%, 880px);
+
+  padding: 1.35rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(41, 168, 255, 0.055),
+      transparent 75%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-bme-shared::before {
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-bme-shared-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-shared-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-bme-shared-item {
+  display: flex;
+  flex-direction: column;
+
+  padding-inline: 1.25rem;
+
+  border-right: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-bme-shared-item:first-child {
+  padding-left: 0;
+}
+
+.project-detail-crypto-bme-shared-item:last-child {
+  padding-right: 0;
+
+  border-right: 0;
+}
+
+.project-detail-crypto-bme-shared-item > span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-bme-shared-item strong {
+  margin-top: 0.6rem;
+
+  color: var(--color-text);
+
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+@media (max-width: 999px) {
+  .project-detail-crypto-bme-profile {
+    min-height: 410px;
+  }
+}

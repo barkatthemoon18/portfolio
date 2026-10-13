@@ -1,0 +1,328 @@
+// -----------------------------------------------------------------------------
+// Integrity & anti-tampering
+// -----------------------------------------------------------------------------
+
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-integrity-flow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 0.4fr)
+    70px
+    minmax(0, 1.4fr)
+    minmax(220px, 0.55fr);
+
+  align-items: stretch;
+
+  gap: 1rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Origin
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-origin {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 280px;
+  padding: 1.4rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.025),
+      transparent 70%
+    ),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-origin-label {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-integrity-origin strong {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-origin > span:last-child {
+  margin-top: 0.45rem;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Connector
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-connector {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-integrity-connector::before {
+  content: "";
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-border),
+      var(--color-accent)
+    );
+}
+
+.project-detail-integrity-connector::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+
+  width: 0;
+  height: 0;
+
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid var(--color-accent);
+}
+
+
+// -----------------------------------------------------------------------------
+// Checks
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-checks {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-integrity-check {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.4rem;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-check header {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-integrity-check header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-integrity-check h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-check p {
+  margin: 0.8rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+.project-detail-integrity-signals {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: auto;
+  padding-top: 1.3rem;
+}
+
+.project-detail-integrity-signals code {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+
+// -----------------------------------------------------------------------------
+// Result
+// -----------------------------------------------------------------------------
+
+.project-detail-integrity-result {
+  display: grid;
+  grid-template-rows:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+.project-detail-integrity-state {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.35rem;
+
+  background:
+    rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-integrity-state > span {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.project-detail-integrity-state strong {
+  margin-top: auto;
+
+  color: var(--color-text);
+
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.project-detail-integrity-state p {
+  margin: 0.6rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.75;
+
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.project-detail-integrity-state-mismatch {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 168, 255, 0.035),
+      transparent
+    ),
+    var(--color-surface);
+}
+
+@media (max-width: 999px) {
+  .project-detail-integrity-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-integrity-origin {
+    min-height: 145px;
+  }
+
+  .project-detail-integrity-connector {
+    justify-content: center;
+
+    min-height: 52px;
+  }
+
+  .project-detail-integrity-connector::before {
+    width: 1px;
+    height: 34px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--color-border),
+        var(--color-accent)
+      );
+  }
+
+  .project-detail-integrity-connector::after {
+    right: auto;
+    bottom: 8px;
+
+    border-top: 5px solid var(--color-accent);
+    border-right: 4px solid transparent;
+    border-bottom: 0;
+    border-left: 4px solid transparent;
+  }
+
+  .project-detail-integrity-result {
+    grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-integrity-checks,
+  .project-detail-integrity-result {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-integrity-state {
+    min-height: 145px;
+  }
+}

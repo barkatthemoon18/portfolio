@@ -1,0 +1,434 @@
+// -----------------------------------------------------------------------------
+// Crypto library architecture
+// -----------------------------------------------------------------------------
+
+:host {
+  margin-top: 5rem;
+  padding-top: 4rem;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.project-detail-crypto-architecture-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// Public API contract
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-contract {
+  width: 100%;
+  max-width: 700px;
+
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(41, 168, 255, 0.07), transparent 65%),
+    var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-contract header,
+.project-detail-crypto-implementation header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-contract header span:first-child,
+.project-detail-crypto-implementation header span:first-child {
+  color: var(--color-accent);
+}
+
+.project-detail-crypto-contract h3,
+.project-detail-crypto-implementation h3 {
+  margin: 1.8rem 0 0;
+
+  color: var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.project-detail-crypto-contract p,
+.project-detail-crypto-implementation p {
+  margin: 0.85rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  opacity: 0.8;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+// -----------------------------------------------------------------------------
+// EnumFactory
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-factory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: 1.4rem;
+  padding: 0.85rem 1rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: rgba(41, 168, 255, 0.025);
+}
+
+.project-detail-crypto-factory span {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-factory strong {
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+// -----------------------------------------------------------------------------
+// Implementations
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-implementations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 980px;
+}
+
+.project-detail-crypto-implementation {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 250px;
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(180deg, rgba(41, 168, 255, 0.025), transparent 70%), var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.project-detail-crypto-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.45rem;
+
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.project-detail-crypto-technologies span {
+  padding: 0.3rem 0.5rem;
+
+  color: var(--color-accent);
+
+  background: rgba(41, 168, 255, 0.02);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+// -----------------------------------------------------------------------------
+// Split / merge
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-split,
+.project-detail-crypto-merge {
+  position: relative;
+
+  width: 100%;
+  max-width: 980px;
+  height: 58px;
+}
+
+// Contract -> implementations
+
+.project-detail-crypto-split::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 29px;
+
+  background: linear-gradient(180deg, var(--color-border), var(--color-accent));
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-split::after {
+  content: '';
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-split span {
+  position: absolute;
+
+  top: 29px;
+
+  width: 1px;
+  height: 29px;
+
+  background: linear-gradient(180deg, var(--color-accent), var(--color-border));
+}
+
+.project-detail-crypto-split span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-split span:last-child {
+  left: 75%;
+}
+
+.project-detail-crypto-split span::after {
+  content: '';
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+// Implementations -> capabilities
+
+.project-detail-crypto-merge::before {
+  content: '';
+
+  position: absolute;
+
+  top: 29px;
+  left: 25%;
+  right: 25%;
+
+  height: 1px;
+
+  background: var(--color-accent);
+
+  opacity: 0.65;
+}
+
+.project-detail-crypto-merge::after {
+  content: '';
+
+  position: absolute;
+
+  top: 29px;
+  bottom: 0;
+  left: 50%;
+
+  width: 1px;
+
+  background: linear-gradient(180deg, var(--color-accent), var(--color-border));
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-merge span {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 29px;
+
+  background: linear-gradient(180deg, var(--color-border), var(--color-accent));
+}
+
+.project-detail-crypto-merge span:first-child {
+  left: 25%;
+}
+
+.project-detail-crypto-merge span:last-child {
+  left: 75%;
+}
+
+// -----------------------------------------------------------------------------
+// Capability families
+// -----------------------------------------------------------------------------
+
+.project-detail-crypto-capabilities {
+  position: relative;
+
+  width: 100%;
+  max-width: 980px;
+
+  padding: 1.25rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: rgba(41, 168, 255, 0.015);
+}
+
+.project-detail-crypto-capabilities::before {
+  content: '';
+
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid var(--color-accent);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+
+  transform: translateX(-50%);
+}
+
+.project-detail-crypto-capabilities-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-crypto-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 0.6rem;
+
+  margin-top: 1rem;
+}
+
+.project-detail-crypto-capability-grid span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 0.65rem;
+
+  color: var(--color-accent);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+
+  text-align: center;
+}
+
+@media (max-width: 999px) {
+  .project-detail-crypto-contract,
+  .project-detail-crypto-implementations,
+  .project-detail-crypto-split,
+  .project-detail-crypto-merge,
+  .project-detail-crypto-capabilities {
+    max-width: none;
+  }
+
+  .project-detail-crypto-capability-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  .project-detail-crypto-implementations {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-crypto-implementation {
+    min-height: auto;
+  }
+
+  .project-detail-crypto-split,
+  .project-detail-crypto-merge {
+    width: 1px;
+    height: 42px;
+
+    background: linear-gradient(180deg, var(--color-border), var(--color-accent));
+  }
+
+  .project-detail-crypto-split::before,
+  .project-detail-crypto-split::after,
+  .project-detail-crypto-merge::before,
+  .project-detail-crypto-merge::after,
+  .project-detail-crypto-split span,
+  .project-detail-crypto-merge span {
+    display: none;
+  }
+
+  .project-detail-crypto-capability-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-crypto-factory {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

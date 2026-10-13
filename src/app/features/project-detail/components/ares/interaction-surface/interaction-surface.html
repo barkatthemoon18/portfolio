@@ -1,0 +1,68 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="06 / Interaction"
+    [title]="interaction().title"
+    [description]="interaction().description"
+></header>
+<div class="project-detail-interaction-flow">
+    <div class="project-detail-interaction-endpoint">
+        <span class="project-detail-interaction-endpoint-label">
+            CORE / SKILL
+        </span>
+        <strong> REQUEST </strong>
+        <code> InteractionRequest&lt;T&gt; </code>
+    </div>
+    <div class="project-detail-interaction-connector" aria-hidden="true">
+        <span></span>
+        <span>→</span>
+    </div>
+    <div class="project-detail-interaction-service">
+        <div class="project-detail-interaction-service-header">
+            <span> InteractionService </span>
+            <span class="project-detail-interaction-status"> ACTIVE </span>
+        </div>
+        <div class="project-detail-interaction-surface">
+            <span class="project-detail-interaction-surface-label">
+                JavaFX Interaction Surface
+            </span>
+            <div class="project-detail-interaction-modalities">
+                @for (modality of interaction().modalities; track modality) {
+                    <span>
+                        {{ modality }}
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="project-detail-interaction-connector" aria-hidden="true">
+        <span></span>
+        <span>→</span>
+    </div>
+    <div class="project-detail-interaction-endpoint">
+        <span class="project-detail-interaction-endpoint-label">
+            CORE CONTINUATION
+        </span>
+        <strong> Result </strong>
+        <code> InteractionResult&lt;T&gt; </code>
+    </div>
+</div>
+<div class="project-detail-interaction-types">
+    @for (type of interaction().types; track type.title; let index = $index) {
+        <article class="project-detail-interaction-type">
+            <header class="project-detail-interaction-type-header">
+                <span>
+                    {{ type.label }}
+                </span>
+                <span> 0{{ index + 1 }} </span>
+            </header>
+            <h3>
+                {{ type.title }}
+            </h3>
+            <code> → {{ type.result }} </code>
+            <p>
+                {{ type.description }}
+            </p>
+        </article>
+    }
+</div>

@@ -1,0 +1,100 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="03 / Runtime Architecture"
+    [title]="architecture().title"
+    [description]="architecture().description"
+></header>
+<div class="project-detail-runtime-flow">
+    <article class="project-detail-runtime-node project-detail-runtime-application">
+        <header class="project-detail-runtime-node-header">
+            <span>
+                {{ architecture().application.label }}
+            </span>
+            <span> 01 </span>
+        </header>
+        <h3>
+            {{ architecture().application.title }}
+        </h3>
+        <p>
+            {{ architecture().application.description }}
+        </p>
+        @if (architecture().application.technologies) {
+            <div class="project-detail-runtime-technologies">
+                @for (technology of architecture().application.technologies; track technology) {
+                    <span>
+                        {{ technology }}
+                    </span>
+                }
+            </div>
+        }
+    </article>
+    <div class="project-detail-runtime-split" aria-hidden="true">
+        <span></span>
+        <span></span>
+    </div>
+    <div class="project-detail-runtime-branches">
+        @for (branch of architecture().branches; track branch.title; let index = $index) {
+            <article class="project-detail-runtime-node">
+                <header class="project-detail-runtime-node-header">
+                    <span>
+                        {{ branch.label }}
+                    </span>
+                    <span> 0{{ index + 2 }} </span>
+                </header>
+                <h3>
+                    {{ branch.title }}
+                </h3>
+                <p>
+                    {{ branch.description }}
+                </p>
+                @if (branch.technologies) {
+                    <div class="project-detail-runtime-technologies">
+                        @for (technology of branch.technologies; track technology) {
+                            <span>
+                                {{ technology }}
+                            </span>
+                        }
+                    </div>
+                }
+            </article>
+        }
+    </div>
+    <div class="project-detail-runtime-merge" aria-hidden="true">
+        <span></span>
+        <span></span>
+    </div>
+    <article class="project-detail-runtime-node project-detail-runtime-native">
+        <header class="project-detail-runtime-node-header">
+            <span>
+                {{ architecture().nativeLayer.label }}
+            </span>
+            <span> 04 </span>
+        </header>
+        <h3>
+            {{ architecture().nativeLayer.title }}
+        </h3>
+        <p>
+            {{ architecture().nativeLayer.description }}
+        </p>
+        @if (architecture().nativeLayer.technologies) {
+            <div class="project-detail-runtime-technologies">
+                @for (technology of architecture().nativeLayer.technologies; track technology) {
+                    <span>
+                        {{ technology }}
+                    </span>
+                }
+            </div>
+        }
+    </article>
+    <div class="project-detail-runtime-modules">
+        <span class="project-detail-runtime-modules-label"> Protection modules </span>
+        <div class="project-detail-runtime-module-grid">
+            @for (module of architecture().modules; track module) {
+                <span>
+                    {{ module }}
+                </span>
+            }
+        </div>
+    </div>
+</div>

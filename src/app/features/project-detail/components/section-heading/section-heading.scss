@@ -1,0 +1,76 @@
+:host {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(320px, 1fr);
+
+  align-items: end;
+
+  gap: 5rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.project-detail-section-title {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 650;
+
+  letter-spacing: -0.04em;
+}
+
+.project-detail-section-description {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.project-detail-section-label {
+  margin: 0 0 1.4rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 999px) {
+  // Keep the section title and its description in the same vertical flow.
+  :host {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1.25rem;
+  }
+
+  .project-detail-section-description {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 699px) {
+  :host {
+    margin-bottom: 2rem;
+  }
+
+  .project-detail-section-title {
+    font-size: clamp(1.7rem, 8vw, 2.25rem);
+  }
+
+  .project-detail-section-description {
+    max-width: none;
+    font-size: 0.82rem;
+  }
+}

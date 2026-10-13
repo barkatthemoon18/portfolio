@@ -1,0 +1,31 @@
+<header
+    app-project-section-heading
+    class="project-detail-section-header"
+    label="08 / Engineering"
+    [title]="decisions().title"
+    [description]="decisions().description"
+></header>
+<div class="project-detail-decisions-list">
+    @for (item of decisions().items; track item.decision; let index = $index) {
+        <article class="project-detail-decision">
+            <div class="project-detail-decision-number">0{{ index + 1 }}</div>
+            <h3 class="project-detail-decision-title">
+                {{ item.decision }}
+            </h3>
+            <div class="project-detail-decision-content">
+                <div>
+                    <span class="project-detail-decision-label"> Rationale </span>
+                    <p>
+                        {{ item.rationale }}
+                    </p>
+                </div>
+                <div>
+                    <span class="project-detail-decision-label"> Trade-off </span>
+                    <p>
+                        {{ item.tradeoff }}
+                    </p>
+                </div>
+            </div>
+        </article>
+    }
+</div>
