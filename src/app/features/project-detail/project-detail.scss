@@ -29,6 +29,15 @@
   padding-block: 6rem 8rem;
 }
 
+.project-detail-content section[id] {
+  scroll-margin-top: var(--project-section-offset, calc(var(--header-height) + 72px));
+}
+
+.project-detail-content section[id]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
 .project-detail-overview-grid {
   display: grid;
 

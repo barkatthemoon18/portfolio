@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 import { PROJECTS } from '../../core/data/projects';
 import { AresArchitecture } from './components/ares/architecture/architecture';
 import { AresCommandDeck } from './components/ares/command-deck/command-deck';
@@ -21,10 +21,13 @@ import { RaspDetectionStrategy } from './components/rasp/detection-strategy/dete
 import { RaspIntegrity } from './components/rasp/integrity/integrity';
 import { RaspRuntimeArchitecture } from './components/rasp/runtime-architecture/runtime-architecture';
 import { RaspThreatModel } from './components/rasp/threat-model/threat-model';
+import { availableProjectSections, PROJECT_SECTIONS } from './components/section-navigation/project-sections';
+import { SectionNavigation } from './components/section-navigation/section-navigation';
 
 @Component({
   imports: [
     ProjectHero,
+    SectionNavigation,
     CryptoLibraryArchitecture,
     CryptoEncryption,
     CryptoDigest,
@@ -55,6 +58,13 @@ export class ProjectDetail {
 
   protected readonly project = computed(() =>
     PROJECTS.find(project => project.slug === this.slug()));
+
+  protected readonly sectionRegistry = PROJECT_SECTIONS;
+  protected readonly sectionOffset = signal<number | null>(null);
+  protected readonly sections = computed(() => {
+    const project = this.project();
+    return project ? availableProjectSections(project.details) : [];
+  });
 
   private readonly projectIndex = computed(() =>
     PROJECTS.findIndex(project => project.slug === this.slug()));

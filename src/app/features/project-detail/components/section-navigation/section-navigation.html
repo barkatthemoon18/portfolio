@@ -1,0 +1,26 @@
+<nav class="section-navigation container" aria-label="Project sections">
+    <span class="section-navigation-label section-navigation-desktop">On this page</span>
+    <ul class="section-navigation-links section-navigation-desktop">
+        @for (section of sections(); track section.id) {
+            <li>
+                <a
+                    class="section-navigation-link"
+                    [routerLink]="[]"
+                    [fragment]="section.id"
+                    [attr.aria-current]="activeId() === section.id ? 'location' : null"
+                >{{ section.label }}</a>
+            </li>
+        }
+    </ul>
+    <label class="section-navigation-label section-navigation-mobile" for="project-section-select">Section</label>
+    <select
+        id="project-section-select"
+        class="section-navigation-select section-navigation-mobile"
+        [value]="activeId()"
+        (change)="selectSection($event)"
+    >
+        @for (section of sections(); track section.id; let index = $index) {
+            <option [value]="section.id">{{ index + 1 }} / {{ section.label }}</option>
+        }
+    </select>
+</nav>
