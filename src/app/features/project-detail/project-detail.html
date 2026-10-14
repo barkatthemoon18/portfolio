@@ -20,7 +20,8 @@
                 <aside class="project-detail-highlights">
                     <p class="project-detail-section-label">Highlights</p>
                     <ul class="project-detail-highlight-list">
-                        @for (highlight of currentProject.details.highlights; track highlight) {
+                        <!-- Project navigation updates these stateless rows in place. -->
+                        @for (highlight of currentProject.details.highlights; track $index) {
                             <li>
                                 <span
                                     class="project-detail-highlight-marker"
