@@ -1,13 +1,20 @@
 @if (project(); as currentProject) {
-    <article [class]="'project-detail project-detail-' + currentProject.visual">
+    <article
+        [class]="'project-detail project-detail-' + currentProject.visual"
+        [style.--project-section-offset.px]="sectionOffset()"
+    >
         <header
             app-project-hero
             class="project-detail-hero"
             [project]="currentProject"
         ></header>
+        <app-section-navigation
+            [sections]="sections()"
+            (offsetChange)="sectionOffset.set($event)"
+        />
         <div class="project-detail-content container">
             <div class="project-detail-overview-grid">
-                <section class="project-detail-section">
+                <section class="project-detail-section" [id]="sectionRegistry.overview.id" tabindex="-1">
                     <p class="project-detail-section-label">01 / Overview</p>
                     <div class="project-detail-overview">
                         @for (paragraph of currentProject.details.overview; track $index) {
@@ -37,6 +44,8 @@
             @if (currentProject.details.cryptoArchitecture; as cryptoArchitecture) {
                 <section
                     app-crypto-library-architecture
+                    [id]="sectionRegistry.cryptoArchitecture.id"
+                    tabindex="-1"
                     class="project-detail-crypto-architecture"
                     [architecture]="cryptoArchitecture"
                 ></section>
@@ -44,6 +53,8 @@
             @if (currentProject.details.cryptoEncryption; as cryptoEncryption) {
                 <section
                     app-crypto-encryption
+                    [id]="sectionRegistry.cryptoEncryption.id"
+                    tabindex="-1"
                     class="project-detail-crypto-encryption"
                     [cryptoEncryption]="cryptoEncryption"
                 ></section>
@@ -51,6 +62,8 @@
             @if (currentProject.details.cryptoDigest; as cryptoDigest) {
                 <section
                     app-crypto-digest
+                    [id]="sectionRegistry.cryptoDigest.id"
+                    tabindex="-1"
                     class="project-detail-crypto-digest"
                     [cryptoDigest]="cryptoDigest"
                 ></section>
@@ -58,6 +71,8 @@
             @if (currentProject.details.cryptoKdf; as cryptoKdf) {
                 <section
                     app-crypto-kdf
+                    [id]="sectionRegistry.cryptoKdf.id"
+                    tabindex="-1"
                     class="project-detail-crypto-kdf"
                     [cryptoKdf]="cryptoKdf"
                 ></section>
@@ -65,6 +80,8 @@
             @if (currentProject.details.cryptoSigner; as cryptoSigner) {
                 <section
                     app-crypto-signer
+                    [id]="sectionRegistry.cryptoSigner.id"
+                    tabindex="-1"
                     class="project-detail-crypto-signer"
                     [signer]="cryptoSigner"
                 ></section>
@@ -72,6 +89,8 @@
             @if (currentProject.details.cryptoBme; as cryptoBme) {
                 <section
                     app-crypto-bme
+                    [id]="sectionRegistry.cryptoBme.id"
+                    tabindex="-1"
                     class="project-detail-crypto-bme"
                     [bme]="cryptoBme"
                 ></section>
@@ -79,6 +98,8 @@
             @if (currentProject.details.threatModel; as threatModel) {
                 <section
                     app-rasp-threat-model
+                    [id]="sectionRegistry.threatModel.id"
+                    tabindex="-1"
                     class="project-detail-threat-model"
                     [threatModel]="threatModel"
                 ></section>
@@ -86,6 +107,8 @@
             @if (currentProject.details.runtimeArchitecture; as runtimeArchitecture) {
                 <section
                     app-rasp-runtime-architecture
+                    [id]="sectionRegistry.runtimeArchitecture.id"
+                    tabindex="-1"
                     class="project-detail-runtime-architecture"
                     [architecture]="runtimeArchitecture"
                 ></section>
@@ -93,6 +116,8 @@
             @if (currentProject.details.detectionStrategy; as detectionStrategy) {
                 <section
                     app-rasp-detection-strategy
+                    [id]="sectionRegistry.detectionStrategy.id"
+                    tabindex="-1"
                     class="project-detail-detection"
                     [detectionStrategy]="detectionStrategy"
                 ></section>
@@ -100,6 +125,8 @@
             @if (currentProject.details.correlation; as correlation) {
                 <section
                     app-rasp-correlation
+                    [id]="sectionRegistry.correlation.id"
+                    tabindex="-1"
                     class="project-detail-correlation"
                     [correlation]="correlation"
                 ></section>
@@ -107,6 +134,8 @@
             @if (currentProject.details.integrity; as integrity) {
                 <section
                     app-rasp-integrity
+                    [id]="sectionRegistry.integrity.id"
+                    tabindex="-1"
                     class="project-detail-integrity"
                     [integrity]="integrity"
                 ></section>
@@ -114,6 +143,8 @@
             @if (currentProject.details.adversarialResearch; as adversialResearch) {
                 <section
                     app-rasp-adversarial-research
+                    [id]="sectionRegistry.adversarialResearch.id"
+                    tabindex="-1"
                     class="project-detail-adversarial"
                     [adversarialResearch]="adversialResearch"
                 ></section>
@@ -121,6 +152,8 @@
             @if (currentProject.details.architecture; as architecture) {
                 <section
                     app-ares-architecture
+                    [id]="sectionRegistry.architecture.id"
+                    tabindex="-1"
                     class="project-detail-architecture"
                     [architecture]="architecture"
                 ></section>
@@ -128,6 +161,8 @@
             @if (currentProject.details.strategy; as strategy) {
                 <section
                     app-ares-strategy
+                    [id]="sectionRegistry.strategy.id"
+                    tabindex="-1"
                     class="project-detail-strategy"
                     [strategy]="strategy"
                 ></section>
@@ -135,6 +170,8 @@
             @if (currentProject.details.security; as security) {
                 <section
                     app-ares-security
+                    [id]="sectionRegistry.security.id"
+                    tabindex="-1"
                     class="project-detail-security"
                     [security]="security"
                 ></section>
@@ -142,6 +179,8 @@
             @if (currentProject.details.evaluation; as evaluation) {
                 <section
                     app-ares-evaluation
+                    [id]="sectionRegistry.evaluation.id"
+                    tabindex="-1"
                     class="project-detail-evaluation"
                     [evaluation]="evaluation"
                 ></section>
@@ -149,6 +188,8 @@
             @if (currentProject.details.interaction; as interaction) {
                 <section
                     app-ares-interaction-surface
+                    [id]="sectionRegistry.interaction.id"
+                    tabindex="-1"
                     class="project-detail-interaction"
                     [interaction]="interaction"
                 ></section>
@@ -156,6 +197,8 @@
             @if (currentProject.details.surface; as surface) {
                 <section
                     app-ares-command-deck
+                    [id]="sectionRegistry.surface.id"
+                    tabindex="-1"
                     class="project-detail-surface"
                     [surface]="surface"
                 ></section>
@@ -163,6 +206,8 @@
             @if (currentProject.details.decision; as decisions) {
                 <section
                     app-engineering-decisions
+                    [id]="sectionRegistry.decision.id"
+                    tabindex="-1"
                     class="project-detail-decisions"
                     [decisions]="decisions"
                 ></section>
